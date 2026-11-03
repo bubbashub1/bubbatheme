@@ -565,3 +565,24 @@ body:not(.wp-admin) .wp-site-blocks .wp-block-cover.bh-photo-hero {
     padding-block: 32px;
   }
 }
+
+
+/* Align homepage photo hero copy with the left edge of the content grid. */
+body:not(.wp-admin) .wp-site-blocks .bh-photo-hero .wp-block-cover__inner-container,
+.editor-styles-wrapper .bh-photo-hero .wp-block-cover__inner-container {
+  width: 100%;
+  max-width: 1380px;
+  margin-inline: auto;
+}
+body:not(.wp-admin) .wp-site-blocks .bh-photo-hero .bh-photo-hero-content,
+.editor-styles-wrapper .bh-photo-hero .bh-photo-hero-content {
+  width: min(100%, 700px);
+  max-width: 700px;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  text-align: left;
+}
+body:not(.wp-admin) .wp-site-blocks .bh-photo-hero .bh-photo-hero-actions,
+.editor-styles-wrapper .bh-photo-hero .bh-photo-hero-actions {
+  justify-content: flex-start;
+}
