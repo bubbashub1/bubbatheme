@@ -712,3 +712,15 @@ body:not(.wp-admin) .wp-site-blocks :where(button, input, select, textarea),
  .bh-activity-reference .bh-reference-body > .wp-block-column { width: 100%; flex-basis: auto !important; }
  .bh-activity-reference .bh-reference-facts .wp-block-column { flex-basis: calc(50% - .5rem); }
 }
+
+/* Editor-safe activity demo hero: Group instead of invalid Cover serialization. */
+.bh-activity-reference .bh-activity-reference-hero {
+ min-height: 250px; box-sizing: border-box; padding: clamp(1.75rem, 5vw, 3.5rem);
+ display: flex; flex-direction: column; justify-content: flex-end; gap: .7rem;
+ border-radius: 18px; background: linear-gradient(115deg,#174e3b,#277660);
+ color: #fff;
+}
+.bh-activity-reference .bh-activity-reference-hero :where(h1,p) { color: #fff; margin: 0; }
+.bh-activity-reference .bh-activity-reference-hero h1 { font-size: clamp(2rem,4vw,3.5rem); line-height: 1.1; }
+.bh-activity-reference .bh-activity-reference-hero .bh-reference-kicker { font-size: .8rem; letter-spacing: .04em; font-weight: 700; }
+@media(max-width:600px) { .bh-activity-reference .bh-activity-reference-hero { min-height: 200px; } }
