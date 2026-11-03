@@ -222,6 +222,13 @@
       "postTypes": [
         "page"
       ]
+    },
+    {
+      "name": "auth",
+      "title": "Login & Registration",
+      "postTypes": [
+        "page"
+      ]
     }
   ]
 }
