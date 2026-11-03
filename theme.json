@@ -191,6 +191,11 @@
       "name": "home-hero",
       "title": "Home Hero",
       "area": "uncategorized"
+    },
+    {
+      "name": "home-featured",
+      "title": "Home Featured",
+      "area": "uncategorized"
     }
   ],
   "customTemplates": [
