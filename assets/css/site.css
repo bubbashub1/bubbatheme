@@ -675,3 +675,52 @@ body:not(.wp-admin) .wp-site-blocks :where(button, input, select, textarea),
 .bh-dynamic-eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.05em}
 .bh-activity-notice{padding:16px;background:#fff4dc;border:1px solid #edc781;border-radius:12px}
 @media(max-width:800px){.bh-dynamic-grid{grid-template-columns:1fr}.bh-dynamic-facts{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:10px}.bh-dynamic-hero{min-height:290px;flex-direction:column;align-items:flex-start;justify-content:flex-end}}
+
+
+/* Activity preview and footer polish (staging): layout only, no plugin logic. */
+.bh-site-footer { padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 3vw, 2rem); }
+.bh-site-footer .bh-footer-inner { width: 100%; max-width: 1380px; margin-inline: auto; gap: 1.5rem 3rem; }
+.bh-site-footer .bh-footer-brand { flex: 1 1 270px; }
+.bh-site-footer .bh-footer-brand p { margin: 0 0 .35rem; line-height: 1.5; }
+.bh-site-footer .bh-footer-navigation { flex: 1 1 360px; }
+.bh-site-footer .bh-footer-navigation .wp-block-navigation__container { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; justify-content: flex-end; }
+.bh-site-footer .wp-block-navigation-item__content { color: #fff; font-size: .925rem; min-height: 44px; display: inline-flex; align-items: center; }
+.bh-activity-reference { width: 100%; max-width: 1440px; margin-inline: auto; padding: clamp(1rem, 2.5vw, 2rem); box-sizing: border-box; }
+.bh-activity-reference .bh-reference-body { align-items: flex-start; gap: clamp(1rem, 2.5vw, 2rem); }
+.bh-activity-reference .bh-reference-body > .wp-block-column { min-width: 0; }
+.bh-activity-reference .bh-reference-panel { padding: clamp(1rem, 2vw, 1.5rem); border: 1px solid #dce9e1; border-radius: 20px; background: #fff; box-shadow: 0 5px 20px rgb(18 63 49 / 5%); }
+.bh-activity-reference .bh-reference-panel + .bh-reference-panel { margin-block-start: 1rem; }
+.bh-activity-reference .bh-reference-panel h2 { margin-block: 0 1rem; font-size: clamp(1.2rem, 2vw, 1.5rem); }
+.bh-activity-reference .bh-reference-facts { background: #174e3b; color: #fff; padding: .85rem 1rem; border-radius: 14px; margin-block: 1rem 1.5rem; }
+.bh-activity-reference .bh-reference-facts .wp-block-columns { gap: .5rem; margin: 0; flex-wrap: wrap; }
+.bh-activity-reference .bh-reference-facts .wp-block-column { flex: 1 1 130px; min-width: 0; }
+.bh-activity-reference .bh-reference-facts p { margin: 0; color: #fff; }
+.bh-activity-reference .bh-reference-facts small { display: block; font-size: .72rem; font-weight: 700; opacity: .9; }
+.bh-activity-reference .bh-reference-facts strong { display: block; font-size: .95rem; }
+.bh-activity-reference .bh-reference-schedule { overflow-x: auto; }
+.bh-activity-reference .bh-reference-schedule h3 { background: #e1f0e7; border-radius: 12px; padding: .8rem; font-size: .95rem; }
+.bh-activity-reference .bh-reference-schedule p { font-size: .86rem; line-height: 1.65; }
+.bh-activity-reference .bh-reference-map-placeholder { min-height: 140px; background: #e7f3ed; border-radius: 14px; display: grid; place-items: center; }
+.bh-activity-dynamic .bh-dynamic-table-wrap { overflow-x: auto; }
+.bh-activity-dynamic .bh-dynamic-schedule { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.bh-activity-dynamic .bh-dynamic-schedule th, .bh-activity-dynamic .bh-dynamic-schedule td { text-align: left; padding: .7rem .55rem; border-bottom: 1px solid #e0ebe4; white-space: nowrap; }
+@media (max-width: 781px) {
+ .bh-site-footer .bh-footer-inner { flex-direction: column; align-items: flex-start; }
+ .bh-site-footer .bh-footer-brand, .bh-site-footer .bh-footer-navigation { flex: none; width: 100%; }
+ .bh-site-footer .bh-footer-navigation .wp-block-navigation__container { justify-content: flex-start; gap: .25rem 1rem; }
+ .bh-activity-reference .bh-reference-body { flex-direction: column; }
+ .bh-activity-reference .bh-reference-body > .wp-block-column { width: 100%; flex-basis: auto !important; }
+ .bh-activity-reference .bh-reference-facts .wp-block-column { flex-basis: calc(50% - .5rem); }
+}
+
+/* Editor-safe activity demo hero: Group instead of invalid Cover serialization. */
+.bh-activity-reference .bh-activity-reference-hero {
+ min-height: 250px; box-sizing: border-box; padding: clamp(1.75rem, 5vw, 3.5rem);
+ display: flex; flex-direction: column; justify-content: flex-end; gap: .7rem;
+ border-radius: 18px; background: linear-gradient(115deg,#174e3b,#277660);
+ color: #fff;
+}
+.bh-activity-reference .bh-activity-reference-hero :where(h1,p) { color: #fff; margin: 0; }
+.bh-activity-reference .bh-activity-reference-hero h1 { font-size: clamp(2rem,4vw,3.5rem); line-height: 1.1; }
+.bh-activity-reference .bh-activity-reference-hero .bh-reference-kicker { font-size: .8rem; letter-spacing: .04em; font-weight: 700; }
+@media(max-width:600px) { .bh-activity-reference .bh-activity-reference-hero { min-height: 200px; } }
