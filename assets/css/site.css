@@ -756,3 +756,10 @@ body:not(.wp-admin) .wp-site-blocks :where(button, input, select, textarea),
 .bh-directory-standalone .bh-directory-main-content { width: 100%; max-width: none; margin: 0; box-sizing: border-box; }
 .bh-directory-standalone .bh-directory-main-content > .wp-block-post-content { width: 100%; max-width: none; }
 @media(max-width:600px) { .bh-directory-standalone > .bh-directory-title-hero { min-height: 175px; padding: 1.5rem 1rem; } }
+
+/* Login/registration page shell: presentation only, existing auth forms remain intact. */
+.bh-auth-page { padding: clamp(2rem, 5vw, 5rem) 1rem; background: linear-gradient(155deg,#e7f2ec,#fcfaf5 60%); min-height: 65vh; box-sizing: border-box; }
+.bh-auth-page-inner { width: 100%; max-width: 1100px; margin-inline: auto; }
+.bh-auth-page .wp-block-post-content { width: 100%; }
+.bh-auth-page :where(input,select,textarea) { max-width: 100%; }
+@media (max-width:600px) { .bh-auth-page { padding: 1.5rem .75rem 3rem; } }
