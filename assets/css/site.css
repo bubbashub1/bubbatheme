@@ -586,3 +586,23 @@ body:not(.wp-admin) .wp-site-blocks .bh-photo-hero .bh-photo-hero-actions,
 .editor-styles-wrapper .bh-photo-hero .bh-photo-hero-actions {
   justify-content: flex-start;
 }
+
+
+/* Flush header-to-hero spacing on the homepage and any page using a photo hero first. */
+body:not(.wp-admin) .wp-site-blocks > header + main,
+body:not(.wp-admin) .wp-site-blocks > header + .bh-home-hero-part {
+  margin-block-start: 0 !important;
+}
+body:not(.wp-admin) .wp-site-blocks > main > :first-child,
+body:not(.wp-admin) .wp-site-blocks > main > .bh-home-hero-part:first-child,
+body:not(.wp-admin) .wp-site-blocks > main > .wp-block-post-content:first-child,
+body:not(.wp-admin) .wp-site-blocks > main > .wp-block-post-content > .bh-photo-hero:first-child {
+  margin-block-start: 0 !important;
+}
+body:not(.wp-admin) .wp-site-blocks > main > .bh-home-hero-part:first-child,
+body:not(.wp-admin) .wp-site-blocks > main > .bh-home-hero-part:first-child > .bh-photo-hero {
+  margin-block-start: 0 !important;
+}
+body:not(.wp-admin) .wp-site-blocks > main > .bh-home-hero-part:first-child {
+  display: block;
+}
