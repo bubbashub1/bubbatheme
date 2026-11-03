@@ -4,36 +4,24 @@
  * Slug: bubba-hub/activity-design-preview
  * Categories: featured
  * Inserter: yes
- * Description: Layout-only preview. Replace with dynamic activity data in the manager plugin.
+ * Description: Editable reference layout matching the Bubba Hub activity page. Example content only; the plugin will provide real activity data.
  */
 ?>
-<!-- wp:group {"align":"wide","className":"bh-activity-preview","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignwide bh-activity-preview">
-<!-- wp:paragraph {"className":"bh-preview-label","fontSize":"small"} --><p class="bh-preview-label has-small-font-size"><strong>DESIGN PREVIEW ONLY — NOT A LIVE ACTIVITY LISTING</strong></p><!-- /wp:paragraph -->
-<!-- wp:columns {"className":"bh-activity-layout"} --><div class="wp-block-columns bh-activity-layout">
-<!-- wp:column {"width":"66.66%"} --><div class="wp-block-column" style="flex-basis:66.66%">
-<!-- wp:group {"className":"bh-activity-gallery bh-card","backgroundColor":"mint"} --><div class="wp-block-group bh-activity-gallery bh-card has-mint-background-color has-background"><!-- wp:paragraph {"textAlign":"center"} --><p class="has-text-align-center">Activity photo gallery will appear here</p><!-- /wp:paragraph --></div><!-- /wp:group -->
-<!-- wp:heading {"level":1} --><h1 class="wp-block-heading">Activity name</h1><!-- /wp:heading -->
-<!-- wp:paragraph --><p>Organiser name · Activity category</p><!-- /wp:paragraph -->
-<!-- wp:group {"className":"bh-activity-facts bh-card","backgroundColor":"white"} --><div class="wp-block-group bh-activity-facts bh-card has-white-background-color has-background"><!-- wp:columns --><div class="wp-block-columns">
-<!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p><strong>Price</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>See listing</p><!-- /wp:paragraph --></div><!-- /wp:column -->
-<!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p><strong>Age</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>See listing</p><!-- /wp:paragraph --></div><!-- /wp:column -->
-<!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p><strong>Location</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>See listing</p><!-- /wp:paragraph --></div><!-- /wp:column -->
+<!-- wp:group {"align":"full","className":"bh-activity-reference","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull bh-activity-reference">
+<!-- wp:cover {"dimRatio":55,"minHeight":380,"contentPosition":"bottom left","className":"bh-activity-reference-hero","layout":{"type":"constrained"}} --><div class="wp-block-cover has-custom-content-position is-position-bottom-left bh-activity-reference-hero" style="min-height:380px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-50 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"className":"bh-reference-kicker"} --><p class="bh-reference-kicker">EDUCATION &amp; LEARNING · FITNESS AND WELLBEING</p><!-- /wp:paragraph --><!-- wp:heading {"level":1,"textColor":"white"} --><h1 class="wp-block-heading has-white-color has-text-color">Move with ME</h1><!-- /wp:heading --><!-- wp:paragraph {"textColor":"white"} --><p class="has-white-color has-text-color">A unique and creative movement session for you and your little ones.</p><!-- /wp:paragraph --></div></div><!-- /wp:cover -->
+<!-- wp:group {"className":"bh-reference-facts","layout":{"type":"default"}} --><div class="wp-block-group bh-reference-facts">
+<!-- wp:columns {"isStackedOnMobile":false} --><div class="wp-block-columns is-not-stacked-on-mobile">
+<!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p><small>PRICE</small><strong>£8.00</strong></p><!-- /wp:paragraph --></div><!-- /wp:column -->
+<!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p><small>AGE RANGE</small><strong>0–12 months</strong></p><!-- /wp:paragraph --></div><!-- /wp:column -->
+<!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p><small>LOCATION</small><strong>Crediton</strong></p><!-- /wp:paragraph --></div><!-- /wp:column -->
+<!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p><small>SESSIONS</small><strong>2 available</strong></p><!-- /wp:paragraph --></div><!-- /wp:column -->
+<!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p><small>TERM TIME</small><strong>Yes</strong></p><!-- /wp:paragraph --></div><!-- /wp:column -->
+<!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p><small>SESSION LENGTH</small><strong>60 mins</strong></p><!-- /wp:paragraph --></div><!-- /wp:column -->
 </div><!-- /wp:columns --></div><!-- /wp:group -->
-<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">About this activity</h2><!-- /wp:heading -->
-<!-- wp:paragraph --><p>Activity description, accessibility information and practical details will be populated from the existing Bubba Hub records.</p><!-- /wp:paragraph -->
-<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Session times</h2><!-- /wp:heading -->
-<!-- wp:group {"className":"bh-card","backgroundColor":"white"} --><div class="wp-block-group bh-card has-white-background-color has-background"><!-- wp:paragraph --><p>Timetable will be populated by the activity module. No sessions are shown in this preview.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
-</div><!-- /wp:column -->
-<!-- wp:column {"width":"33.33%"} --><div class="wp-block-column" style="flex-basis:33.33%">
-<!-- wp:group {"className":"bh-activity-actions bh-card","backgroundColor":"white"} --><div class="wp-block-group bh-activity-actions bh-card has-white-background-color has-background">
-<!-- wp:paragraph --><p><strong>Actions (visual only)</strong></p><!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"bh-cta-demo bh-cta-demo-primary"} --><p class="bh-cta-demo bh-cta-demo-primary">Book Now</p><!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"bh-cta-demo"} --><p class="bh-cta-demo">Save Activity</p><!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"bh-cta-demo"} --><p class="bh-cta-demo">Add to Planner</p><!-- /wp:paragraph -->
-<!-- wp:paragraph {"className":"bh-cta-demo"} --><p class="bh-cta-demo">Mark as Visited</p><!-- /wp:paragraph -->
-</div><!-- /wp:group -->
-<!-- wp:group {"className":"bh-card","backgroundColor":"mint"} --><div class="wp-block-group bh-card has-mint-background-color has-background"><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Map &amp; directions</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Venue map and directions appear here when connected.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
-<!-- wp:group {"className":"bh-card","backgroundColor":"white"} --><div class="wp-block-group bh-card has-white-background-color has-background"><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Contact organiser</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Website, social links, email and phone appear only when supplied.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
-</div><!-- /wp:column --></div><!-- /wp:columns -->
+<!-- wp:columns {"align":"wide","className":"bh-reference-body"} --><div class="wp-block-columns alignwide bh-reference-body">
+<!-- wp:column --><div class="wp-block-column"><!-- wp:group {"className":"bh-reference-panel","layout":{"type":"constrained"}} --><div class="wp-block-group bh-reference-panel"><!-- wp:paragraph {"className":"bh-reference-tags"} --><p class="bh-reference-tags">Education &amp; Learning · Fitness and Wellbeing · Baby &amp; Toddler Classes · Movement &amp; Dance</p><!-- /wp:paragraph --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">About Move with ME</h2><!-- /wp:heading --><!-- wp:paragraph --><p>A unique and creative movement session for you and your little ones with a big dollop of early years play and fun.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Based on Sherborne Developmental Movement — play, move, grow and connect!</p><!-- /wp:paragraph --></div><!-- /wp:group --></div><!-- /wp:column -->
+<!-- wp:column --><div class="wp-block-column"><!-- wp:group {"className":"bh-reference-panel","layout":{"type":"constrained"}} --><div class="wp-block-group bh-reference-panel"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Location &amp; directions</h2><!-- /wp:heading --><!-- wp:group {"className":"bh-reference-map-placeholder","layout":{"type":"constrained"}} --><div class="wp-block-group bh-reference-map-placeholder"><!-- wp:paragraph {"align":"center"} --><p class="has-text-align-center">Venue map will load from the activity plugin</p><!-- /wp:paragraph --></div><!-- /wp:group --></div><!-- /wp:group -->
+<!-- wp:group {"className":"bh-reference-panel","layout":{"type":"constrained"}} --><div class="wp-block-group bh-reference-panel"><!-- wp:paragraph {"fontSize":"small"} --><p class="has-small-font-size">WHEN</p><!-- /wp:paragraph --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Schedule &amp; hours</h2><!-- /wp:heading --><!-- wp:group {"className":"bh-reference-schedule","layout":{"type":"constrained"}} --><div class="wp-block-group bh-reference-schedule"><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Colebrooke Village Hall, Crediton · 2 sessions</h3><!-- /wp:heading --><!-- wp:paragraph --><p><strong>Class name　　　　 Day　　　 Start　　 End　　 Price</strong></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Move with ME　　 Monday　　09:30　　10:30　　£8.00</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Move with ME　　 Monday　　10:45　　11:30　　£8.00</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Directions will be supplied by the activity plugin.</p><!-- /wp:paragraph --></div><!-- /wp:group --></div><!-- /wp:group --></div><!-- /wp:column --></div><!-- /wp:columns -->
+<!-- wp:paragraph {"align":"center","fontSize":"small"} --><p class="has-text-align-center has-small-font-size">Design preview only — actions, map and timetable are not connected to live data.</p><!-- /wp:paragraph -->
 </div><!-- /wp:group -->
