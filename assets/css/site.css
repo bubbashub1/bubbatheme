@@ -372,3 +372,87 @@ body:not(.wp-admin) .wp-site-blocks .bh-category-grid .wp-block-column:nth-child
 .wp-site-blocks > main.bh-directory-page > .wp-block-post-content > :where(p, h2, h3, ul, ol) {
   padding-inline: clamp(16px, 3vw, 48px);
 }
+
+
+/* Bubba Hub 3.0 hero refresh — scoped and Site Editor friendly.
+   Background images set on Cover blocks in WordPress remain intact. */
+.wp-site-blocks .bh-hero {
+  border-radius: 0;
+  min-height: clamp(360px, 38vw, 560px);
+  display: flex;
+  align-items: center;
+  background-color: #e9f3ed;
+  background-image: radial-gradient(ellipse at 87% 14%, #f8e3cf 0%, transparent 39%),
+    linear-gradient(125deg, #fffdf7 0%, #e2f1ea 75%);
+  padding: clamp(36px, 5vw, 76px) clamp(20px, 4vw, 60px);
+}
+.wp-site-blocks .bh-hero > .bh-hero-inner {
+  width: min(100%, 1380px);
+  max-width: 1380px;
+  margin-inline: auto;
+}
+.wp-site-blocks .bh-hero .wp-block-heading {
+  max-width: 760px;
+  margin-block: .6rem 1.1rem;
+  font-size: clamp(3.2rem, 7vw, 7rem);
+  line-height: .98;
+  letter-spacing: -.065em;
+  text-wrap: balance;
+}
+.wp-site-blocks .bh-hero .bh-eyebrow {
+  font-size: clamp(.78rem, 1vw, .94rem);
+  font-weight: 850;
+}
+.wp-site-blocks .bh-hero .bh-hero-actions { margin-top: 1.5rem; }
+.wp-site-blocks .bh-hero .wp-block-button__link {
+  padding: .85rem 1.6rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgb(18 63 49 / 12%);
+}
+.wp-site-blocks .bh-hero .bh-hero-note { margin-top: 1rem; }
+
+/* Directory title hero: full width, generous but compact, ready for a Cover block. */
+.wp-site-blocks > main.bh-directory-page > .bh-directory-page-title {
+  max-width: none;
+  min-height: clamp(155px, 18vw, 250px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: clamp(36px, 5vw, 70px) 24px;
+  color: #07543c;
+  background: radial-gradient(circle at 9% 92%, #d3eee4 0, transparent 35%),
+    radial-gradient(circle at 90% 14%, #d9eff4 0, transparent 40%), #f4faf6;
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+  font-weight: 850;
+  letter-spacing: -.05em;
+  line-height: 1.1;
+}
+.wp-site-blocks > main.bh-directory-page .wp-block-post-content > .wp-block-cover:first-child {
+  margin-top: 0;
+  width: 100%;
+  max-width: none;
+}
+.wp-site-blocks .wp-block-cover.alignfull,
+.wp-site-blocks .wp-block-group.alignfull { box-sizing: border-box; }
+.wp-site-blocks .wp-block-cover .wp-block-cover__inner-container {
+  width: min(100%, 1380px);
+  margin-inline: auto;
+}
+@media (max-width: 781px) {
+  .wp-site-blocks .bh-hero {
+    min-height: 0;
+    padding: 32px 18px 40px;
+  }
+  .wp-site-blocks .bh-hero .wp-block-heading {
+    font-size: clamp(2.75rem, 11vw, 4.6rem);
+  }
+  .wp-site-blocks > main.bh-directory-page > .bh-directory-page-title {
+    min-height: 140px;
+    padding: 32px 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wp-site-blocks .bh-hero .wp-block-button__link { transition: none; }
+}
