@@ -1,4 +1,12 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
-<!-- wp:group {"tagName":"main","className":"bh-directory-page","layout":{"type":"default"},"style":{"spacing":{"padding":{"top":"0","bottom":"0"}}}} -->
-<main class="wp-block-group bh-directory-page" style="padding-top:0;padding-bottom:0"><!-- wp:post-title {"level":1,"className":"bh-directory-page-title"} /--><!-- wp:post-content {"layout":{"type":"default"}} /--></main><!-- /wp:group -->
+<!-- wp:group {"tagName":"main","className":"bh-directory-standalone","layout":{"type":"default"}} -->
+<main class="wp-block-group bh-directory-standalone">
+<!-- wp:cover {"useFeaturedImage":true,"dimRatio":50,"overlayColor":"forest","minHeight":250,"minHeightUnit":"px","align":"full","className":"bh-directory-title-hero","layout":{"type":"constrained"}} -->
+<div class="wp-block-cover alignfull bh-directory-title-hero" style="min-height:250px"><span aria-hidden="true" class="wp-block-cover__background has-forest-background-color has-background-dim-50 has-background-dim"></span><div class="wp-block-cover__inner-container">
+<!-- wp:heading {"textAlign":"center","level":1,"textColor":"white"} --><h1 class="wp-block-heading has-text-align-center has-white-color has-text-color">Find Activities</h1><!-- /wp:heading -->
+<!-- wp:paragraph {"align":"center","textColor":"white"} --><p class="has-text-align-center has-white-color has-text-color">Discover baby groups, toddler classes and family days out across Devon &amp; Cornwall.</p><!-- /wp:paragraph -->
+</div></div><!-- /wp:cover -->
+<!-- wp:group {"align":"full","className":"bh-directory-main-content","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull bh-directory-main-content"><!-- wp:post-content {"layout":{"type":"default"}} /--></div><!-- /wp:group -->
+</main><!-- /wp:group -->
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

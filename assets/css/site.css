@@ -745,3 +745,14 @@ body:not(.wp-admin) .wp-site-blocks :where(button, input, select, textarea),
  .bh-standard-page > .bh-page-title-hero.bh-hero-compact { min-height: 120px; }
  .bh-standard-page > .bh-page-title-hero.bh-hero-large { min-height: 250px; }
 }
+
+
+/* Directory-only hero: editable independently from the Pages template. */
+.bh-directory-standalone { margin-block-start: 0; width: 100%; max-width: none; }
+.bh-directory-standalone > .bh-directory-title-hero { margin: 0; box-sizing: border-box; min-height: clamp(180px, 22vw, 320px); padding: 2rem 1rem; }
+.bh-directory-standalone .bh-directory-title-hero .wp-block-cover__inner-container { width: min(100%, 1100px); }
+.bh-directory-standalone .bh-directory-title-hero h1 { color: #fff; font-size: clamp(2.2rem, 4.5vw, 4rem); line-height: 1.12; margin: 0 0 .7rem; }
+.bh-directory-standalone .bh-directory-title-hero p { color: #fff; font-size: clamp(.95rem, 1.6vw, 1.2rem); margin: 0 auto; max-width: 800px; }
+.bh-directory-standalone .bh-directory-main-content { width: 100%; max-width: none; margin: 0; box-sizing: border-box; }
+.bh-directory-standalone .bh-directory-main-content > .wp-block-post-content { width: 100%; max-width: none; }
+@media(max-width:600px) { .bh-directory-standalone > .bh-directory-title-hero { min-height: 175px; padding: 1.5rem 1rem; } }
