@@ -1,0 +1,82 @@
+<?php
+/**
+ * Activity presentation boundary for Bubba Hub 3.0.
+ *
+ * The data provider (plugin) can supply a normalized array through
+ * bh_theme_activity_data. The theme does not query legacy bh_ tables.
+ */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+
+add_shortcode( 'bubba_activity', static function ( $atts ) {
+    $atts = shortcode_atts( array( 'id' => 0 ), $atts, 'bubba_activity' );
+    $id = absint( $atts['id'] );
+    if ( ! $id ) {
+        return current_user_can( 'edit_pages' ) ? '<p class="bh-activity-notice">Set an activity ID in the shortcode to preview an activity.</p>' : '';
+    }
+    $activity = apply_filters( 'bh_theme_activity_data', null, $id );
+    if ( ! is_array( $activity ) || empty( $activity['title'] ) ) {
+        return current_user_can( 'edit_pages' ) ? '<p class="bh-activity-notice">Activity data is not connected for ID ' . esc_html( (string) $id ) . '. The Bubba Hub activity plugin must provide the bh_theme_activity_data filter.</p>' : '';
+    }
+    $field = static function ( $key, $default = '' ) use ( $activity ) {
+        return isset( $activity[ $key ] ) && is_scalar( $activity[ $key ] ) ? (string) $activity[ $key ] : $default;
+    };
+    $title = $field( 'title' );
+    $facts = array(
+        'Price' => $field( 'price' ), 'Age range' => $field( 'age_range' ),
+        'Location' => $field( 'location' ), 'Sessions' => $field( 'sessions_count' ),
+        'Term time' => $field( 'term_time' ), 'Session length' => $field( 'session_length' ),
+    );
+    $categories = isset( $activity['categories'] ) && is_array( $activity['categories'] ) ? array_filter( array_map( 'sanitize_text_field', $activity['categories'] ) ) : array();
+    $schedule = isset( $activity['schedule'] ) && is_array( $activity['schedule'] ) ? $activity['schedule'] : array();
+    $image = $field( 'image_url' );
+    $booking = $field( 'booking_url' );
+    $directions = $field( 'directions_url' );
+    ob_start();
+    ?>
+    <article class="bh-activity-dynamic bh-activity-reference">
+      <header class="bh-dynamic-hero"<?php if ( $image ) : ?> style="background-image:linear-gradient(0deg,rgba(0,0,0,.74),rgba(0,0,0,.08)),url('<?php echo esc_url( $image ); ?>')"<?php endif; ?>>
+        <div class="bh-dynamic-hero-copy">
+          <?php if ( $categories ) : ?><p class="bh-reference-kicker"><?php echo esc_html( implode( ' · ', array_slice( $categories, 0, 2 ) ) ); ?></p><?php endif; ?>
+          <h1><?php echo esc_html( $title ); ?></h1>
+          <?php if ( $field( 'summary' ) ) : ?><p><?php echo esc_html( $field( 'summary' ) ); ?></p><?php endif; ?>
+        </div>
+        <?php if ( $booking ) : ?><a class="bh-dynamic-book" href="<?php echo esc_url( $booking ); ?>" rel="noopener noreferrer">Book now</a><?php endif; ?>
+      </header>
+      <div class="bh-reference-facts bh-dynamic-facts">
+        <?php foreach ( $facts as $label => $value ) : if ( '' === $value ) { continue; } ?>
+          <div><small><?php echo esc_html( $label ); ?></small><strong><?php echo esc_html( $value ); ?></strong></div>
+        <?php endforeach; ?>
+      </div>
+      <div class="bh-dynamic-grid">
+        <section class="bh-reference-panel">
+          <?php if ( $categories ) : ?><p class="bh-reference-tags"><?php echo esc_html( implode( ' · ', $categories ) ); ?></p><?php endif; ?>
+          <h2>About <?php echo esc_html( $title ); ?></h2>
+          <div class="bh-dynamic-description"><?php echo wp_kses_post( wpautop( $field( 'description' ) ) ); ?></div>
+          <?php if ( $field( 'organiser' ) ) : ?><p><strong>Organiser:</strong> <?php echo esc_html( $field( 'organiser' ) ); ?></p><?php endif; ?>
+          <?php if ( $field( 'website_url' ) ) : ?><p><a href="<?php echo esc_url( $field( 'website_url' ) ); ?>" rel="noopener noreferrer">Organiser website</a></p><?php endif; ?>
+        </section>
+        <div>
+          <section class="bh-reference-panel">
+            <h2>Location &amp; directions</h2>
+            <?php if ( $field( 'venue' ) ) : ?><p><?php echo esc_html( $field( 'venue' ) ); ?></p><?php endif; ?>
+            <?php if ( $field( 'address' ) ) : ?><p><?php echo esc_html( $field( 'address' ) ); ?></p><?php endif; ?>
+            <?php if ( $directions ) : ?><p><a href="<?php echo esc_url( $directions ); ?>" rel="noopener noreferrer">Directions</a></p><?php endif; ?>
+            <?php if ( $field( 'map_html' ) ) : ?><div class="bh-dynamic-map"><?php echo wp_kses_post( $field( 'map_html' ) ); ?></div><?php endif; ?>
+          </section>
+          <?php if ( $schedule ) : ?>
+          <section class="bh-reference-panel">
+            <p class="bh-dynamic-eyebrow">WHEN</p><h2>Schedule &amp; hours</h2>
+            <div class="bh-dynamic-table-wrap"><table class="bh-dynamic-schedule">
+              <thead><tr><th scope="col">Class</th><th scope="col">Day</th><th scope="col">Start</th><th scope="col">End</th><th scope="col">Price</th></tr></thead>
+              <tbody><?php foreach ( $schedule as $session ) : if ( ! is_array( $session ) ) { continue; } ?>
+              <tr><?php foreach ( array( 'name', 'day', 'start', 'end', 'price' ) as $key ) : ?><td><?php echo esc_html( isset( $session[ $key ] ) && is_scalar( $session[ $key ] ) ? (string) $session[ $key ] : '' ); ?></td><?php endforeach; ?></tr>
+              <?php endforeach; ?></tbody>
+            </table></div>
+          </section>
+          <?php endif; ?>
+        </div>
+      </div>
+    </article>
+    <?php
+    return (string) ob_get_clean();
+} );
