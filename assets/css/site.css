@@ -724,3 +724,11 @@ body:not(.wp-admin) .wp-site-blocks :where(button, input, select, textarea),
 .bh-activity-reference .bh-activity-reference-hero h1 { font-size: clamp(2rem,4vw,3.5rem); line-height: 1.1; }
 .bh-activity-reference .bh-activity-reference-hero .bh-reference-kicker { font-size: .8rem; letter-spacing: .04em; font-weight: 700; }
 @media(max-width:600px) { .bh-activity-reference .bh-activity-reference-hero { min-height: 200px; } }
+
+/* Shared page title hero. Each page's Featured Image is its own background. */
+.bh-standard-page { margin-block-start: 0; }
+.bh-standard-page > .bh-page-title-hero { margin-block-start: 0; box-sizing: border-box; min-height: clamp(170px, 21vw, 300px); padding: 2rem 1rem; }
+.bh-standard-page .bh-page-title-hero .wp-block-cover__inner-container { width: min(100%, 1200px); }
+.bh-standard-page .bh-page-title-hero .wp-block-post-title { color: #fff; font-size: clamp(2rem, 4.5vw, 3.6rem); line-height: 1.15; margin: 0; text-shadow: 0 2px 10px rgb(0 0 0 / 20%); }
+.bh-standard-page .bh-standard-page-content { width: 100%; max-width: 1380px; margin-inline: auto; padding: clamp(1.25rem, 3vw, 3rem) clamp(1rem, 3vw, 2.5rem); box-sizing: border-box; }
+@media(max-width:600px) { .bh-standard-page > .bh-page-title-hero { min-height: 155px; padding: 1.5rem 1rem; } }
