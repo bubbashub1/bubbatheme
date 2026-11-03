@@ -223,11 +223,11 @@ textarea {
 body:not(.wp-admin) .wp-site-blocks {
   color: var(--bh-live-deep);
   background: var(--bh-live-cream);
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--wp--preset--font-family--quicksand, 'Quicksand', sans-serif);
 }
 body:not(.wp-admin) .wp-site-blocks :where(h1,h2,h3,h4,h5,h6),
 .editor-styles-wrapper :where(h1,h2,h3,h4,h5,h6) {
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--wp--preset--font-family--quicksand, 'Quicksand', sans-serif);
   letter-spacing: -.035em;
   font-weight: 800;
   color: var(--bh-live-green);
@@ -257,7 +257,7 @@ body:not(.wp-admin) .wp-site-blocks .bh-hero {
   padding-block: clamp(2.25rem, 5vw, 4.5rem);
 }
 body:not(.wp-admin) .wp-site-blocks .bh-hero .wp-block-heading {
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--wp--preset--font-family--quicksand, 'Quicksand', sans-serif);
   font-size: clamp(2.8rem, 6.8vw, 6rem);
   font-weight: 800;
   line-height: 1.01;
@@ -605,4 +605,14 @@ body:not(.wp-admin) .wp-site-blocks > main > .bh-home-hero-part:first-child > .b
 }
 body:not(.wp-admin) .wp-site-blocks > main > .bh-home-hero-part:first-child {
   display: block;
+}
+
+/* Apply the chosen theme font consistently, without overriding block-level font choices. */
+body:not(.wp-admin) .wp-site-blocks,
+.editor-styles-wrapper {
+  font-family: var(--wp--preset--font-family--quicksand, 'Quicksand', sans-serif);
+}
+body:not(.wp-admin) .wp-site-blocks :where(button, input, select, textarea),
+.editor-styles-wrapper :where(button, input, select, textarea) {
+  font-family: inherit;
 }
