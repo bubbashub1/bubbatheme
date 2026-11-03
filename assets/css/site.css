@@ -344,3 +344,31 @@ body:not(.wp-admin) .wp-site-blocks .bh-category-grid .wp-block-column:nth-child
     padding: 1.25rem;
   }
 }
+
+
+/* Directory slug template: remove the default 760px content constraint. */
+.wp-site-blocks > main.bh-directory-page {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+.wp-site-blocks > main.bh-directory-page > .wp-block-post-title {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(16px, 3vw, 48px);
+}
+.wp-site-blocks > main.bh-directory-page > .wp-block-post-content,
+.wp-site-blocks > main.bh-directory-page > .wp-block-post-content > :where(.wp-block-group, .wp-block-columns, .wp-block-cover) {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+.wp-site-blocks > main.bh-directory-page > .wp-block-post-content {
+  margin-block: 0;
+}
+.wp-site-blocks > main.bh-directory-page > .wp-block-post-content > :where(p, h2, h3, ul, ol) {
+  padding-inline: clamp(16px, 3vw, 48px);
+}
