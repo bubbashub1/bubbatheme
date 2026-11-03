@@ -658,3 +658,20 @@ body:not(.wp-admin) .wp-site-blocks :where(button, input, select, textarea),
 .wp-site-blocks .bh-reference-schedule{border:1px solid #d1e4d4;border-radius:14px;padding:12px;font-size:.78rem;overflow-x:auto}
 .wp-site-blocks .bh-reference-schedule h3{background:#dff0e7;padding:12px;border-radius:10px;font-size:.9rem}
 @media(max-width:800px){.wp-site-blocks .bh-reference-body{flex-direction:column}.wp-site-blocks .bh-reference-body>.wp-block-column{flex-basis:100%!important;width:100%}.wp-site-blocks .bh-reference-facts .wp-block-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.wp-site-blocks .bh-reference-facts .wp-block-column{padding:4px;border:0}.wp-site-blocks .bh-activity-reference-hero{min-height:300px}}
+
+
+/* Plugin-fed activity view (shortcode [bubba_activity id="123"]). */
+.bh-activity-dynamic{max-width:1400px;margin:0 auto;padding:0 clamp(12px,3vw,36px);font-family:var(--wp--preset--font-family--quicksand),sans-serif}
+.bh-dynamic-hero{min-height:380px;background:#14533f;background-position:center;background-size:cover;border-radius:22px 22px 0 0;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding:clamp(18px,3vw,34px)}
+.bh-dynamic-hero-copy{max-width:640px}.bh-dynamic-hero h1{color:#fff;font-size:clamp(2rem,4vw,3.2rem);margin:.5rem 0}.bh-dynamic-hero p{color:#fff}
+.bh-dynamic-book{background:#fff;color:#07543c;border-radius:12px;padding:12px 18px;font-weight:700;white-space:nowrap}
+.bh-dynamic-facts{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0}
+.bh-dynamic-facts>div{padding:5px 12px;border-right:1px solid #ffffff33;min-width:0}.bh-dynamic-facts>div:last-child{border-right:0}
+.bh-dynamic-facts small{display:block;font-size:.65rem;text-transform:uppercase;font-weight:700}.bh-dynamic-facts strong{display:block;font-size:.85rem;overflow-wrap:anywhere}
+.bh-dynamic-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;margin-top:16px}
+.bh-dynamic-grid>div>.bh-reference-panel{margin-bottom:14px}.bh-dynamic-grid h2{font-size:clamp(1.3rem,2vw,1.7rem)}
+.bh-dynamic-table-wrap{overflow-x:auto}.bh-dynamic-schedule{width:100%;border-collapse:collapse;font-size:.8rem;text-align:left}
+.bh-dynamic-schedule th,.bh-dynamic-schedule td{padding:10px 8px;border-bottom:1px solid #e0ebe3;white-space:nowrap}.bh-dynamic-schedule th{background:#e1f0e8}
+.bh-dynamic-eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.05em}
+.bh-activity-notice{padding:16px;background:#fff4dc;border:1px solid #edc781;border-radius:12px}
+@media(max-width:800px){.bh-dynamic-grid{grid-template-columns:1fr}.bh-dynamic-facts{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:10px}.bh-dynamic-hero{min-height:290px;flex-direction:column;align-items:flex-start;justify-content:flex-end}}
