@@ -545,3 +545,23 @@ body:not(.wp-admin) .wp-site-blocks .bh-category-grid .wp-block-column:nth-child
     font-size: clamp(2.7rem, 10vw, 4.5rem);
   }
 }
+
+
+/* Keep headings legible over photo heroes, including WordPress global heading styles. */
+body:not(.wp-admin) .wp-site-blocks .wp-block-cover.bh-photo-hero .wp-block-heading,
+body:not(.wp-admin) .wp-site-blocks .wp-block-cover.bh-photo-hero :where(h1,h2,h3),
+.editor-styles-wrapper .wp-block-cover.bh-photo-hero .wp-block-heading,
+.editor-styles-wrapper .wp-block-cover.bh-photo-hero :where(h1,h2,h3) {
+  color: #fff !important;
+  text-shadow: 0 2px 18px rgb(0 0 0 / 18%);
+}
+body:not(.wp-admin) .wp-site-blocks .wp-block-cover.bh-photo-hero {
+  min-height: clamp(350px, 36vw, 510px);
+  padding-block: clamp(30px, 4vw, 60px);
+}
+@media (max-width: 781px) {
+  body:not(.wp-admin) .wp-site-blocks .wp-block-cover.bh-photo-hero {
+    min-height: 340px;
+    padding-block: 32px;
+  }
+}
