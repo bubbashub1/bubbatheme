@@ -4,8 +4,9 @@
   "settings": {
     "appearanceTools": true,
     "layout": {
-      "contentSize": "760px",
-      "wideSize": "1200px"
+      "contentSize": "800px",
+      "wideSize": "1440px",
+      "allowEditing": true
     },
     "color": {
       "palette": [
@@ -44,7 +45,9 @@
           "color": "#E69A83",
           "name": "Coral"
         }
-      ]
+      ],
+      "custom": true,
+      "customGradient": true
     },
     "typography": {
       "fontFamilies": [
@@ -80,7 +83,9 @@
           "size": "clamp(2rem, 5vw, 3.5rem)",
           "name": "Extra large"
         }
-      ]
+      ],
+      "customFontSize": true,
+      "lineHeight": true
     },
     "spacing": {
       "units": [
@@ -116,7 +121,14 @@
           "size": "4rem",
           "name": "XL"
         }
-      ]
+      ],
+      "padding": true,
+      "margin": true,
+      "blockGap": true
+    },
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
     }
   },
   "styles": {
@@ -173,6 +185,11 @@
         "spacing": {
           "blockGap": "1.5rem"
         }
+      },
+      "core/post-content": {
+        "layout": {
+          "type": "default"
+        }
       }
     }
   },
@@ -202,6 +219,13 @@
     {
       "name": "activity-preview",
       "title": "Activity Design Preview (Demo Only)",
+      "postTypes": [
+        "page"
+      ]
+    },
+    {
+      "name": "auth",
+      "title": "Login & Registration",
       "postTypes": [
         "page"
       ]

@@ -1,0 +1,7 @@
+/* Editor-only layout parity. Do not constrain full-width page sections. */
+.editor-styles-wrapper { background: var(--wp--preset--color--cream, #fcfaf5); color: var(--wp--preset--color--ink, #20332f); }
+.editor-styles-wrapper .wp-block[data-align="full"] { max-width: none; }
+.editor-styles-wrapper .wp-block-cover.alignfull { width: 100%; }
+.editor-styles-wrapper .bh-page-title-hero { min-height: 180px; }
+.editor-styles-wrapper .bh-standard-page-content { padding-block: clamp(1.5rem, 4vw, 3.5rem); }
+.editor-styles-wrapper .bh-standard-page-content .wp-block-post-content { max-width: none; }
