@@ -456,3 +456,92 @@ body:not(.wp-admin) .wp-site-blocks .bh-category-grid .wp-block-column:nth-child
 @media (prefers-reduced-motion: reduce) {
   .wp-site-blocks .bh-hero .wp-block-button__link { transition: none; }
 }
+
+
+/* Full-width photo heroes: add class bh-photo-hero to any WordPress Cover block.
+   Image is chosen in the Site Editor; never hardcode Media Library URLs here. */
+.wp-site-blocks .wp-block-cover.bh-photo-hero,
+.editor-styles-wrapper .wp-block-cover.bh-photo-hero {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  min-height: clamp(360px, 42vw, 610px);
+  padding: clamp(36px, 6vw, 90px) clamp(18px, 4vw, 56px);
+  display: flex;
+  align-items: center;
+  background-color: #174e3b;
+  color: #fff;
+}
+.wp-site-blocks .wp-block-cover.bh-photo-hero::after,
+.editor-styles-wrapper .wp-block-cover.bh-photo-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgb(12 48 37 / 86%) 0%, rgb(12 48 37 / 65%) 43%, rgb(12 48 37 / 12%) 100%);
+}
+.wp-site-blocks .bh-photo-hero .wp-block-cover__inner-container,
+.editor-styles-wrapper .bh-photo-hero .wp-block-cover__inner-container {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1380px);
+  max-width: 1380px;
+  margin-inline: auto;
+}
+.wp-site-blocks .bh-photo-hero .bh-photo-hero-content,
+.editor-styles-wrapper .bh-photo-hero .bh-photo-hero-content {
+  width: min(100%, 700px);
+  max-width: 700px;
+  margin-inline: 0 auto;
+}
+.wp-site-blocks .bh-photo-hero :where(h1,h2,h3,p),
+.editor-styles-wrapper .bh-photo-hero :where(h1,h2,h3,p) { color: #fff; }
+.wp-site-blocks .bh-photo-hero .wp-block-heading,
+.editor-styles-wrapper .bh-photo-hero .wp-block-heading {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 1.02;
+  font-weight: 850;
+  letter-spacing: -.06em;
+  margin-block: .6rem 1rem;
+  text-wrap: balance;
+}
+.wp-site-blocks .bh-photo-hero-kicker,
+.editor-styles-wrapper .bh-photo-hero-kicker {
+  font-size: .85rem;
+  letter-spacing: .09em;
+  font-weight: 800;
+}
+.wp-site-blocks .bh-photo-hero-description,
+.editor-styles-wrapper .bh-photo-hero-description {
+  font-size: clamp(1.05rem, 1.65vw, 1.4rem);
+  line-height: 1.5;
+  font-weight: 600;
+  max-width: 580px;
+}
+.wp-site-blocks .bh-photo-hero-actions { margin-top: 1.5rem; }
+.wp-site-blocks .bh-photo-hero .wp-block-button__link {
+  background: #fff !important;
+  color: #174e3b !important;
+  border-radius: 999px;
+  font-weight: 800;
+  padding: .85rem 1.65rem;
+}
+.wp-site-blocks .bh-photo-hero .wp-block-button__link:hover { background: #eaf3e9 !important; }
+@media (max-width: 781px) {
+  .wp-site-blocks .wp-block-cover.bh-photo-hero,
+  .editor-styles-wrapper .wp-block-cover.bh-photo-hero {
+    min-height: 360px;
+    padding: 38px 20px;
+  }
+  .wp-site-blocks .wp-block-cover.bh-photo-hero::after,
+  .editor-styles-wrapper .wp-block-cover.bh-photo-hero::after {
+    background: linear-gradient(90deg, rgb(12 48 37 / 86%), rgb(12 48 37 / 50%));
+  }
+  .wp-site-blocks .bh-photo-hero .wp-block-heading,
+  .editor-styles-wrapper .bh-photo-hero .wp-block-heading {
+    font-size: clamp(2.7rem, 10vw, 4.5rem);
+  }
+}
