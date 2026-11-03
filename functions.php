@@ -27,7 +27,7 @@ add_action(
             'bubba-hub-theme',
             get_theme_file_uri( 'assets/css/site.css' ),
             array(),
-            wp_get_theme()->get( 'Version' )
+            file_exists( get_theme_file_path( 'assets/css/site.css' ) ) ? (string) filemtime( get_theme_file_path( 'assets/css/site.css' ) ) : wp_get_theme()->get( 'Version' )
         );
     }
 );
