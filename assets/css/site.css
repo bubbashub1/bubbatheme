@@ -616,3 +616,20 @@ body:not(.wp-admin) .wp-site-blocks :where(button, input, select, textarea),
 .editor-styles-wrapper :where(button, input, select, textarea) {
   font-family: inherit;
 }
+
+
+/* Adapted visual language from bubbaplugin home-v2 and activity-v2. */
+.wp-site-blocks .bh-section {padding-block:clamp(30px,5vw,70px);padding-inline:clamp(16px,3vw,40px)}
+.wp-site-blocks .bh-section > .wp-block-heading,
+.wp-site-blocks .bh-featured h2 {font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:-.04em}
+.wp-site-blocks .bh-featured-cards {gap:clamp(14px,2vw,26px);margin-top:24px}
+.wp-site-blocks .bh-feature-card {height:100%;box-sizing:border-box;padding:clamp(22px,3vw,36px);border-radius:24px;border:1px solid #d9e8dc;box-shadow:0 10px 30px rgb(23 78 59 / 8%);background:#e5f1df}
+.wp-site-blocks .bh-featured-cards > .wp-block-column:nth-child(2) .bh-feature-card {background:#def1f4}
+.wp-site-blocks .bh-featured-cards > .wp-block-column:nth-child(3) .bh-feature-card {background:#fff0d0}
+.wp-site-blocks .bh-feature-card h3 {font-size:clamp(1.3rem,2vw,1.75rem);margin-top:0}
+.wp-site-blocks .bh-feature-card .wp-block-button__link {font-size:.92rem}
+.wp-site-blocks .bh-detail-layout .wp-block-columns {align-items:flex-start;gap:clamp(15px,2vw,26px)}
+.wp-site-blocks .bh-detail-panel {background:#fff;border:1px solid #e1ebe2;border-radius:25px;padding:clamp(18px,2.5vw,30px);box-shadow:0 8px 24px rgb(23 78 59 / 6%);margin-bottom:18px}
+.wp-site-blocks .bh-directory-intro {background:#e5f3eb;padding:clamp(30px,5vw,65px) clamp(16px,3vw,40px)}
+.wp-site-blocks .bh-leader-cta {background:linear-gradient(115deg,#e3f4e9,#fff1db);border:1px solid #d5e8dc;border-radius:26px;padding:clamp(22px,4vw,42px);margin-block:clamp(25px,4vw,50px)}
+@media(max-width:781px){.wp-site-blocks .bh-featured-cards{gap:16px}.wp-site-blocks .bh-section{padding-inline:16px}}
