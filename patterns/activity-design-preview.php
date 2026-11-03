@@ -9,7 +9,12 @@
 ?>
 <!-- wp:group {"align":"full","className":"bh-activity-reference","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull bh-activity-reference">
-<!-- wp:cover {"dimRatio":55,"minHeight":380,"contentPosition":"bottom left","className":"bh-activity-reference-hero","layout":{"type":"constrained"}} --><div class="wp-block-cover has-custom-content-position is-position-bottom-left bh-activity-reference-hero" style="min-height:380px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-50 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"className":"bh-reference-kicker"} --><p class="bh-reference-kicker">EDUCATION &amp; LEARNING · FITNESS AND WELLBEING</p><!-- /wp:paragraph --><!-- wp:heading {"level":1,"textColor":"white"} --><h1 class="wp-block-heading has-white-color has-text-color">Move with ME</h1><!-- /wp:heading --><!-- wp:paragraph {"textColor":"white"} --><p class="has-white-color has-text-color">A unique and creative movement session for you and your little ones.</p><!-- /wp:paragraph --></div></div><!-- /wp:cover -->
+<!-- wp:group {"className":"bh-activity-reference-hero","layout":{"type":"constrained"}} -->
+<div class="wp-block-group bh-activity-reference-hero">
+<!-- wp:paragraph {"className":"bh-reference-kicker"} --><p class="bh-reference-kicker">EDUCATION &amp; LEARNING · FITNESS AND WELLBEING</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"textColor":"white"} --><h1 class="wp-block-heading has-white-color has-text-color">Move with ME</h1><!-- /wp:heading -->
+<!-- wp:paragraph {"textColor":"white"} --><p class="has-white-color has-text-color">A unique and creative movement session for you and your little ones.</p><!-- /wp:paragraph -->
+</div><!-- /wp:group -->
 <!-- wp:group {"className":"bh-reference-facts","layout":{"type":"default"}} --><div class="wp-block-group bh-reference-facts">
 <!-- wp:columns {"isStackedOnMobile":false} --><div class="wp-block-columns is-not-stacked-on-mobile">
 <!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph --><p><small>PRICE</small><strong>£8.00</strong></p><!-- /wp:paragraph --></div><!-- /wp:column -->
