@@ -206,3 +206,101 @@ textarea {
   .wp-site-blocks > header .wp-block-group.alignwide { gap: .75rem; }
   .wp-site-blocks > header .wp-block-site-logo img { max-width: 48px; height: auto; }
 }
+
+/* Bubba Hub live-site visual alignment.
+ * Palette and component proportions adapted from bubbaplugin assets/css/home-v2.css,
+ * header.css and directory-approved-layout.css. Scoped to theme blocks only.
+ * Avoid importing legacy .bh-home/.bh-directory selectors or their app behaviour.
+ */
+:root {
+  --bh-live-green: #174e3b;
+  --bh-live-deep: #123f31;
+  --bh-live-teal: #278d96;
+  --bh-live-orange: #ee822c;
+  --bh-live-cream: #fffdf7;
+  --bh-live-mint: #eaf3e9;
+}
+body:not(.wp-admin) .wp-site-blocks {
+  color: var(--bh-live-deep);
+  background: var(--bh-live-cream);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+body:not(.wp-admin) .wp-site-blocks :where(h1,h2,h3,h4,h5,h6),
+.editor-styles-wrapper :where(h1,h2,h3,h4,h5,h6) {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: -.035em;
+  font-weight: 800;
+  color: var(--bh-live-green);
+}
+body:not(.wp-admin) .wp-site-blocks > header {
+  background: #fff;
+  box-shadow: 0 2px 12px rgb(18 63 49 / 7%);
+}
+body:not(.wp-admin) .wp-site-blocks > header .wp-block-group.alignwide {
+  max-width: 1440px;
+  width: 100%;
+  box-sizing: border-box;
+}
+body:not(.wp-admin) .wp-site-blocks > header .wp-block-site-logo img {
+  max-height: 76px;
+  max-width: 190px;
+  width: auto;
+  object-fit: contain;
+}
+body:not(.wp-admin) .wp-site-blocks > header .wp-block-navigation-item__content {
+  color: var(--bh-live-deep);
+  font-size: .9rem;
+  font-weight: 750;
+}
+body:not(.wp-admin) .wp-site-blocks .bh-hero {
+  background: linear-gradient(165deg, #fffdf7 20%, #dcebd9 100%);
+  padding-block: clamp(2.25rem, 5vw, 4.5rem);
+}
+body:not(.wp-admin) .wp-site-blocks .bh-hero .wp-block-heading {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: clamp(2.8rem, 6.8vw, 6rem);
+  font-weight: 800;
+  line-height: 1.01;
+  letter-spacing: -.065em;
+}
+body:not(.wp-admin) .wp-site-blocks .bh-hero .bh-eyebrow {
+  color: var(--bh-live-green);
+  font-size: .86rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+body:not(.wp-admin) .wp-site-blocks .bh-hero .has-large-font-size {
+  font-size: clamp(1.05rem, 1.65vw, 1.4rem) !important;
+  line-height: 1.45;
+  font-weight: 650;
+}
+body:not(.wp-admin) .wp-site-blocks .wp-block-button__link {
+  border-radius: 999px;
+  font-weight: 750;
+  min-height: 46px;
+}
+body:not(.wp-admin) .wp-site-blocks .wp-block-button:not(.is-style-outline):not(.bh-button-secondary) .wp-block-button__link {
+  background: var(--bh-live-green);
+  color: white;
+}
+body:not(.wp-admin) .wp-site-blocks .wp-block-button.is-style-outline .wp-block-button__link,
+body:not(.wp-admin) .wp-site-blocks .bh-button-secondary .wp-block-button__link {
+  background: white;
+  color: var(--bh-live-green);
+  border: 2px solid var(--bh-live-green);
+}
+body:not(.wp-admin) .wp-site-blocks .bh-card {
+  border-radius: 22px;
+  border-color: #dce8df;
+  box-shadow: 0 8px 24px rgb(23 78 59 / 7%);
+}
+body:not(.wp-admin) .wp-site-blocks .bh-category-grid .wp-block-column:nth-child(5n+1) .bh-card { background: #fbe4e0; }
+body:not(.wp-admin) .wp-site-blocks .bh-category-grid .wp-block-column:nth-child(5n+2) .bh-card { background: #def1f4; }
+body:not(.wp-admin) .wp-site-blocks .bh-category-grid .wp-block-column:nth-child(5n+3) .bh-card { background: #e5f1df; }
+body:not(.wp-admin) .wp-site-blocks .bh-category-grid .wp-block-column:nth-child(5n+4) .bh-card { background: #fff0d0; }
+body:not(.wp-admin) .wp-site-blocks .bh-category-grid .wp-block-column:nth-child(5n+5) .bh-card { background: #eee7f8; }
+@media (max-width: 781px) {
+  body:not(.wp-admin) .wp-site-blocks > header .wp-block-site-logo img { max-height: 60px; max-width: 155px; }
+  body:not(.wp-admin) .wp-site-blocks .bh-hero { padding-block: 2rem; }
+  body:not(.wp-admin) .wp-site-blocks .bh-hero .wp-block-heading { font-size: clamp(2.8rem, 11vw, 4.5rem); }
+}
