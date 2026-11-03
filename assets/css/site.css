@@ -633,3 +633,28 @@ body:not(.wp-admin) .wp-site-blocks :where(button, input, select, textarea),
 .wp-site-blocks .bh-directory-intro {background:#e5f3eb;padding:clamp(30px,5vw,65px) clamp(16px,3vw,40px)}
 .wp-site-blocks .bh-leader-cta {background:linear-gradient(115deg,#e3f4e9,#fff1db);border:1px solid #d5e8dc;border-radius:26px;padding:clamp(22px,4vw,42px);margin-block:clamp(25px,4vw,50px)}
 @media(max-width:781px){.wp-site-blocks .bh-featured-cards{gap:16px}.wp-site-blocks .bh-section{padding-inline:16px}}
+
+
+/* Activity reference design, based on the existing Move with ME page. */
+.wp-site-blocks .bh-activity-reference{max-width:1400px;margin-inline:auto;padding-inline:clamp(12px,3vw,36px);color:#123f31}
+.wp-site-blocks .bh-activity-reference-hero{border-radius:24px 24px 0 0;overflow:hidden;min-height:380px}
+.wp-site-blocks .bh-activity-reference-hero .wp-block-cover__inner-container{padding:clamp(20px,3vw,32px);margin:0;max-width:100%}
+.wp-site-blocks .bh-activity-reference-hero h1{font-size:clamp(2rem,4vw,3.2rem);color:white}
+.wp-site-blocks .bh-reference-kicker{display:inline-block;background:#e5f1df;color:#174e3b;padding:7px 12px;border-radius:999px;font-weight:700;font-size:.72rem;letter-spacing:.04em}
+.wp-site-blocks .bh-reference-facts{background:#07543c;color:#fff;border-radius:0 0 22px 22px;padding:16px 20px}
+.wp-site-blocks .bh-reference-facts .wp-block-columns{margin:0;gap:0}
+.wp-site-blocks .bh-reference-facts .wp-block-column{border-right:1px solid #ffffff33;padding:3px 12px;min-width:0}
+.wp-site-blocks .bh-reference-facts .wp-block-column:last-child{border-right:0}
+.wp-site-blocks .bh-reference-facts p{margin:0;font-size:.8rem;line-height:1.35}
+.wp-site-blocks .bh-reference-facts small{display:block;font-size:.63rem;font-weight:700;letter-spacing:.06em}
+.wp-site-blocks .bh-reference-facts strong{display:block;font-size:.84rem;margin-top:3px}
+.wp-site-blocks .bh-reference-body{gap:14px;align-items:flex-start;margin-top:16px}
+.wp-site-blocks .bh-reference-body>.wp-block-column:first-child{flex-basis:50%}
+.wp-site-blocks .bh-reference-body>.wp-block-column:last-child{flex-basis:50%}
+.wp-site-blocks .bh-reference-panel{background:white;border:1px solid #e1ebe2;border-radius:20px;padding:clamp(16px,2vw,26px);box-shadow:0 8px 24px #174e3b0d;margin-bottom:14px}
+.wp-site-blocks .bh-reference-panel h2{font-size:clamp(1.35rem,2vw,1.8rem);margin:0 0 14px}
+.wp-site-blocks .bh-reference-tags{font-size:.78rem;color:#26725c;background:#e8f3ed;border-radius:12px;padding:10px}
+.wp-site-blocks .bh-reference-map-placeholder{min-height:240px;background:#e5f3eb;border:1px dashed #acc9b7;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.wp-site-blocks .bh-reference-schedule{border:1px solid #d1e4d4;border-radius:14px;padding:12px;font-size:.78rem;overflow-x:auto}
+.wp-site-blocks .bh-reference-schedule h3{background:#dff0e7;padding:12px;border-radius:10px;font-size:.9rem}
+@media(max-width:800px){.wp-site-blocks .bh-reference-body{flex-direction:column}.wp-site-blocks .bh-reference-body>.wp-block-column{flex-basis:100%!important;width:100%}.wp-site-blocks .bh-reference-facts .wp-block-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.wp-site-blocks .bh-reference-facts .wp-block-column{padding:4px;border:0}.wp-site-blocks .bh-activity-reference-hero{min-height:300px}}
