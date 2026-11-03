@@ -15,7 +15,7 @@ add_action(
         add_theme_support( 'wp-block-styles' );
         add_theme_support( 'responsive-embeds' );
         add_theme_support( 'editor-styles' );
-        add_editor_style( 'assets/css/site.css' );
+        add_editor_style( array( 'assets/css/site.css', 'assets/css/editor.css' ) );
         add_theme_support( 'post-thumbnails' );
     }
 );
