@@ -31,3 +31,16 @@ add_action(
         );
     }
 );
+
+/* Load Quicksand on both the public site and in the Site Editor. */
+add_action(
+    'enqueue_block_assets',
+    static function () {
+        wp_enqueue_style(
+            'bubba-hub-quicksand',
+            'https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap',
+            array(),
+            null
+        );
+    }
+);
