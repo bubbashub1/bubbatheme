@@ -851,3 +851,62 @@ body:has(.bh3-family) .bh-standard-page-content {
 body:has(.bh-leader-business) .bh-standard-page,
 body:has(.bh-leader-unified) .bh-standard-page,
 body:has(.bh3-family) .bh-standard-page { margin-block-start:0!important; }
+
+/* Shared dashboard shells: presentation belongs to BubbaTheme, not the plugin.
+   Applied to Leader Hub, My Business and Family Hub without changing data flows. */
+:where(.bh-leader-unified,.bh-leader-business,.bh3-family--sidebar) {
+  --bh-portal-green:#1e5743;
+  --bh-portal-border:#dbe5df;
+  --bh-portal-soft:#e8f3ec;
+  --bh-portal-text:#294a3b;
+}
+:where(.bh-leader-unified .bh-unified-layout,.bh-leader-business .bh-business-layout,.bh3-family--sidebar .bh3-family__shell) {
+  display:grid;
+  grid-template-columns:220px minmax(0,1fr);
+  gap:26px;
+  align-items:start;
+}
+:where(.bh-leader-unified .bh-unified-nav,.bh-leader-business .bh-business-sidebar,.bh3-family--sidebar .bh3-family__side) {
+  position:sticky;
+  top:110px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding:18px;
+  border:1px solid var(--bh-portal-border);
+  border-radius:18px;
+  background:#fff;
+}
+:where(.bh-leader-unified .bh-unified-nav,.bh-leader-business .bh-business-sidebar,.bh3-family--sidebar .bh3-family__side) > strong {
+  padding:8px 12px 12px;
+  color:var(--bh-portal-green);
+  font-size:19px;
+}
+:where(.bh-leader-unified .bh-unified-nav,.bh-leader-business .bh-business-sidebar,.bh3-family--sidebar .bh3-family__side) a {
+  display:block;
+  padding:11px 12px;
+  border-radius:10px;
+  color:var(--bh-portal-text);
+  text-decoration:none;
+  font-weight:650;
+}
+:where(.bh-leader-unified .bh-unified-nav,.bh-leader-business .bh-business-sidebar,.bh3-family--sidebar .bh3-family__side) a:is(:hover,:focus-visible,[aria-current="page"]) {
+  background:var(--bh-portal-soft);
+}
+:where(.bh-leader-unified .bh-unified-content,.bh-leader-business .bh-business-main,.bh3-family--sidebar .bh3-family__body) { min-width:0; }
+@media(max-width:850px) {
+  :where(.bh-leader-unified .bh-unified-layout,.bh-leader-business .bh-business-layout,.bh3-family--sidebar .bh3-family__shell) {
+    grid-template-columns:minmax(0,1fr);
+    gap:14px;
+  }
+  :where(.bh-leader-unified .bh-unified-nav,.bh-leader-business .bh-business-sidebar,.bh3-family--sidebar .bh3-family__side) {
+    position:static;
+    flex-direction:row;
+    overflow-x:auto;
+    white-space:nowrap;
+    padding:8px;
+    gap:2px;
+  }
+  :where(.bh-leader-unified .bh-unified-nav,.bh-leader-business .bh-business-sidebar,.bh3-family--sidebar .bh3-family__side) > strong { display:none; }
+  :where(.bh-leader-unified .bh-unified-nav,.bh-leader-business .bh-business-sidebar,.bh3-family--sidebar .bh3-family__side) a { font-size:13px;padding:10px; }
+}
