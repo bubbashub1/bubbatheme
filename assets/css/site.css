@@ -972,3 +972,27 @@ body:not(.wp-admin) .wp-site-blocks .bh-leader-unified .bh-leader-stat strong {
   font-family:var(--wp--preset--font-family--quicksand,'Quicksand',sans-serif)!important;
   letter-spacing:normal;
 }
+
+/* Selected activity workflow: shared Leader Portal step navigation. */
+.bh-leader-unified .bh-activity-workflow{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  gap:16px;padding:16px 20px;margin:0 0 18px;background:#fff;
+  border:1px solid #dbe5df;border-radius:16px;
+}
+.bh-leader-unified .bh-activity-workflow__heading{display:flex;flex-direction:column;gap:3px;min-width:0}
+.bh-leader-unified .bh-activity-workflow__heading span{font-size:13px;color:#53665e}
+.bh-leader-unified .bh-activity-workflow__heading strong{font-size:18px;color:#1e5743;overflow-wrap:anywhere}
+.bh-leader-unified .bh-activity-workflow__steps{display:flex;gap:8px;flex-wrap:wrap}
+.bh-leader-unified .bh-activity-workflow__steps a{
+  display:inline-flex;padding:10px 13px;border:1px solid #cbded1;border-radius:10px;
+  text-decoration:none;color:#245e4a;font-weight:650;background:#fff;
+}
+.bh-leader-unified .bh-activity-workflow__steps a[aria-current=step]{
+  color:#fff;background:#245e4a;border-color:#245e4a;
+}
+.bh-leader-unified .bh-activity-workflow__steps a:focus-visible{outline:3px solid #245e4a;outline-offset:3px}
+@media(max-width:680px){
+ .bh-leader-unified .bh-activity-workflow{padding:14px}
+ .bh-leader-unified .bh-activity-workflow__steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:5px}
+ .bh-leader-unified .bh-activity-workflow__steps a{font-size:12px;padding:9px 5px;justify-content:center;text-align:center}
+}
