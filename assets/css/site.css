@@ -1125,3 +1125,11 @@ body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-
           .bh-storefront .bh-slink{display:inline-block;padding:10px 15px;border-radius:10px;background:#245e4a;color:#fff!important;text-decoration:none;margin:5px 6px 5px 0;overflow-wrap:anywhere}
           .bh-storefront a:focus-visible{outline:3px solid #245e4a;outline-offset:3px}
           @media(max-width:720px){.bh-storefront .bh-sgrid{grid-template-columns:1fr}.bh-storefront .bh-scard{padding:18px}}
+
+/* My Business now uses the same Leader portal sidebar as other sections. */
+.bh-leader-unified .bh-leader-business{max-width:100%;min-width:0}
+.bh-leader-unified .bh-business-main{min-width:0;width:100%;max-width:100%}
+.bh-leader-unified .bh-business-sections{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.bh-leader-unified .bh-business-sections a{padding:9px 13px;border:1px solid #c9ded0;border-radius:10px;background:#fff;color:#245e4a;text-decoration:none;font-weight:650}
+.bh-leader-unified .bh-business-sections a:hover{background:#edf7f0}
+.bh-leader-unified .bh-business-sections a:focus-visible{outline:3px solid #245e4a;outline-offset:2px}
