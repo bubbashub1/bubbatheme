@@ -1157,3 +1157,16 @@ body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-
 .bh-leader-bookings .bh-bookings-activities small{display:block;color:#53665e;margin-top:3px}
 .bh-leader-bookings .bh-bookings-activities li>span{font-size:.85rem;color:#53665e}
 @media(max-width:650px){.bh-leader-bookings .bh-bookings-activities li{align-items:flex-start;flex-direction:column}.bh-leader-bookings .bh-bookings-hero{padding:20px}}
+
+/* Leader Help & Support page */
+.bh-leader-support-page{max-width:1100px;margin:0 auto;padding:12px 0 28px;color:#203c31}
+.bh-leader-support-hero{padding:26px;border-radius:20px;background:linear-gradient(120deg,#1e5a45,#397d61);color:#fff}
+.bh-leader-support-hero h1{color:#fff;margin:6px 0}
+.bh-leader-support-hero p{color:#f0f8f3;margin:5px 0}
+.bh-leader-support-jump{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.bh-leader-support-jump a,.bh-leader-support-link{display:inline-block;padding:10px 14px;border:1px solid #c9ded0;border-radius:10px;background:#fff;color:#245e4a;text-decoration:none;font-weight:650}
+.bh-leader-support-card{padding:22px;border:1px solid #dbe5df;border-radius:16px;background:#fff}
+.bh-leader-support-card h2{margin-top:0}
+.bh-leader-support-card .bh-leader-support-link{margin:4px 8px 4px 0}
+.bh-leader-support-page .bh-ask-inbox,.bh-leader-support-page .bh-leader-ask-support{max-width:100%;margin:18px 0}
+@media(max-width:650px){.bh-leader-support-hero{padding:20px}.bh-leader-support-card{padding:17px}}
