@@ -1262,3 +1262,125 @@ body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-
 .bh-leader-action-create{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px;padding:16px;border-radius:13px;background:#f1f7f2}
 .bh-leader-action-create p{margin:4px 0 0}
 @media(max-width:650px){.bh-leader-action-queue{padding:17px}.bh-leader-action-items li{align-items:flex-start;flex-direction:column}.bh-leader-action-create{align-items:flex-start;flex-direction:column}}
+
+
+/* Simple Membership plugin pages — theme-owned presentation only.
+   Keep plugin shortcodes, validation, account actions and payment handling intact. */
+body.bh-simple-membership .wp-site-blocks > main {
+  box-sizing: border-box;
+  width: min(100% - 32px, 1120px);
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-block: clamp(1.5rem, 4vw, 3.25rem);
+}
+body.bh-simple-membership .wp-site-blocks > main > .wp-block-post-title {
+  margin: 0 0 1.5rem;
+  color: var(--bh-live-green, #174e3b);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -.05em;
+}
+body.bh-simple-membership .wp-site-blocks > main > .wp-block-post-content {
+  box-sizing: border-box;
+  padding: clamp(1.25rem, 3.5vw, 2.5rem);
+  border: 1px solid #e0eae3;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 10px 32px rgb(18 63 49 / 6%);
+}
+body.bh-simple-membership .wp-block-post-content > :first-child { margin-block-start: 0; }
+body.bh-simple-membership .wp-block-post-content > :last-child { margin-block-end: 0; }
+body.bh-simple-membership .wp-block-post-content h1,
+body.bh-simple-membership .wp-block-post-content h2,
+body.bh-simple-membership .wp-block-post-content h3 {
+  color: var(--bh-live-green, #174e3b);
+  line-height: 1.2;
+  letter-spacing: -.035em;
+}
+body.bh-simple-membership .wp-block-post-content hr,
+body.bh-simple-membership .wp-block-post-content .wp-block-separator {
+  margin-block: clamp(1.5rem, 4vw, 2.5rem);
+  border-color: #e1eae4;
+  opacity: 1;
+}
+body.bh-simple-membership .wp-block-post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+body.bh-simple-membership .wp-block-post-content a:not(.wp-element-button) {
+  color: #17634d;
+  font-weight: 650;
+  text-underline-offset: .2em;
+}
+body.bh-simple-membership .wp-block-post-content .wp-element-button,
+body.bh-simple-membership .wp-block-post-content button,
+body.bh-simple-membership .wp-block-post-content input[type="submit"],
+body.bh-simple-membership .wp-block-post-content input[type="button"] {
+  min-height: 46px;
+  padding: .75rem 1.35rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--bh-live-green, #174e3b);
+  color: #fff;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+body.bh-simple-membership .wp-block-post-content input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="submit"]),
+body.bh-simple-membership .wp-block-post-content select,
+body.bh-simple-membership .wp-block-post-content textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 46px;
+  box-sizing: border-box;
+  border: 1px solid #cbdad0;
+  border-radius: 11px;
+  padding: .7rem .85rem;
+  background: #fff;
+  color: #203c31;
+  font: inherit;
+}
+body.bh-simple-membership .wp-block-post-content label {
+  display: inline-block;
+  margin-block: .35rem;
+  color: #244b3b;
+  font-weight: 650;
+}
+body.bh-simple-membership .wp-block-post-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+body.bh-simple-membership .wp-block-post-content th,
+body.bh-simple-membership .wp-block-post-content td {
+  padding: .8rem;
+  border-bottom: 1px solid #e4ece6;
+  text-align: left;
+}
+body.bh-simple-membership .wp-block-post-content .swpm-join-us-link,
+body.bh-simple-membership .wp-block-post-content .swpm-login-form,
+body.bh-simple-membership .wp-block-post-content .swpm-registration-form,
+body.bh-simple-membership .wp-block-post-content .swpm-pw-reset-form,
+body.bh-simple-membership .wp-block-post-content .swpm-edit-profile-form,
+body.bh-simple-membership .wp-block-post-content .swpm-membership-level-info,
+body.bh-simple-membership .wp-block-post-content #swpm-registration-form,
+body.bh-simple-membership .wp-block-post-content #swpm-login-form,
+body.bh-simple-membership .wp-block-post-content #swpm-pw-reset-form {
+  max-width: 100%;
+}
+body.bh-simple-membership .wp-block-post-content .swpm-join-us-link,
+body.bh-simple-membership .wp-block-post-content .swpm-membership-level-info {
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 1px solid #e0eae3;
+  border-radius: 16px;
+  background: #f7faf7;
+}
+body.bh-simple-membership .wp-block-post-content .swpm-join-us-link a,
+body.bh-simple-membership .wp-block-post-content .swpm-login-form a {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 650px) {
+  body.bh-simple-membership .wp-site-blocks > main { width: min(100% - 20px, 1120px); }
+  body.bh-simple-membership .wp-site-blocks > main > .wp-block-post-content { padding: 1rem; border-radius: 16px; }
+  body.bh-simple-membership .wp-block-post-content table { display: block; overflow-x: auto; }
+}
