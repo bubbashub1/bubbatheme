@@ -1133,3 +1133,14 @@ body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-
 .bh-leader-unified .bh-business-sections a{padding:9px 13px;border:1px solid #c9ded0;border-radius:10px;background:#fff;color:#245e4a;text-decoration:none;font-weight:650}
 .bh-leader-unified .bh-business-sections a:hover{background:#edf7f0}
 .bh-leader-unified .bh-business-sections a:focus-visible{outline:3px solid #245e4a;outline-offset:2px}
+
+/* Business directory preview: theme-owned presentation. */
+.bh-business-directory{max-width:1200px;margin:20px auto;padding:0 20px;color:#203c31}.bh-business-directory *{box-sizing:border-box}
+            .bh-business-directory .bh-dir-head{background:linear-gradient(120deg,#1e5743,#408463);color:#fff;border-radius:20px;padding:30px;margin-bottom:20px}
+            .bh-business-directory .bh-dir-head h2{color:#fff;margin:0 0 8px;font-size:clamp(26px,4vw,38px)}.bh-business-directory .bh-dir-head p{color:#e9f6ec;margin:0}
+            .bh-business-directory .bh-dir-controls{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}.bh-business-directory input,.bh-business-directory select{border:1px solid #b6c8bc;border-radius:10px;padding:12px;font:inherit;min-width:200px;flex:1}
+            .bh-business-directory .bh-dir-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:18px}
+            .bh-business-directory .bh-dir-card{background:#fff;border:1px solid #dbe5df;border-radius:16px;padding:20px;box-shadow:0 8px 22px rgba(20,65,42,.05)}
+            .bh-business-directory .bh-dir-card img{width:70px;height:70px;object-fit:contain;border-radius:12px;margin-bottom:12px}
+            .bh-business-directory .bh-dir-card h3{font-size:20px;margin:0 0 10px}.bh-business-directory .bh-dir-card p{margin:8px 0;color:#53665e}
+            .bh-business-directory .bh-dir-card button{border:0;background:#245e4a;color:#fff;border-radius:9px;padding:10px 12px;margin:8px 0;cursor:pointer}.bh-business-directory .bh-dir-card a{color:#245e4a;font-weight:700}.bh-business-directory [hidden]{display:none!important}
