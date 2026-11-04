@@ -763,3 +763,69 @@ body:not(.wp-admin) .wp-site-blocks :where(button, input, select, textarea),
 .bh-auth-page .wp-block-post-content { width: 100%; }
 .bh-auth-page :where(input,select,textarea) { max-width: 100%; }
 @media (max-width:600px) { .bh-auth-page { padding: 1.5rem .75rem 3rem; } }
+
+
+/* Compact, full-width shared header. Preserve Site Editor navigation and account links. */
+body:not(.wp-admin) .wp-site-blocks > header {
+  margin: 0;
+}
+body:not(.wp-admin) .wp-site-blocks > header > .wp-block-group,
+body:not(.wp-admin) .wp-site-blocks > header .wp-block-template-part > .wp-block-group {
+  padding-block: 12px !important;
+}
+body:not(.wp-admin) .wp-site-blocks > header .wp-block-group.alignwide {
+  width: 100%;
+  max-width: none;
+  padding-inline: 25px;
+  margin-inline: auto;
+  gap: clamp(14px, 2vw, 28px);
+  align-items: center;
+}
+body:not(.wp-admin) .wp-site-blocks > header .wp-block-site-logo img {
+  width: auto;
+  max-width: 175px;
+  max-height: 62px;
+  object-fit: contain;
+}
+body:not(.wp-admin) .wp-site-blocks > header .wp-block-navigation__container {
+  align-items: center;
+  column-gap: clamp(12px, 1.8vw, 26px);
+  row-gap: 8px;
+}
+body:not(.wp-admin) .wp-site-blocks > header .wp-block-navigation-item__content {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  white-space: nowrap;
+}
+body:not(.wp-admin) .wp-site-blocks > header .wp-block-buttons {
+  align-items: center;
+  gap: 12px;
+}
+body:not(.wp-admin) .wp-site-blocks > header .wp-block-button__link {
+  min-height: 44px;
+  padding: 10px 20px;
+}
+@media (max-width: 900px) {
+  body:not(.wp-admin) .wp-site-blocks > header .wp-block-group.alignwide {
+    padding-inline: 20px;
+  }
+  body:not(.wp-admin) .wp-site-blocks > header .wp-block-site-logo img {
+    max-width: 145px;
+    max-height: 52px;
+  }
+}
+@media (max-width: 600px) {
+  body:not(.wp-admin) .wp-site-blocks > header > .wp-block-group,
+  body:not(.wp-admin) .wp-site-blocks > header .wp-block-template-part > .wp-block-group {
+    padding-block: 8px !important;
+  }
+  body:not(.wp-admin) .wp-site-blocks > header .wp-block-group.alignwide {
+    padding-inline: 16px;
+    gap: 10px;
+  }
+  body:not(.wp-admin) .wp-site-blocks > header .wp-block-site-logo img {
+    max-width: 125px;
+    max-height: 46px;
+  }
+}
