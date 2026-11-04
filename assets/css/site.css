@@ -829,3 +829,25 @@ body:not(.wp-admin) .wp-site-blocks > header .wp-block-button__link {
     max-height: 46px;
   }
 }
+
+/* Compact portal pages: the standard page template includes a large title Cover.
+ * Portal shortcodes supply their own branded headings, so suppress the empty
+ * Cover (not just its text) to avoid a 240px+ blank band. */
+body:has(.bh-leader-business) .bh-standard-page > .bh-page-title-hero,
+body:has(.bh-leader-unified) .bh-standard-page > .bh-page-title-hero,
+body:has(.bh3-family) .bh-standard-page > .bh-page-title-hero,
+body:has(.bh-leader-business) .bh-standard-page > .wp-block-cover:first-child,
+body:has(.bh-leader-unified) .bh-standard-page > .wp-block-cover:first-child,
+body:has(.bh3-family) .bh-standard-page > .wp-block-cover:first-child {
+  display:none!important;
+}
+body:has(.bh-leader-business) .bh-standard-page-content,
+body:has(.bh-leader-unified) .bh-standard-page-content,
+body:has(.bh3-family) .bh-standard-page-content {
+  margin-block-start:0!important;
+  padding-top:20px!important;
+  padding-bottom:32px;
+}
+body:has(.bh-leader-business) .bh-standard-page,
+body:has(.bh-leader-unified) .bh-standard-page,
+body:has(.bh3-family) .bh-standard-page { margin-block-start:0!important; }
