@@ -1248,3 +1248,17 @@ body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-
 .bh-leader-overview-card .bh-leader-upcoming li:last-child{border-bottom:0}
 .bh-leader-overview-card .bh-leader-upcoming strong{font-size:.88rem;color:#245e4a}
 .bh-leader-overview-card .bh-leader-upcoming span{font-size:.93rem}
+
+/* Leader dashboard action queue and wizard entry */
+.bh-leader-action-queue{margin:22px 0;padding:22px;border:1px solid #dbe5df;border-radius:18px;background:#fff;color:#203c31}
+.bh-leader-action-queue-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.bh-leader-action-queue-head h2{margin:0 0 5px}
+.bh-leader-action-items{list-style:none;margin:14px 0;padding:0}
+.bh-leader-action-items li{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid #e5ece7}
+.bh-leader-action-items li:last-child{border-bottom:0}
+.bh-leader-action-items li strong,.bh-leader-action-items li span{display:block}
+.bh-leader-action-items li span{font-size:.9rem;color:#53665e;margin-top:3px}
+.bh-leader-action-items a,.bh-leader-action-queue-head a{color:#245e4a;font-weight:700}
+.bh-leader-action-create{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px;padding:16px;border-radius:13px;background:#f1f7f2}
+.bh-leader-action-create p{margin:4px 0 0}
+@media(max-width:650px){.bh-leader-action-queue{padding:17px}.bh-leader-action-items li{align-items:flex-start;flex-direction:column}.bh-leader-action-create{align-items:flex-start;flex-direction:column}}
