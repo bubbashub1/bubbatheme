@@ -26,7 +26,7 @@
       links.forEach(function (a) {
         var option = document.createElement('option');
         option.value = a.href;
-        option.textContent = a.textContent.trim().replace(/\\s+/g, ' ');
+        option.textContent = a.textContent.trim().replace(/\s+/g, ' ');
         option.selected = a.getAttribute('aria-current') === 'page' ||
           (a.pathname === window.location.pathname && a.hash === window.location.hash);
         select.appendChild(option);
