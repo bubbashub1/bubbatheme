@@ -1681,3 +1681,200 @@ body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form
   .bh-membership-free { align-items: flex-start; flex-direction: column; }
   .bh-membership-free-link { width: 100%; box-sizing: border-box; text-align: center; }
 }
+
+
+/* Four-column Family / Leader membership comparison */
+.bh-membership-page {
+  width: min(100% - 32px, 1180px);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  color: #203c31;
+}
+.bh-membership-intro {
+  max-width: 780px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+.bh-membership-intro h1 {
+  margin: 0 0 1rem;
+  color: #174e3b;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -.05em;
+}
+.bh-membership-intro > p:last-child {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #586b61;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+.bh-membership-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #dce9df;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgb(18 63 49 / 7%);
+  -webkit-overflow-scrolling: touch;
+}
+.bh-membership-comparison {
+  width: 100%;
+  min-width: 760px;
+  margin: 0;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  text-align: center;
+}
+.bh-membership-comparison th,
+.bh-membership-comparison td {
+  padding: 1rem .8rem;
+  border: 0;
+  border-bottom: 1px solid #e8eee9;
+  vertical-align: middle;
+}
+.bh-membership-comparison th:first-child {
+  width: 16%;
+  text-align: left;
+}
+.bh-membership-comparison .bh-membership-corner {
+  background: #fff;
+}
+.bh-membership-comparison .bh-membership-group {
+  padding: 1.15rem .8rem;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+.bh-membership-family-group {
+  background: #54836d;
+  border-right: 4px solid #fff;
+}
+.bh-membership-leader-group {
+  background: #315e4b;
+}
+.bh-membership-plan-row th {
+  padding: 1rem .7rem;
+  background: #f2f7f2;
+  color: #315444;
+  font-size: .98rem;
+  font-weight: 750;
+}
+.bh-membership-plan-row .bh-membership-feature-heading {
+  color: #607369;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.bh-membership-comparison .bh-membership-pro-heading,
+.bh-membership-comparison .bh-membership-pro-cell {
+  background: #f5faf5;
+}
+.bh-membership-comparison .bh-membership-price-row th {
+  color: #425b4d;
+  font-weight: 700;
+}
+.bh-membership-price-row td strong {
+  display: block;
+  color: #174e3b;
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+  font-weight: 850;
+  letter-spacing: -.055em;
+  line-height: 1.1;
+}
+.bh-membership-period {
+  display: block;
+  margin-top: .25rem;
+  color: #718077;
+  font-size: .8rem;
+}
+.bh-membership-action-row th {
+  color: #425b4d;
+  font-weight: 700;
+}
+.bh-membership-choose,
+.bh-membership-action-row .swpm-payment-button input[type="submit"],
+.bh-membership-action-row .swpm-payment-button button,
+.bh-membership-action-row .swpm-payment-button a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: .7rem 1.1rem;
+  border: 1px solid #174e3b;
+  border-radius: 999px;
+  background: #174e3b;
+  color: #fff !important;
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 750;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+}
+.bh-membership-choose-free {
+  border-color: #b9cfc0;
+  background: #fff;
+  color: #174e3b !important;
+}
+.bh-membership-action-row .swpm-payment-button,
+.bh-membership-action-row .swpm-payment-button form {
+  margin: 0;
+}
+.bh-membership-action-row input[type="image"] {
+  max-width: 100%;
+  height: auto;
+}
+.bh-membership-setup-notice,
+.bh-membership-unavailable {
+  margin: 0;
+  padding: .65rem;
+  border: 1px dashed #d4a35b;
+  border-radius: 10px;
+  background: #fff9ee;
+  color: #775321;
+  font-size: .78rem;
+}
+.bh-membership-benefit-placeholder th,
+.bh-membership-benefit-placeholder td {
+  height: 30px;
+  padding-top: .35rem;
+  padding-bottom: .35rem;
+}
+.bh-membership-benefit-placeholder:last-child th,
+.bh-membership-benefit-placeholder:last-child td {
+  border-bottom: 0;
+}
+.bh-membership-comparison-note,
+.bh-membership-login,
+.bh-membership-terms {
+  margin: 1rem 0 0;
+  color: #68796f;
+  font-size: .9rem;
+  text-align: center;
+}
+.bh-membership-page a:not(.bh-membership-choose) {
+  color: #17634d;
+  text-underline-offset: .2em;
+}
+@media (max-width: 720px) {
+  .bh-membership-page {
+    width: min(100% - 20px, 1180px);
+  }
+  .bh-membership-table-wrap {
+    border-radius: 14px;
+  }
+  .bh-membership-comparison {
+    min-width: 700px;
+  }
+  .bh-membership-comparison th,
+  .bh-membership-comparison td {
+    padding: .8rem .55rem;
+  }
+  .bh-membership-comparison th:first-child {
+    width: 15%;
+  }
+}
