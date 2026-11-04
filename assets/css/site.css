@@ -1027,3 +1027,9 @@ body:not(.wp-admin) .wp-site-blocks .bh-leader-unified .bh-leader-stat strong {
         @media(max-width:650px){.bh-leader-edit{padding:18px!important;margin:16px auto!important}}
 
 .bh-leader-edit{max-width:850px;margin:24px auto;padding:24px;background:#fff;border:1px solid #dbe5df;border-radius:16px}
+
+/* Helpful next steps after saving a leader activity draft. */
+.bh-leader-edit .bh-edit-next-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.bh-leader-edit .bh-edit-next-actions a{display:inline-flex;padding:9px 13px;border-radius:9px;background:#245e4a;color:#fff;text-decoration:none;font-weight:650}
+.bh-leader-edit .bh-edit-next-actions a+ a{background:#fff;color:#245e4a;border:1px solid #b9cfc1}
+.bh-leader-edit .bh-edit-next-actions a:focus-visible{outline:3px solid #245e4a;outline-offset:3px}
