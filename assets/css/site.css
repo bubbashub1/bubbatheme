@@ -1384,3 +1384,39 @@ body.bh-simple-membership .wp-block-post-content .swpm-login-form a {
   body.bh-simple-membership .wp-site-blocks > main > .wp-block-post-content { padding: 1rem; border-radius: 16px; }
   body.bh-simple-membership .wp-block-post-content table { display: block; overflow-x: auto; }
 }
+
+
+/* Match Bubba Theme's actual page.html block wrappers. */
+body.bh-simple-membership .wp-site-blocks > main.bh-standard-page {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+body.bh-simple-membership .bh-standard-page > .bh-page-title-hero {
+  min-height: 180px !important;
+  padding: clamp(1.5rem, 4vw, 3rem) 20px;
+}
+body.bh-simple-membership .bh-standard-page > .bh-standard-page-content {
+  box-sizing: border-box;
+  width: min(100%, 1120px);
+  max-width: 1120px;
+  margin-inline: auto;
+  padding: 0 clamp(10px, 2vw, 25px);
+}
+body.bh-simple-membership .bh-standard-page-content > .wp-block-post-content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  padding: clamp(1.25rem, 3.5vw, 2.5rem);
+  border: 1px solid #e0eae3;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 10px 32px rgb(18 63 49 / 6%);
+}
+@media (max-width: 650px) {
+  body.bh-simple-membership .bh-standard-page-content > .wp-block-post-content {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+}
