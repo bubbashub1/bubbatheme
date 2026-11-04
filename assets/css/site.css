@@ -1221,3 +1221,10 @@ body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-
 .bh-leader-account-note{font-size:.9rem;color:#53665e}
 .bh-leader-account-success{border:1px solid #c9ded0;border-radius:10px;background:#eff9f1;padding:12px}
 @media(max-width:650px){.bh-leader-account-hero{padding:20px}.bh-leader-account-card{padding:17px}}
+
+/* Leader account notification preferences */
+.bh-leader-notifications-options{border:0;padding:0;margin:14px 0}
+.bh-leader-notifications-options legend{font-weight:700;margin-bottom:12px}
+.bh-leader-account-card .bh-leader-notifications-options label{display:flex;align-items:center;gap:10px;margin:10px 0;padding:12px;border:1px solid #dbe5df;border-radius:10px;cursor:pointer}
+.bh-leader-account-card .bh-leader-notifications-options input[type=checkbox]{width:18px;height:18px;max-width:none;margin:0;accent-color:#1e5a45;flex-shrink:0}
+.bh-leader-account-card .bh-leader-notifications-options label:focus-within{outline:2px solid #245e4a;outline-offset:2px}
