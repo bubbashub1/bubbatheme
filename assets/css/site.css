@@ -1043,3 +1043,19 @@ body.bh-no-featured-image .wp-site-blocks .bh-page-hero:not(.wp-block-cover) {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* Native WordPress page and Directory Cover heroes: featured image first,
+   otherwise the shared garden artwork. No changes to custom Cover images. */
+body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-title-hero).wp-block-cover:not(:has(.wp-block-cover__image-background)) {
+  background-image: url('https://staging.bubbahub.co.uk/wp-content/uploads/2026/11/Pastel-Garden-Landscape-Header-2.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-title-hero).wp-block-cover:not(:has(.wp-block-cover__image-background)) > .wp-block-cover__background {
+  opacity: 0;
+}
+body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-title-hero).wp-block-cover:not(:has(.wp-block-cover__image-background)) :is(h1,p,.wp-block-post-title) {
+  color: #174e3b !important;
+  text-shadow: none;
+}
