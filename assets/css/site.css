@@ -1198,3 +1198,10 @@ body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-
 .bh-leader-statistics-action{display:inline-block;margin-top:16px}
 .bh-leader-statistics-note{color:#53665e;font-size:.9rem;margin-top:18px}
 @media(max-width:650px){.bh-leader-statistics-grid{grid-template-columns:1fr}.bh-leader-statistics-hero{padding:20px}}
+
+/* Actionable links for leader listing completeness. */
+.bh-leader-completeness-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.bh-leader-completeness-actions a{display:inline-block;padding:7px 10px;border:1px solid #c9ded0;border-radius:9px;background:#f4faf6;color:#245e4a;text-decoration:none;font-size:.88rem;font-weight:650}
+.bh-leader-completeness-actions a:hover{background:#e7f3eb}
+.bh-leader-completeness-actions a:focus-visible{outline:2px solid #245e4a;outline-offset:2px}
+@media(max-width:650px){.bh-leader-completeness li{align-items:flex-start;flex-direction:column}.bh-leader-completeness-actions{justify-content:flex-start}}
