@@ -47,6 +47,23 @@ add_action(
 
 require_once get_theme_file_path( 'inc/activity-renderer.php' );
 
+/** Scope Simple Membership presentation to membership pages without changing plugin behaviour. */
+add_filter( 'body_class', static function ( $classes ) {
+    if ( ! is_page() ) {
+        return $classes;
+    }
+
+    $page_id = get_queried_object_id();
+    $slug    = (string) get_post_field( 'post_name', $page_id );
+    $content = (string) get_post_field( 'post_content', $page_id );
+
+    if ( 0 === strpos( $slug, 'membership-' ) || preg_match( '/\\[swpm_[^\\]]+\\]/', $content ) ) {
+        $classes[] = 'bh-simple-membership';
+    }
+
+    return $classes;
+} );
+
 /** Mark singular pages without a featured image for the default hero artwork. */
 add_filter( 'body_class', static function ( $classes ) {
     if ( is_singular() && ! has_post_thumbnail( get_queried_object_id() ) ) {
