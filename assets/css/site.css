@@ -1033,3 +1033,13 @@ body:not(.wp-admin) .wp-site-blocks .bh-leader-unified .bh-leader-stat strong {
 .bh-leader-edit .bh-edit-next-actions a{display:inline-flex;padding:9px 13px;border-radius:9px;background:#245e4a;color:#fff;text-decoration:none;font-weight:650}
 .bh-leader-edit .bh-edit-next-actions a+ a{background:#fff;color:#245e4a;border:1px solid #b9cfc1}
 .bh-leader-edit .bh-edit-next-actions a:focus-visible{outline:3px solid #245e4a;outline-offset:3px}
+
+/* Default page hero artwork when no WordPress featured image is assigned.
+   Keep explicitly chosen Cover block artwork intact. */
+body.bh-no-featured-image .wp-site-blocks .bh-hero:not(.wp-block-cover),
+body.bh-no-featured-image .wp-site-blocks .bh-page-hero:not(.wp-block-cover) {
+  background-image: url('https://staging.bubbahub.co.uk/wp-content/uploads/2026/11/Pastel-Garden-Landscape-Header-2.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
