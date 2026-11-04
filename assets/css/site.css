@@ -1144,3 +1144,16 @@ body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-
             .bh-business-directory .bh-dir-card img{width:70px;height:70px;object-fit:contain;border-radius:12px;margin-bottom:12px}
             .bh-business-directory .bh-dir-card h3{font-size:20px;margin:0 0 10px}.bh-business-directory .bh-dir-card p{margin:8px 0;color:#53665e}
             .bh-business-directory .bh-dir-card button{border:0;background:#245e4a;color:#fff;border-radius:9px;padding:10px 12px;margin:8px 0;cursor:pointer}.bh-business-directory .bh-dir-card a{color:#245e4a;font-weight:700}.bh-business-directory [hidden]{display:none!important}
+
+/* Leader bookings overview. */
+.bh-leader-unified .bh-leader-bookings{max-width:1100px;margin:0 auto;padding:12px 0 28px;color:#203c31}
+.bh-leader-bookings .bh-bookings-hero{background:linear-gradient(120deg,#1e5a45,#397d61);color:#fff;border-radius:20px;padding:26px}
+.bh-leader-bookings .bh-bookings-hero h1{color:#fff;margin:6px 0}
+.bh-leader-bookings .bh-bookings-hero p{color:#f0f8f3;margin:4px 0}
+.bh-leader-bookings .bh-bookings-notice,.bh-leader-bookings .bh-bookings-panel{background:#fff;border:1px solid #dbe5df;border-radius:16px;padding:20px;margin:18px 0}
+.bh-leader-bookings .bh-bookings-notice{border-left:4px solid #397d61}
+.bh-leader-bookings .bh-bookings-activities{list-style:none;margin:0;padding:0}
+.bh-leader-bookings .bh-bookings-activities li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid #e5eae6}
+.bh-leader-bookings .bh-bookings-activities small{display:block;color:#53665e;margin-top:3px}
+.bh-leader-bookings .bh-bookings-activities li>span{font-size:.85rem;color:#53665e}
+@media(max-width:650px){.bh-leader-bookings .bh-bookings-activities li{align-items:flex-start;flex-direction:column}.bh-leader-bookings .bh-bookings-hero{padding:20px}}
