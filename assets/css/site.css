@@ -1059,3 +1059,13 @@ body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-
   color: #174e3b !important;
   text-shadow: none;
 }
+
+/* Leader activity list: one clear entry point per editable listing. */
+.bh-leader-unified .bh-leader-activity-category{display:block;margin-top:4px;color:#53665e;font-size:.88rem}
+.bh-leader-unified .bh-leader-activity-actions .bh-leader-primary-action{
+ display:inline-flex;align-items:center;justify-content:center;
+ background:#245e4a;color:#fff;border:1px solid #245e4a;
+ padding:9px 14px;border-radius:10px;text-decoration:none;font-weight:700;
+}
+.bh-leader-unified .bh-leader-activity-actions .bh-leader-primary-action:hover{background:#174a38;color:#fff}
+.bh-leader-unified .bh-leader-activity-actions .bh-leader-primary-action:focus-visible{outline:3px solid #245e4a;outline-offset:3px}
