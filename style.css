@@ -9,3 +9,14 @@ Requires PHP: 8.0
 Text Domain: bubba-hub
 License: GPL-2.0-or-later
 */
+
+/* Family profile shared layout — desktop sidebar and mobile stack. */
+.bh3-family-profile-preview {max-width:1200px!important;margin-inline:auto!important;padding:24px!important}
+.bh3-family-profile-preview > div {display:grid!important;grid-template-columns:minmax(190px,240px) minmax(0,1fr)!important;gap:24px!important;align-items:start}
+.bh3-family-profile-preview nav {position:sticky;top:24px}
+.bh3-family-profile-preview nav,.bh3-family-profile-preview section {min-width:0;background:#fff;border:1px solid #dce7e1;border-radius:18px;padding:24px!important}
+.bh3-family-profile-preview nav a {display:block;padding:8px 12px;border-radius:9px;color:#164f40;text-decoration:none}
+.bh3-family-profile-preview nav a[aria-current="page"] {background:#e7f2ed;font-weight:700}
+.bh3-family-profile-preview fieldset {border:1px solid #dce7e1;border-radius:12px;padding:16px}
+.bh3-family-profile-preview input,.bh3-family-profile-preview select {max-width:100%;box-sizing:border-box}
+@media(max-width:700px){.bh3-family-profile-preview > div {grid-template-columns:minmax(0,1fr)!important}.bh3-family-profile-preview nav{position:static}.bh3-family-profile-preview {padding:12px!important}}
