@@ -1878,3 +1878,17 @@ body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form
     width: 15%;
   }
 }
+
+
+/* Membership chart column order: Free Family/Leader, then Pro Family/Leader */
+.bh-membership-free-group {
+  background: #54836d;
+  border-right: 4px solid #fff;
+}
+.bh-membership-pro-group {
+  background: #315e4b;
+}
+.bh-membership-comparison .bh-membership-pro-heading,
+.bh-membership-comparison .bh-membership-pro-cell {
+  background: #f5faf5;
+}
