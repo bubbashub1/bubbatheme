@@ -1241,3 +1241,10 @@ body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-
 .bh-leader-overview-card a{color:#245e4a;font-weight:650}
 .bh-leader-overview-action{margin-top:auto;padding-top:12px}
 @media(max-width:700px){.bh-leader-overview-grid{grid-template-columns:1fr}.bh-leader-overview-card{padding:18px}}
+
+/* Compact upcoming session preview inside leader dashboard */
+.bh-leader-overview-card .bh-leader-upcoming{list-style:none;padding:0;margin:4px 0}
+.bh-leader-overview-card .bh-leader-upcoming li{display:flex;flex-direction:column;gap:3px;padding:9px 0;border-bottom:1px solid #e2ebe5}
+.bh-leader-overview-card .bh-leader-upcoming li:last-child{border-bottom:0}
+.bh-leader-overview-card .bh-leader-upcoming strong{font-size:.88rem;color:#245e4a}
+.bh-leader-overview-card .bh-leader-upcoming span{font-size:.93rem}
