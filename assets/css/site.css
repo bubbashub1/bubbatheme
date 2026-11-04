@@ -1205,3 +1205,19 @@ body.bh-no-featured-image .wp-site-blocks :is(.bh-page-title-hero,.bh-directory-
 .bh-leader-completeness-actions a:hover{background:#e7f3eb}
 .bh-leader-completeness-actions a:focus-visible{outline:2px solid #245e4a;outline-offset:2px}
 @media(max-width:650px){.bh-leader-completeness li{align-items:flex-start;flex-direction:column}.bh-leader-completeness-actions{justify-content:flex-start}}
+
+/* Leader account settings */
+.bh-leader-account{max-width:1000px;margin:0 auto;padding:12px 0 28px;color:#203c31}
+.bh-leader-account-hero{background:linear-gradient(120deg,#1e5a45,#397d61);color:#fff;border-radius:20px;padding:26px;margin-bottom:18px}
+.bh-leader-account-hero h1{color:#fff;margin:6px 0}
+.bh-leader-account-hero p{color:#f0f8f3;margin:5px 0}
+.bh-leader-account-card{background:#fff;border:1px solid #dbe5df;border-radius:16px;padding:22px;margin:14px 0}
+.bh-leader-account-card h2{margin-top:0}
+.bh-leader-account-card label{display:block;font-weight:650;margin:16px 0 6px}
+.bh-leader-account-card input{display:block;width:100%;max-width:520px;padding:12px;border:1px solid #c7d6ce;border-radius:10px}
+.bh-leader-account-card input[readonly]{background:#f3f6f4;color:#53665e}
+.bh-leader-account-card button{margin-top:18px;background:#1e5a45;color:#fff;border:0;border-radius:10px;padding:12px 20px;cursor:pointer}
+.bh-leader-account-card a{color:#245e4a;font-weight:700}
+.bh-leader-account-note{font-size:.9rem;color:#53665e}
+.bh-leader-account-success{border:1px solid #c9ded0;border-radius:10px;background:#eff9f1;padding:12px}
+@media(max-width:650px){.bh-leader-account-hero{padding:20px}.bh-leader-account-card{padding:17px}}
