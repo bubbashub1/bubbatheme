@@ -1460,3 +1460,224 @@ body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form
 body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form > table > tbody > tr > td:last-child {
   color: #174e3b;
 }
+
+
+/* Bubba Hub annual membership and registration page */
+.bh-membership-page {
+  width: min(100% - 32px, 1120px);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  color: #203c31;
+}
+.bh-membership-intro {
+  max-width: 760px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+.bh-membership-eyebrow {
+  margin: 0 0 .7rem;
+  color: #5c8874;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+.bh-membership-intro h1 {
+  margin: 0 0 1rem;
+  color: #174e3b;
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -.05em;
+}
+.bh-membership-intro > p:last-child {
+  max-width: 640px;
+  margin: 0 auto;
+  color: #586b61;
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+.bh-membership-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 1.5rem);
+  align-items: stretch;
+}
+.bh-membership-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border: 1px solid #dce9df;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgb(18 63 49 / 7%);
+}
+.bh-membership-leader {
+  border-color: #b9d3c3;
+  background: linear-gradient(180deg, #f7faf6 0%, #fff 45%);
+}
+.bh-membership-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.2rem;
+  border-radius: 15px;
+  background: #eaf3eb;
+  color: #17634d;
+  font-size: 1.8rem;
+}
+.bh-membership-audience {
+  margin: 0 0 .5rem;
+  color: #668575;
+  font-size: .73rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+}
+.bh-membership-card h2 {
+  margin: 0 0 .5rem;
+  color: #174e3b;
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  letter-spacing: -.035em;
+}
+.bh-membership-price {
+  display: flex;
+  align-items: baseline;
+  gap: .45rem;
+  margin: .25rem 0 .8rem;
+}
+.bh-membership-price span {
+  color: #174e3b;
+  font-size: clamp(2.5rem, 5vw, 3.3rem);
+  font-weight: 800;
+  letter-spacing: -.06em;
+  line-height: 1;
+}
+.bh-membership-price small {
+  color: #65766d;
+  font-size: .95rem;
+}
+.bh-membership-description {
+  min-height: 3.2em;
+  margin: 0 0 1rem;
+  color: #53665e;
+  line-height: 1.55;
+}
+.bh-membership-card ul {
+  display: grid;
+  gap: .7rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+.bh-membership-card li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: #304c3e;
+  line-height: 1.45;
+}
+.bh-membership-card li:before {
+  position: absolute;
+  left: 0;
+  color: #26805d;
+  content: "✓";
+  font-weight: 800;
+}
+.bh-membership-action {
+  margin-top: auto;
+  text-align: center;
+}
+.bh-membership-action .swpm-payment-button,
+.bh-membership-action form {
+  display: block;
+  width: 100%;
+}
+.bh-membership-action input[type="submit"],
+.bh-membership-action button,
+.bh-membership-action a,
+.bh-membership-action input[type="image"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 50px;
+  max-width: 100%;
+  padding: .8rem 1.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: #174e3b;
+  color: #fff;
+  font: inherit;
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+.bh-membership-action input[type="image"] {
+  width: auto;
+  height: auto;
+  padding: 0;
+  background: transparent;
+}
+.bh-membership-note {
+  margin: .9rem 0 0;
+  color: #6b7d73;
+  font-size: .82rem;
+  text-align: center;
+}
+.bh-membership-setup-notice,
+.bh-membership-unavailable {
+  margin: 0;
+  padding: .8rem 1rem;
+  border: 1px dashed #d4a35b;
+  border-radius: 12px;
+  background: #fff9ee;
+  color: #775321;
+  font-size: .9rem;
+}
+.bh-membership-free {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 1rem;
+  padding: clamp(1.25rem, 3vw, 1.8rem);
+  border: 1px solid #e0eae3;
+  border-radius: 18px;
+  background: #f5f9f5;
+}
+.bh-membership-free h2 {
+  margin: 0 0 .35rem;
+  color: #174e3b;
+  font-size: 1.3rem;
+}
+.bh-membership-free p {
+  margin: 0;
+  color: #53665e;
+  line-height: 1.55;
+}
+.bh-membership-free-link {
+  flex: 0 0 auto;
+  padding: .8rem 1.2rem;
+  border: 1px solid #b7cfc0;
+  border-radius: 999px;
+  color: #174e3b;
+  font-weight: 750;
+  text-decoration: none;
+}
+.bh-membership-login,
+.bh-membership-terms {
+  margin: .75rem 0 0;
+  color: #68796f;
+  font-size: .9rem;
+  text-align: center;
+}
+.bh-membership-page a:not(.bh-membership-free-link) {
+  color: #17634d;
+  text-underline-offset: .2em;
+}
+@media (max-width: 720px) {
+  .bh-membership-page { width: min(100% - 20px, 1120px); }
+  .bh-membership-cards { grid-template-columns: 1fr; }
+  .bh-membership-description { min-height: 0; }
+  .bh-membership-free { align-items: flex-start; flex-direction: column; }
+  .bh-membership-free-link { width: 100%; box-sizing: border-box; text-align: center; }
+}
