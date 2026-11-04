@@ -964,3 +964,11 @@ body:not(.wp-admin) .wp-site-blocks .bh3-family__hero h1 {
 body:not(.wp-admin) .wp-site-blocks .bh-leader-head :where(p,.bh-leader-muted),
 body:not(.wp-admin) .wp-site-blocks .bh-business-hero p { color:#edf7ef!important; }
 .bh-leader-unified .bh-leader-shell{padding:0!important;margin:0!important;max-width:none!important}
+
+/* Portal statistics inherit the site typeface, including labels and numbers. */
+body:not(.wp-admin) .wp-site-blocks .bh-leader-unified .bh-leader-stats,
+body:not(.wp-admin) .wp-site-blocks .bh-leader-unified .bh-leader-stat,
+body:not(.wp-admin) .wp-site-blocks .bh-leader-unified .bh-leader-stat strong {
+  font-family:var(--wp--preset--font-family--quicksand,'Quicksand',sans-serif)!important;
+  letter-spacing:normal;
+}
