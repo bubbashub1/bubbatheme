@@ -197,13 +197,21 @@ add_filter( 'render_block_core/template-part', static function ( $content, $bloc
     $user = wp_get_current_user();
     $name = $user->display_name ? $user->display_name : $user->user_login;
     $greeting = '<span class="bh-header-greeting">Hello ' . esc_html( $name ) . '</span>';
-    // Place the greeting before the existing Log out link.
-    $updated = preg_replace( '~(<(?:li|div)[^>]*>\\s*)?(<a\\b[^>]*>\\s*(?:Log\\s*out|Logout|Sign\\s*out)\\s*</a>)~i', '$1' . $greeting . '$2', $content, 1, $count );
+    // Match a single logout anchor, including nested WordPress navigation label spans.
+    $updated = preg_replace_callback(
+        '~<a\\b[^>]*>(?:(?!</a>).)*?(?:Log\\s*out|Logout|Sign\\s*out)(?:(?!</a>).)*?</a>~is',
+        static function ( $match ) use ( $greeting ) {
+            return $greeting . $match[0];
+        },
+        $content,
+        1,
+        $count
+    );
     if ( $count ) {
         return $updated;
     }
-    // Custom header without a logout link: keep the greeting within the header.
-    return preg_replace( '~</nav>~i', $greeting . '</nav>', $content, 1 );
+    // A customised header may not expose a logout anchor.
+    return $content;
 }, 30, 2 );
 
 /** Compact site-wide directory search; filter names match BH_Directory_3. */
