@@ -36,7 +36,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
     if ( '' === $map_query ) {
         $map_query = trim( implode( ', ', array_filter( array( $field( 'venue' ), $field( 'address' ), $field( 'location' ) ) ) ) );
     }
-    $enquiry_dialog_id = ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) )
+    $enquiry_dialog_id = ( shortcode_exists( 'fluentform' ) && ( $field( 'organiser' ) || ! empty( $activity['enquiry_enabled'] ) ) )
         ? 'bh-activity-enquiry-dialog-' . wp_unique_id()
         : '';
     ob_start();
@@ -120,7 +120,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         </div>
       </div>
 
-      <?php if ( $field( 'organiser' ) || $field( 'website_url' ) || $booking || ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) ) : ?>
+      <?php if ( $field( 'organiser' ) || $field( 'website_url' ) || $booking || ! empty( $enquiry_dialog_id ) ) : ?>
       <section class="bh-reference-panel bh-activity-organiser" aria-label="Class organiser and contact options">
         <div class="bh-activity-organiser-copy">
           <p class="bh-dynamic-eyebrow">CLASS LEADER</p>
@@ -138,7 +138,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
       </section>
       <?php endif; ?>
 
-      <?php if ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) : ?>
+      <?php if ( ! empty( $enquiry_dialog_id ) ) : ?>
       <dialog id="<?php echo esc_attr( $enquiry_dialog_id ); ?>" class="bh-activity-enquiry-dialog" aria-labelledby="<?php echo esc_attr( $enquiry_dialog_id ); ?>-title">
         <div class="bh-enquiry-dialog-inner">
           <div class="bh-enquiry-dialog-heading">
