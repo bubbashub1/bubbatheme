@@ -2052,3 +2052,19 @@ body:not(.wp-admin) .wp-site-blocks > header .bh-header-search-panel{
    margin-left:0!important;margin-right:auto!important;
  }
 }
+
+/* Header breathing room: left logo, evenly spaced links and right-hand controls. */
+@media (min-width:1100px) {
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-template-part > .wp-block-group {
+   column-gap:clamp(20px,2vw,36px)!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-group.alignwide:has(> .wp-block-navigation) {
+   gap:clamp(16px,1.65vw,28px)!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-group.alignwide:has(> .wp-block-navigation) .wp-block-navigation__container {
+   column-gap:clamp(18px,1.55vw,28px)!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .bh-header-greeting {
+   margin-inline:16px 16px!important;
+ }
+}
