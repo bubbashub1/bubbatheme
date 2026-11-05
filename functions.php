@@ -101,3 +101,60 @@ add_filter( 'template_include', static function ( $template ) {
     if ( ! $slug ) { return $template; }
     return get_theme_file_path( 'inc/activity-page.php' );
 }, 99 );
+
+/**
+ * Staging-only activity comparison page. Stores no family data on the server.
+ * This page is created once, without changing existing pages.
+ */
+add_action( 'init', static function () {
+    if ( wp_parse_url( home_url(), PHP_URL_HOST ) !== 'staging.bubbahub.co.uk' || get_option( 'bh_compare_page_setup_v1' ) ) {
+        return;
+    }
+    $existing = get_page_by_path( 'compare-activities' );
+    if ( ! $existing ) {
+        $created = wp_insert_post( array(
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'post_title' => 'Compare Activities',
+            'post_name' => 'compare-activities',
+            'post_content' => '<!-- wp:shortcode -->[bh_compare_activities]<!-- /wp:shortcode -->',
+        ), true );
+        if ( is_wp_error( $created ) ) return;
+    }
+    update_option( 'bh_compare_page_setup_v1', 1, false );
+}, 30 );
+
+add_shortcode( 'bh_compare_activities', static function () {
+    ob_start();
+    ?>
+    <section class="bh-compare-page" style="max-width:1200px;margin:36px auto;padding:0 25px;color:#173c34">
+      <h1>Compare Activities</h1>
+      <p>Choose up to four activities using the Compare button on an activity page. Your shortlist stays in this browser.</p>
+      <div id="bh-compare-page-items" aria-live="polite"></div>
+      <p><a href="<?php echo esc_url( home_url( '/directory/' ) ); ?>">Find more activities</a></p>
+    </section>
+    <script>
+    (function () {
+      var target=document.getElementById('bh-compare-page-items');if(!target)return;
+      var key='bh_activity_compare_v1',items=[];
+      try { var saved=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(saved))items=saved.filter(function(x){return x&&x.id&&x.title&&x.url;}).slice(0,4); }catch(e){}
+      function draw(){
+        target.replaceChildren();
+        if(!items.length){var p=document.createElement('p');p.textContent='No activities selected yet.';target.appendChild(p);return;}
+        var grid=document.createElement('div');grid.style.cssText='display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin:24px 0';
+        items.forEach(function(item){
+          var card=document.createElement('article');card.style.cssText='padding:22px;border:1px solid #d5e5db;border-radius:16px;background:white';
+          var title=document.createElement('h2');title.style.cssText='font-size:1.25rem;margin:0 0 16px';title.textContent=item.title;
+          var link=document.createElement('a');link.href=item.url;link.textContent='View activity';link.style.cssText='color:#175c46;font-weight:700';
+          var remove=document.createElement('button');remove.type='button';remove.textContent='Remove';remove.style.cssText='display:block;margin-top:20px;border:1px solid #175c46;border-radius:8px;padding:9px 15px;background:#fff;color:#175c46;cursor:pointer';
+          remove.addEventListener('click',function(){items=items.filter(function(x){return x.id!==item.id;});try{localStorage.setItem(key,JSON.stringify(items));}catch(e){}draw();});
+          card.append(title,link,remove);grid.appendChild(card);
+        });
+        target.appendChild(grid);
+      }
+      draw();
+    })();
+    </script>
+    <?php
+    return ob_get_clean();
+} );
