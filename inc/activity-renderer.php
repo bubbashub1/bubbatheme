@@ -36,6 +36,9 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
     if ( '' === $map_query ) {
         $map_query = trim( implode( ', ', array_filter( array( $field( 'venue' ), $field( 'address' ), $field( 'location' ) ) ) ) );
     }
+    $enquiry_dialog_id = ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) )
+        ? 'bh-activity-enquiry-dialog-' . wp_unique_id()
+        : '';
     ob_start();
     ?>
     <article class="bh-activity-dynamic bh-activity-reference">
@@ -110,16 +113,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
               </div>
               <?php endforeach; ?>
             </div>
-            <?php if ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) :
-                $enquiry_dialog_id = 'bh-activity-enquiry-dialog-' . wp_unique_id();
-            ?>
-            <section class="bh-activity-enquiry-cta" aria-label="Enquire about this activity">
-              <button type="button" class="bh-enquiry-open" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">
-                Interested in joining? <span aria-hidden="true">→</span>
-              </button>
-              <p>Ask the class leader about sessions and availability. This is not a confirmed booking.</p>
-            </section>
-            <?php endif; ?>
+
           </section>
           <?php endif; ?>
 
@@ -135,7 +129,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         </div>
         <div class="bh-activity-organiser-actions">
           <?php if ( ! empty( $enquiry_dialog_id ) ) : ?>
-          <button type="button" class="bh-enquiry-open" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">Send an enquiry</button>
+          <button type="button" class="bh-enquiry-open" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">Interested in joining? <span aria-hidden="true">→</span></button>
           <?php endif; ?>
           <?php if ( $field( 'website_url' ) ) : ?><a href="<?php echo esc_url( $field( 'website_url' ) ); ?>" rel="noopener noreferrer" target="_blank">Organiser website</a><?php endif; ?>
           <?php if ( $booking ) : ?><a href="<?php echo esc_url( $booking ); ?>" rel="noopener noreferrer">Book now</a><?php endif; ?>
