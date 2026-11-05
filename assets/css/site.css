@@ -1982,3 +1982,7 @@ body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form
 .bh-header-search-inline .bh-header-search-toggle{width:42px;height:42px}
 .bh-header-search-inline .bh-header-search-panel{right:0}
 @media(max-width:700px){.bh-header-search-inline{margin-left:auto!important}}
+
+/* Personal greeting beside Log out in the header. */
+.bh-header-greeting{display:inline-flex;align-items:center;white-space:nowrap;color:#175646;font-size:.92rem;font-weight:700;margin-inline:10px 12px}
+@media(max-width:600px){.bh-header-greeting{font-size:.82rem;margin-inline:6px 8px}}
