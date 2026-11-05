@@ -1986,3 +1986,30 @@ body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form
 /* Personal greeting beside Log out in the header. */
 .bh-header-greeting{display:inline-flex;align-items:center;white-space:nowrap;color:#175646;font-size:.92rem;font-weight:700;margin-inline:10px 12px}
 @media(max-width:600px){.bh-header-greeting{font-size:.82rem;margin-inline:6px 8px}}
+
+/* Header alignment repair: saved Site Editor headers must not break into stacked rows. */
+@media(min-width:900px){
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-group.alignwide:has(> .wp-block-navigation){
+   display:flex!important;flex-flow:row nowrap!important;align-items:center!important;
+   justify-content:flex-end!important;gap:clamp(8px,1.2vw,18px)!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-group.alignwide:has(> .wp-block-navigation) > .wp-block-navigation{
+   flex:0 1 auto;min-width:0;margin:0!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-group.alignwide:has(> .wp-block-navigation) > .bh-header-search-inline{
+   flex:0 0 42px;order:1;margin:0!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-group.alignwide:has(> .wp-block-navigation) > .wp-block-group:not(.bh-header-search-inline){
+   flex:0 0 auto;margin:0!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-group.alignwide:has(> .wp-block-navigation) .wp-block-navigation__container{
+   flex-wrap:nowrap!important;column-gap:clamp(8px,1vw,18px)!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .bh-header-search-fallback{
+   width:auto;max-width:none;padding:0;margin:0!important;
+ }
+}
+@media(max-width:899px){
+ body:not(.wp-admin) .wp-site-blocks > header .bh-header-search-inline{width:auto;flex:0 0 auto}
+ body:not(.wp-admin) .wp-site-blocks > header .bh-header-search-fallback{padding:0;margin:0!important}
+}
