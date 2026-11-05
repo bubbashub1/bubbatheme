@@ -85,7 +85,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         <?php endif; ?>
         <button type="button" class="bh-activity-compare-toggle" data-bh-compare-id="<?php echo esc_attr( $id ); ?>" data-bh-compare-title="<?php echo esc_attr( $title ); ?>" data-bh-compare-url="<?php echo esc_url( get_permalink() ?: home_url( '/activity/' ) ); ?>" aria-pressed="false" title="Add to comparison" aria-label="Add to comparison">⇄</button>
       </nav>
-      <div class="bh-activity-compare-tray" hidden aria-live="polite"><strong>Compare activities</strong><div class="bh-activity-compare-items"></div><button type="button" class="bh-activity-compare-clear">Clear</button></div>
+      <div class="bh-activity-compare-tray" hidden aria-live="polite"><strong><a href="<?php echo esc_url( home_url( '/compare-activities/' ) ); ?>">Compare activities →</a></strong><div class="bh-activity-compare-items"></div><button type="button" class="bh-activity-compare-clear">Clear</button></div>
       </header>
       <div class="bh-reference-facts bh-dynamic-facts">
         <?php foreach ( $facts as $label => $value ) : if ( '' === $value ) { continue; } ?>
