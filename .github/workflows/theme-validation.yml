@@ -1,0 +1,39 @@
+name: Theme PHP and CSS validation
+on:
+  push:
+    branches:
+      - feature/booking-reference-visual-system-20261105
+  pull_request:
+    paths:
+      - '**/*.php'
+      - '**/*.css'
+      - '.github/workflows/theme-validation.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: PHP syntax
+        run: |
+          set -euo pipefail
+          find . -type f -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -r -n1 php -l
+      - name: CSS syntax
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const css = fs.readFileSync('assets/css/booking-reference.css','utf8');
+          let depth=0, comment=false, quote=null;
+          for(let i=0;i<css.length;i++){
+            const c=css[i],n=css[i+1];
+            if(comment){if(c==='*'&&n==='/'){comment=false;i++;}continue;}
+            if(quote){if(c==='\\'){i++;continue;}if(c===quote)quote=null;continue;}
+            if(c==='/'&&n==='*'){comment=true;i++;continue;}
+            if(c==='"'||c==="'"){quote=c;continue;}
+            if(c==='{')depth++;
+            if(c==='}')depth--;
+            if(depth<0)throw Error('Unexpected closing CSS brace');
+          }
+          if(depth!==0||comment||quote)throw Error('Unbalanced CSS syntax');
+          console.log('CSS structural check passed');
+          NODE
