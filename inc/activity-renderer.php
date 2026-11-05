@@ -65,7 +65,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
           </section>
           <?php if ( $schedule ) : ?>
           <section class="bh-reference-panel">
-            <p class="bh-dynamic-eyebrow">WHEN</p><h2>Schedule &amp; hours</h2>
+            <p class="bh-dynamic-eyebrow">WHEN</p><h2>Timetable</h2>
             <div class="bh-session-rows" role="list" aria-label="Upcoming class sessions">
               <?php foreach ( $schedule as $session ) :
                   if ( ! is_array( $session ) ) { continue; }
