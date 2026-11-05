@@ -283,3 +283,31 @@
   .bh-activity-dynamic .bh-dynamic-schedule :is(th,td) {padding:9px 10px;font-size:.82rem}
   .bh-activity-dynamic .bh-dynamic-book {width:100%;box-sizing:border-box}
 }
+
+/* Public session rows rendered by inc/activity-renderer.php. */
+.bh-activity-dynamic .bh-session-rows {display:grid;gap:9px}
+.bh-activity-dynamic .bh-session-row {
+  display:grid;grid-template-columns:minmax(125px,.85fr) minmax(0,1.5fr) auto;
+  gap:12px;align-items:center;padding:13px 16px;
+  border:1px solid var(--bh-ui-border);border-radius:12px;background:#fff;
+}
+.bh-activity-dynamic .bh-session-row-date,.bh-activity-dynamic .bh-session-row-details {display:flex;flex-direction:column;gap:3px;min-width:0}
+.bh-activity-dynamic .bh-session-row-date strong,.bh-activity-dynamic .bh-session-row-details strong {font-size:.9rem;color:var(--bh-ui-ink)}
+.bh-activity-dynamic .bh-session-row-date span,.bh-activity-dynamic .bh-session-row-details small {font-size:.81rem;color:var(--bh-ui-muted)}
+.bh-activity-dynamic .bh-session-term {display:inline-flex;align-self:flex-start;border-radius:6px;padding:2px 7px;background:#edf5d9;color:#3d6235;font-size:.7rem;font-weight:750}
+.bh-activity-dynamic .bh-session-row-actions {display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bh-activity-dynamic .bh-session-row-actions a {display:inline-flex;min-height:38px;align-items:center;justify-content:center;padding:7px 13px;border-radius:9px;font-size:.82rem;font-weight:800;text-decoration:none;white-space:nowrap}
+.bh-activity-dynamic .bh-session-enquire {border:1px solid #9bc6b6;background:#fff;color:var(--bh-ui-forest-dark)}
+.bh-activity-dynamic .bh-session-book {border:1px solid var(--bh-ui-forest-dark);background:linear-gradient(110deg,#185c4c,#2e9279);color:#fff}
+.bh-activity-dynamic .bh-session-row-actions a:focus-visible {outline:3px solid #79b7a2;outline-offset:2px}
+@media(max-width:800px) {
+  .bh-activity-dynamic .bh-session-row {grid-template-columns:minmax(0,1fr) auto}
+  .bh-activity-dynamic .bh-session-row-details {grid-column:1;grid-row:2}
+  .bh-activity-dynamic .bh-session-row-actions {grid-column:2;grid-row:1 / span 2;justify-content:flex-end}
+}
+@media(max-width:520px) {
+  .bh-activity-dynamic .bh-session-row {grid-template-columns:minmax(0,1fr);padding:12px}
+  .bh-activity-dynamic .bh-session-row-details,.bh-activity-dynamic .bh-session-row-actions {grid-column:1;grid-row:auto}
+  .bh-activity-dynamic .bh-session-row-actions {justify-content:stretch}
+  .bh-activity-dynamic .bh-session-row-actions a {flex:1 1 120px}
+}
