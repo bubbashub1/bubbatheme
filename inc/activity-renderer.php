@@ -66,12 +66,41 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
           <?php if ( $schedule ) : ?>
           <section class="bh-reference-panel">
             <p class="bh-dynamic-eyebrow">WHEN</p><h2>Schedule &amp; hours</h2>
-            <div class="bh-dynamic-table-wrap"><table class="bh-dynamic-schedule">
-              <thead><tr><th scope="col">Class</th><th scope="col">Day</th><th scope="col">Start</th><th scope="col">End</th><th scope="col">Price</th></tr></thead>
-              <tbody><?php foreach ( $schedule as $session ) : if ( ! is_array( $session ) ) { continue; } ?>
-              <tr><?php foreach ( array( 'name', 'day', 'start', 'end', 'price' ) as $key ) : ?><td><?php echo esc_html( isset( $session[ $key ] ) && is_scalar( $session[ $key ] ) ? (string) $session[ $key ] : '' ); ?></td><?php endforeach; ?></tr>
-              <?php endforeach; ?></tbody>
-            </table></div>
+            <div class="bh-session-rows" role="list" aria-label="Upcoming class sessions">
+              <?php foreach ( $schedule as $session ) :
+                  if ( ! is_array( $session ) ) { continue; }
+                  $value = static function ( $key ) use ( $session ) {
+                      return isset( $session[ $key ] ) && is_scalar( $session[ $key ] ) ? (string) $session[ $key ] : '';
+                  };
+                  $session_name = $value( 'name' );
+                  $session_day  = $value( 'date' ) ?: $value( 'day' );
+                  $session_start = $value( 'start' );
+                  $session_end   = $value( 'end' );
+                  $session_price = $value( 'price' );
+                  $session_booking = $value( 'booking_url' );
+                  $session_enquiry = $value( 'enquiry_url' );
+                  $session_term = $value( 'term_time' );
+                  if ( '' === $session_term && ! empty( $session['term_time_only'] ) ) { $session_term = 'Term time'; }
+              ?>
+              <div class="bh-session-row" role="listitem">
+                <div class="bh-session-row-date">
+                  <?php if ( $session_day ) : ?><strong><?php echo esc_html( $session_day ); ?></strong><?php endif; ?>
+                  <?php if ( $session_start || $session_end ) : ?><span><?php echo esc_html( trim( $session_start . ( $session_end ? ' – ' . $session_end : '' ) ) ); ?></span><?php endif; ?>
+                </div>
+                <div class="bh-session-row-details">
+                  <?php if ( $session_name ) : ?><strong><?php echo esc_html( $session_name ); ?></strong><?php endif; ?>
+                  <?php if ( $session_term ) : ?><span class="bh-session-term"><?php echo esc_html( $session_term ); ?></span><?php endif; ?>
+                  <?php if ( $session_price ) : ?><small><?php echo esc_html( $session_price ); ?></small><?php endif; ?>
+                </div>
+                <?php if ( $session_enquiry || $session_booking ) : ?>
+                <div class="bh-session-row-actions">
+                  <?php if ( $session_enquiry ) : ?><a class="bh-session-enquire" href="<?php echo esc_url( $session_enquiry ); ?>">Enquire</a><?php endif; ?>
+                  <?php if ( $session_booking ) : ?><a class="bh-session-book" href="<?php echo esc_url( $session_booking ); ?>">Book now</a><?php endif; ?>
+                </div>
+                <?php endif; ?>
+              </div>
+              <?php endforeach; ?>
+            </div>
           </section>
           <?php endif; ?>
         </div>
