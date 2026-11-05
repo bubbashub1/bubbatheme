@@ -133,16 +133,20 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         .bh-activity-enquiry-cta p{margin:10px 0 0;color:#49665c}
         .bh-enquiry-open{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:13px 24px;border:0;border-radius:12px;background:#175c46;color:#fff;font:inherit;font-weight:700;cursor:pointer}
         .bh-enquiry-open:hover{background:#104936}
-        .bh-activity-enquiry-dialog{width:min(760px,calc(100% - 28px));max-width:760px;max-height:min(88vh,900px);padding:0;border:0;border-radius:18px;color:#173c34;box-shadow:0 24px 80px rgba(13,43,33,.28);overflow:visible}
+        .bh-activity-enquiry-dialog{width:min(760px,calc(100% - 28px));max-width:760px;height:min(88vh,900px);max-height:88vh;padding:0;border:0;border-radius:18px;color:#173c34;box-shadow:0 24px 80px rgba(13,43,33,.28);overflow:hidden}
         .bh-activity-enquiry-dialog::backdrop{background:rgba(13,35,29,.62);backdrop-filter:blur(3px)}
-        .bh-enquiry-dialog-inner{max-height:min(88vh,900px);overflow-y:auto;padding:26px}
+        .bh-enquiry-dialog-inner{height:100%;max-height:none;overflow-y:auto;overscroll-behavior:contain;padding:26px;box-sizing:border-box}
+        .bh-enquiry-dialog-inner form{padding-bottom:8px}
+        .bh-enquiry-dialog-inner .ff_submit_btn_wrapper,.bh-enquiry-dialog-inner .ff_submit_btn_wrapper button{max-width:100%}
+        .bh-enquiry-dialog-inner::-webkit-scrollbar{width:8px}
+        .bh-enquiry-dialog-inner::-webkit-scrollbar-thumb{background:#c7dacf;border-radius:8px}
         .bh-enquiry-dialog-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:20px}
         .bh-enquiry-dialog-heading h2{margin:4px 0 8px;color:#175c46}
         .bh-enquiry-dialog-heading p{margin:0}
         .bh-enquiry-eyebrow{font-size:12px;letter-spacing:.1em;font-weight:700;color:#56816e}
         .bh-enquiry-close{flex:0 0 40px;width:40px;height:40px;border:1px solid #d8e6dc;border-radius:50%;background:#fff;color:#175c46;font-size:26px;line-height:1;cursor:pointer}
         .bh-activity-enquiry-dialog .ff-el-group{margin-bottom:16px}
-        @media(max-width:600px){.bh-enquiry-dialog-inner{padding:18px}.bh-activity-enquiry-dialog{width:calc(100% - 16px);max-height:92vh}.bh-enquiry-dialog-inner{max-height:92vh}}
+        @media(max-width:600px){.bh-enquiry-dialog-inner{padding:18px}.bh-activity-enquiry-dialog{width:calc(100% - 16px);height:92vh;max-height:92vh}}
       </style>
       <?php
           wp_register_script( 'bh-activity-enquiry-modal', false, array(), '1.0.0', true );
