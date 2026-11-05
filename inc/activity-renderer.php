@@ -31,6 +31,11 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
     $image = $field( 'image_url' );
     $booking = $field( 'booking_url' );
     $directions = $field( 'directions_url' );
+    // Build a usable map query from the venue/address when the data adapter has not supplied one.
+    $map_query = $field( 'map_query' );
+    if ( '' === $map_query ) {
+        $map_query = trim( implode( ', ', array_filter( array( $field( 'venue' ), $field( 'address' ), $field( 'location' ) ) ) ) );
+    }
     ob_start();
     ?>
     <article class="bh-activity-dynamic bh-activity-reference">
@@ -60,9 +65,9 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
             <h2>Location &amp; directions</h2>
             <?php if ( $field( 'venue' ) ) : ?><p><?php echo esc_html( $field( 'venue' ) ); ?></p><?php endif; ?>
             <?php if ( $field( 'address' ) ) : ?><p><?php echo esc_html( $field( 'address' ) ); ?></p><?php endif; ?>
-            <?php if ( $field( 'map_query' ) ) : ?>
+            <?php if ( $map_query ) : ?>
               <div class="bh-activity-map">
-                <iframe title="<?php echo esc_attr( 'Map of ' . ( $field( 'venue' ) ?: $title ) ); ?>" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="<?php echo esc_url( 'https://maps.google.com/maps?q=' . rawurlencode( $field( 'map_query' ) ) . '&output=embed' ); ?>"></iframe>
+                <iframe title="<?php echo esc_attr( 'Map of ' . ( $field( 'venue' ) ?: $title ) ); ?>" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="<?php echo esc_url( 'https://maps.google.com/maps?q=' . rawurlencode( $map_query ) . '&output=embed' ); ?>"></iframe>
               </div>
             <?php endif; ?>
             <?php if ( $directions ) : ?><p><a href="<?php echo esc_url( $directions ); ?>" rel="noopener noreferrer">Directions</a></p><?php endif; ?>
@@ -106,18 +111,19 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
               </div>
               <?php endforeach; ?>
             </div>
+            <?php if ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) :
+                $enquiry_dialog_id = 'bh-activity-enquiry-dialog-' . wp_unique_id();
+            ?>
+            <section class="bh-activity-enquiry-cta" aria-label="Enquire about this activity">
+              <button type="button" class="bh-enquiry-open" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">
+                Interested in joining? <span aria-hidden="true">→</span>
+              </button>
+              <p>Ask the class leader about sessions and availability. This is not a confirmed booking.</p>
+            </section>
+            <?php endif; ?>
           </section>
           <?php endif; ?>
-          <?php if ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) :
-              $enquiry_dialog_id = 'bh-activity-enquiry-dialog-' . wp_unique_id();
-          ?>
-          <section class="bh-activity-enquiry-cta" aria-label="Enquire about this activity">
-            <button type="button" class="bh-enquiry-open" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">
-              Interested in joining? <span aria-hidden="true">→</span>
-            </button>
-            <p>Ask the class leader about sessions and availability. This is not a confirmed booking.</p>
-          </section>
-          <?php endif; ?>
+
         </div>
       </div>
 
@@ -132,7 +138,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         </div>
       </dialog>
       <style>
-        .bh-activity-enquiry-cta{margin:28px 0;padding:24px;border:1px solid #d8e6dc;border-radius:16px;background:#f2f8f4;text-align:center}
+        .bh-activity-enquiry-cta{margin:22px 0 0;padding:20px 0 0;border:0;border-top:1px solid #d8e6dc;border-radius:0;background:transparent;text-align:center}
         .bh-activity-enquiry-cta p{margin:10px 0 0;color:#49665c}
         .bh-enquiry-open{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:13px 24px;border:0;border-radius:12px;background:#175c46;color:#fff;font:inherit;font-weight:700;cursor:pointer}
         .bh-enquiry-open:hover{background:#104936}
