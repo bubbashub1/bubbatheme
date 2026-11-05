@@ -1923,3 +1923,21 @@ body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form
 .bh-activity-dynamic .bh-session-enquire{background:#e2f1e8;color:#14533f;border:1px solid #b4d6c3}
 .bh-activity-dynamic .bh-session-row-actions a:focus-visible{outline:3px solid #d7ad53;outline-offset:3px}
 @media(max-width:600px){.bh-activity-map iframe{height:220px}.bh-activity-dynamic .bh-session-row-actions{justify-content:flex-start}}
+
+/* Activity quick facts: consistent, accessible two-tone green palette. */
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div,
+.wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div {
+  background:#e6f1e9 !important;
+  color:#174f3e !important;
+  border:1px solid #c8ddce !important;
+}
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(even),
+.wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(even) {
+  background:#195943 !important;
+  color:#fff !important;
+  border-color:#195943 !important;
+}
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div small {color:#456b59 !important;}
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div strong {color:#174f3e !important;}
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(even) small,
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(even) strong {color:#fff !important;}
