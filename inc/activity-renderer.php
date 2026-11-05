@@ -130,7 +130,6 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         <div class="bh-activity-organiser-actions">
           <?php if ( ! empty( $enquiry_dialog_id ) ) : ?>
           <button type="button" class="bh-enquiry-open" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">Interested in joining? <span aria-hidden="true">→</span></button>
-          <button type="button" class="bh-enquiry-open bh-enquiry-contact" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">Send an enquiry</button>
           <?php endif; ?>
           <?php if ( $field( 'website_url' ) ) : ?><a href="<?php echo esc_url( $field( 'website_url' ) ); ?>" rel="noopener noreferrer" target="_blank">Organiser website</a><?php endif; ?>
           <?php if ( $booking ) : ?><a href="<?php echo esc_url( $booking ); ?>" rel="noopener noreferrer">Book now</a><?php endif; ?>
