@@ -29,6 +29,19 @@ add_action(
             array(),
             file_exists( get_theme_file_path( 'assets/css/site.css' ) ) ? (string) filemtime( get_theme_file_path( 'assets/css/site.css' ) ) : wp_get_theme()->get( 'Version' )
         );
+        wp_enqueue_style(
+            'bubba-hub-portal-jump',
+            get_theme_file_uri( 'assets/css/portal-jump.css' ),
+            array( 'bubba-hub-theme' ),
+            (string) filemtime( get_theme_file_path( 'assets/css/portal-jump.css' ) )
+        );
+        wp_enqueue_script(
+            'bubba-hub-portal-jump',
+            get_theme_file_uri( 'assets/js/portal-jump.js' ),
+            array(),
+            (string) filemtime( get_theme_file_path( 'assets/js/portal-jump.js' ) ),
+            true
+        );
     }
 );
 

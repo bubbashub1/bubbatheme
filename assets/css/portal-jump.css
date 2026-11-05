@@ -1,0 +1,10 @@
+/* Portal sidebar becomes a native jump menu on small tablets and phones. */
+.bh-portal-jump{display:none;min-width:0}
+@media (max-width:1024px){
+  :is(.bh-leader-unified .bh-unified-layout,.bh-leader-business .bh-business-layout,.bh3-family--sidebar .bh3-family__shell,.bh3-family-profile-preview > div){grid-template-columns:minmax(0,1fr)!important}
+  .bh-portal-jump-source{display:none!important}
+  .bh-portal-jump{display:block;width:100%;box-sizing:border-box;margin:0 0 16px;padding:14px 16px;background:#fff;border:1px solid #dbe5df;border-radius:14px}
+  .bh-portal-jump label{display:block;margin-bottom:7px;font-size:.9rem;font-weight:700;color:#1e5743}
+  .bh-portal-jump select{display:block;width:100%;max-width:100%;min-height:46px;box-sizing:border-box;border:1px solid #b9cfc1;border-radius:10px;background:#fff;color:#203c31;padding:10px 12px;font:inherit}
+  .bh-portal-jump select:focus-visible{outline:3px solid #245e4a;outline-offset:2px}
+}
