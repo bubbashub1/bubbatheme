@@ -64,7 +64,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
           <section class="bh-reference-panel">
             <h2>Location &amp; directions</h2>
             <?php if ( $field( 'venue' ) ) : ?><p><?php echo esc_html( $field( 'venue' ) ); ?></p><?php endif; ?>
-            <?php if ( $field( 'address' ) ) : ?><p><?php echo esc_html( $field( 'address' ) ); ?></p><?php endif; ?>
+
             <?php if ( $map_query ) : ?>
               <div class="bh-activity-map">
                 <iframe title="<?php echo esc_attr( 'Map of ' . ( $field( 'venue' ) ?: $title ) ); ?>" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="<?php echo esc_url( 'https://maps.google.com/maps?q=' . rawurlencode( $map_query ) . '&output=embed' ); ?>"></iframe>
