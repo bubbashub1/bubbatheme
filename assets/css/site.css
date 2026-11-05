@@ -2037,3 +2037,18 @@ body:not(.wp-admin) .wp-site-blocks > header .bh-header-search-panel{
  right:15px!important;width:calc(100vw - 30px)!important;
  }
 }
+
+/* Align logo to the left edge while retaining right-aligned navigation and actions. */
+@media (min-width:900px) {
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-template-part > .wp-block-group {
+   width:100%!important;max-width:none!important;
+   padding-left:25px!important;padding-right:25px!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-site-logo,
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-site-title {
+   margin-left:0!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-template-part > .wp-block-group > :first-child {
+   margin-left:0!important;margin-right:auto!important;
+ }
+}
