@@ -1878,3 +1878,38 @@ body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form
     width: 15%;
   }
 }
+
+/* Dynamic activity quick facts — coordinated two-tone Bubba Hub greens. */
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts {
+  background:#174f3e;
+  border-radius:16px;
+  padding:10px;
+  gap:8px;
+}
+.bh-activity-dynamic .bh-dynamic-facts > div {
+  background:#236c55;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:11px;
+  padding:12px 14px;
+  min-width:0;
+}
+.bh-activity-dynamic .bh-dynamic-facts > div:nth-child(even) {
+  background:#195943;
+}
+.bh-activity-dynamic .bh-dynamic-facts small {
+  color:#e2f1e8;
+  letter-spacing:.04em;
+}
+.bh-activity-dynamic .bh-dynamic-facts strong {
+  color:#fff;
+  font-weight:700;
+}
+@media (max-width:600px) {
+  .bh-activity-dynamic .bh-dynamic-facts {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .bh-activity-dynamic .bh-dynamic-facts > div {
+    padding:11px 12px;
+  }
+}
