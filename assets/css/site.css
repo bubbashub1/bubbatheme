@@ -2013,3 +2013,27 @@ body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form
  body:not(.wp-admin) .wp-site-blocks > header .bh-header-search-inline{width:auto;flex:0 0 auto}
  body:not(.wp-admin) .wp-site-blocks > header .bh-header-search-fallback{padding:0;margin:0!important}
 }
+
+/* Saved Site Editor header: align the independently saved navigation/action groups. */
+@media(min-width:900px){
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-template-part > .wp-block-group{
+   display:flex!important;flex-direction:row!important;align-items:center!important;flex-wrap:nowrap!important;
+   justify-content:space-between!important;gap:12px!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .wp-block-template-part > .wp-block-group > .wp-block-group{
+   min-width:0;flex:0 1 auto;margin-block:0!important;
+ }
+ body:not(.wp-admin) .wp-site-blocks > header .bh-header-search-inline{flex:0 0 42px!important;align-self:center}
+}
+/* The search overlay is viewport anchored, not clipped by saved header columns. */
+body:not(.wp-admin) .wp-site-blocks > header .bh-header-search-panel{
+ position:fixed!important;top:var(--bh-search-panel-top,110px)!important;
+ left:auto!important;right:25px!important;width:min(1050px,calc(100vw - 50px))!important;
+ max-height:calc(100vh - var(--bh-search-panel-top,110px) - 12px);
+ overflow-y:auto;z-index:99999!important;
+}
+@media(max-width:600px){
+ body:not(.wp-admin) .wp-site-blocks > header .bh-header-search-panel{
+ right:15px!important;width:calc(100vw - 30px)!important;
+ }
+}
