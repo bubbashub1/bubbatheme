@@ -110,12 +110,45 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
           <?php endif; ?>
         </div>
       </div>
-      <?php if ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) : ?>
-      <section id="bh-activity-enquiry" class="bh-reference-panel bh-activity-enquiry">
-        <h2>Interested in joining?</h2>
-        <p>Send an enquiry to the class leader. This is not a confirmed booking.</p>
-        <?php echo do_shortcode( '[fluentform id="6"]' ); ?>
+      <?php if ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) :
+          $enquiry_dialog_id = 'bh-activity-enquiry-dialog-' . wp_unique_id();
+      ?>
+      <section class="bh-activity-enquiry-cta" aria-label="Enquire about this activity">
+        <button type="button" class="bh-enquiry-open" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">
+          Interested in joining? <span aria-hidden="true">→</span>
+        </button>
+        <p>Ask the class leader about sessions and availability. This is not a confirmed booking.</p>
       </section>
+      <dialog id="<?php echo esc_attr( $enquiry_dialog_id ); ?>" class="bh-activity-enquiry-dialog" aria-labelledby="<?php echo esc_attr( $enquiry_dialog_id ); ?>-title">
+        <div class="bh-enquiry-dialog-inner">
+          <div class="bh-enquiry-dialog-heading">
+            <div><p class="bh-enquiry-eyebrow">BUBBA HUB · ENQUIRY</p><h2 id="<?php echo esc_attr( $enquiry_dialog_id ); ?>-title">Interested in joining?</h2><p>Send an enquiry to the class leader. This is not a confirmed booking.</p></div>
+            <button type="button" class="bh-enquiry-close" aria-label="Close enquiry form">×</button>
+          </div>
+          <?php echo do_shortcode( '[fluentform id="6"]' ); ?>
+        </div>
+      </dialog>
+      <style>
+        .bh-activity-enquiry-cta{margin:28px 0;padding:24px;border:1px solid #d8e6dc;border-radius:16px;background:#f2f8f4;text-align:center}
+        .bh-activity-enquiry-cta p{margin:10px 0 0;color:#49665c}
+        .bh-enquiry-open{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:13px 24px;border:0;border-radius:12px;background:#175c46;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+        .bh-enquiry-open:hover{background:#104936}
+        .bh-activity-enquiry-dialog{width:min(760px,calc(100% - 28px));max-width:760px;max-height:min(88vh,900px);padding:0;border:0;border-radius:18px;color:#173c34;box-shadow:0 24px 80px rgba(13,43,33,.28);overflow:visible}
+        .bh-activity-enquiry-dialog::backdrop{background:rgba(13,35,29,.62);backdrop-filter:blur(3px)}
+        .bh-enquiry-dialog-inner{max-height:min(88vh,900px);overflow-y:auto;padding:26px}
+        .bh-enquiry-dialog-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:20px}
+        .bh-enquiry-dialog-heading h2{margin:4px 0 8px;color:#175c46}
+        .bh-enquiry-dialog-heading p{margin:0}
+        .bh-enquiry-eyebrow{font-size:12px;letter-spacing:.1em;font-weight:700;color:#56816e}
+        .bh-enquiry-close{flex:0 0 40px;width:40px;height:40px;border:1px solid #d8e6dc;border-radius:50%;background:#fff;color:#175c46;font-size:26px;line-height:1;cursor:pointer}
+        .bh-activity-enquiry-dialog .ff-el-group{margin-bottom:16px}
+        @media(max-width:600px){.bh-enquiry-dialog-inner{padding:18px}.bh-activity-enquiry-dialog{width:calc(100% - 16px);max-height:92vh}.bh-enquiry-dialog-inner{max-height:92vh}}
+      </style>
+      <?php
+          wp_register_script( 'bh-activity-enquiry-modal', false, array(), '1.0.0', true );
+          wp_enqueue_script( 'bh-activity-enquiry-modal' );
+          wp_add_inline_script( 'bh-activity-enquiry-modal', 'document.addEventListener("click",function(e){const open=e.target.closest(".bh-enquiry-open");if(open){const dialog=document.getElementById(open.getAttribute("aria-controls"));if(dialog&&typeof dialog.showModal==="function"){dialog.showModal();}return;}const close=e.target.closest(".bh-enquiry-close");if(close){const dialog=close.closest("dialog");if(dialog)dialog.close();}});document.addEventListener("click",function(e){if(e.target.matches(".bh-activity-enquiry-dialog")){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});', 'after' );
+      ?>
       <?php endif; ?>
     </article>
     <?php
