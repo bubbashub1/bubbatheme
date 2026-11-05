@@ -149,6 +149,15 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         </div>
       </dialog>
       <style>
+        .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div,
+        .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(even),
+        .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(odd) {
+          background:#195943 !important;
+          color:#fff !important;
+          border-color:rgba(255,255,255,.2) !important;
+        }
+        .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div small {color:#e2f1e8 !important;}
+        .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div strong {color:#fff !important;}
         .bh-activity-organiser{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:20px 0 0}
         .bh-activity-organiser-copy h2{margin:4px 0 8px}
         .bh-activity-organiser-copy p{margin:0;color:#48685d}
