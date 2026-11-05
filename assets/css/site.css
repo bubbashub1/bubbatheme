@@ -1924,18 +1924,28 @@ body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form
 .bh-activity-dynamic .bh-session-row-actions a:focus-visible{outline:3px solid #d7ad53;outline-offset:3px}
 @media(max-width:600px){.bh-activity-map iframe{height:220px}.bh-activity-dynamic .bh-session-row-actions{justify-content:flex-start}}
 
-/* Activity quick facts: unified dark green, high-contrast text. */
+/* Dynamic activity quick info: every card dark green, including odd cards.
+   Explicitly override the block-theme reference alternating white backgrounds. */
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts,
 .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts {
-  background:#174f3e;
+  background:#174f3e !important;
 }
-.wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div {
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div,
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(odd),
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(even),
+.wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div,
+.wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(odd),
+.wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(even) {
   background:#195943 !important;
+  background-color:#195943 !important;
   color:#fff !important;
-  border:1px solid rgba(255,255,255,.18) !important;
+  border:1px solid rgba(255,255,255,.25) !important;
 }
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div small,
 .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div small {
   color:#e2f1e8 !important;
 }
+.bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div strong,
 .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div strong {
   color:#fff !important;
 }
