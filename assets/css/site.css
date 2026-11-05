@@ -1949,3 +1949,14 @@ body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form
 .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div strong {
   color:#fff !important;
 }
+
+/* Live-inspired header directory search. */
+.wp-site-blocks > header .bh-header-search-row{max-width:100%;width:100%;margin-block:8px 0;padding-inline:25px;box-sizing:border-box}
+.bh-header-search{display:grid;grid-template-columns:minmax(160px,1.5fr) repeat(4,minmax(110px,1fr)) minmax(95px,.7fr);gap:9px;align-items:center;max-width:1050px;margin:0 0 0 auto}
+.bh-header-search input,.bh-header-search select{box-sizing:border-box;width:100%;height:46px;padding:0 13px;border:1px solid #d5e2dc;border-radius:12px;background:#fff;color:#174f46;font:inherit;font-size:.88rem;min-width:0}
+.bh-header-search input::placeholder{color:#668076;opacity:1}
+.bh-header-search button{height:46px;padding:0 18px;border:0;border-radius:12px;background:#155b43;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.bh-header-search button:hover{background:#0d4432}
+.bh-header-search :is(input,select,button):focus-visible{outline:3px solid #69a68d;outline-offset:2px}
+@media(max-width:1000px){.bh-header-search{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none}}
+@media(max-width:600px){.wp-site-blocks > header .bh-header-search-row{padding-inline:15px}.bh-header-search{grid-template-columns:repeat(2,minmax(0,1fr))}.bh-header-search input[type=search]{grid-column:1/-1}.bh-header-search button{grid-column:1/-1}}
