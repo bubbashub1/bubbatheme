@@ -57,8 +57,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
           <?php if ( $categories ) : ?><p class="bh-reference-tags"><?php echo esc_html( implode( ' · ', $categories ) ); ?></p><?php endif; ?>
           <h2>About <?php echo esc_html( $title ); ?></h2>
           <div class="bh-dynamic-description"><?php echo wp_kses_post( wpautop( $field( 'description' ) ) ); ?></div>
-          <?php if ( $field( 'organiser' ) ) : ?><p><strong>Organiser:</strong> <?php echo esc_html( $field( 'organiser' ) ); ?></p><?php endif; ?>
-          <?php if ( $field( 'website_url' ) ) : ?><p><a href="<?php echo esc_url( $field( 'website_url' ) ); ?>" rel="noopener noreferrer">Organiser website</a></p><?php endif; ?>
+
         </section>
         <div>
           <section class="bh-reference-panel">
@@ -127,6 +126,23 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         </div>
       </div>
 
+      <?php if ( $field( 'organiser' ) || $field( 'website_url' ) || $booking || ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) ) : ?>
+      <section class="bh-reference-panel bh-activity-organiser" aria-label="Class organiser and contact options">
+        <div class="bh-activity-organiser-copy">
+          <p class="bh-dynamic-eyebrow">CLASS LEADER</p>
+          <h2><?php echo esc_html( $field( 'organiser' ) ?: 'Contact the organiser' ); ?></h2>
+          <p>Have a question about this activity? Get in touch with the class leader.</p>
+        </div>
+        <div class="bh-activity-organiser-actions">
+          <?php if ( ! empty( $enquiry_dialog_id ) ) : ?>
+          <button type="button" class="bh-enquiry-open" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">Send an enquiry</button>
+          <?php endif; ?>
+          <?php if ( $field( 'website_url' ) ) : ?><a href="<?php echo esc_url( $field( 'website_url' ) ); ?>" rel="noopener noreferrer" target="_blank">Organiser website</a><?php endif; ?>
+          <?php if ( $booking ) : ?><a href="<?php echo esc_url( $booking ); ?>" rel="noopener noreferrer">Book now</a><?php endif; ?>
+        </div>
+      </section>
+      <?php endif; ?>
+
       <?php if ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) : ?>
       <dialog id="<?php echo esc_attr( $enquiry_dialog_id ); ?>" class="bh-activity-enquiry-dialog" aria-labelledby="<?php echo esc_attr( $enquiry_dialog_id ); ?>-title">
         <div class="bh-enquiry-dialog-inner">
@@ -138,6 +154,13 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         </div>
       </dialog>
       <style>
+        .bh-activity-organiser{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:20px 0 0}
+        .bh-activity-organiser-copy h2{margin:4px 0 8px}
+        .bh-activity-organiser-copy p{margin:0;color:#48685d}
+        .bh-activity-organiser-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+        .bh-activity-organiser-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 20px;border:1px solid #bfd8c9;border-radius:12px;color:#175c46;text-decoration:none;font-weight:700}
+        .bh-activity-organiser-actions a:hover{background:#edf6f0}
+        @media(max-width:700px){.bh-activity-organiser{flex-direction:column;align-items:stretch}.bh-activity-organiser-actions{justify-content:stretch}.bh-activity-organiser-actions>*{flex:1 1 100%}}
         .bh-activity-enquiry-cta{margin:22px 0 0;padding:20px 0 0;border:0;border-top:1px solid #d8e6dc;border-radius:0;background:transparent;text-align:center}
         .bh-activity-enquiry-cta p{margin:10px 0 0;color:#49665c}
         .bh-enquiry-open{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:50px;padding:13px 24px;border:0;border-radius:12px;background:#175c46;color:#fff;font:inherit;font-weight:700;cursor:pointer}
