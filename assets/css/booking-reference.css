@@ -1,0 +1,133 @@
+/* Bubba Hub reference design: presentation only, no booking behaviour.
+   Scoped to booking/leader components so other pages keep their existing layouts. */
+:root {
+  --bh-ui-forest:#207663;
+  --bh-ui-forest-dark:#165b4c;
+  --bh-ui-ink:#142439;
+  --bh-ui-muted:#536473;
+  --bh-ui-border:#e2e7e6;
+  --bh-ui-mint:#e3f4ed;
+  --bh-ui-canvas:#fffaf7;
+  --bh-ui-coral:#e58e82;
+  --bh-ui-radius:18px;
+  --bh-ui-shadow:0 6px 22px rgb(25 58 49 / 5%);
+}
+:is(.bh-leader-bookings,.bh-leader-timetable,.bh-parent-booking,.bh3-parent-booking,.bh-booking-panel) {
+  color:var(--bh-ui-ink);
+  font-family:var(--wp--preset--font-family--quicksand, 'Quicksand', sans-serif);
+}
+:is(.bh-leader-bookings,.bh-leader-timetable,.bh-parent-booking,.bh3-parent-booking) :is(h1,h2,h3,h4) {
+  color:var(--bh-ui-ink);
+  letter-spacing:-.035em;
+  line-height:1.25;
+}
+:is(.bh-leader-bookings,.bh-leader-timetable,.bh-parent-booking,.bh3-parent-booking) :is(button,input,select,textarea) {
+  font:inherit;
+}
+:is(.bh-leader-bookings,.bh-leader-timetable,.bh-parent-booking,.bh3-parent-booking) :is(input:not([type="checkbox"]):not([type="radio"]),select,textarea) {
+  min-height:42px;
+  max-width:100%;
+  border:1px solid #d6dedc;
+  border-radius:9px;
+  background:#fff;
+  color:var(--bh-ui-ink);
+  padding:.65rem .85rem;
+  box-sizing:border-box;
+}
+:is(.bh-leader-bookings,.bh-leader-timetable,.bh-parent-booking,.bh3-parent-booking) :is(input,select,textarea,button,a):focus-visible {
+  outline:3px solid #79b7a2;
+  outline-offset:2px;
+}
+:is(.bh-leader-bookings,.bh-leader-timetable,.bh-parent-booking,.bh3-parent-booking) :is(button,.button,input[type="submit"],.wp-element-button) {
+  border-radius:9px;
+  min-height:42px;
+  font-weight:700;
+}
+:is(.bh-leader-bookings,.bh-leader-timetable,.bh-parent-booking,.bh3-parent-booking) :is(button[type="submit"],input[type="submit"],.bh-booking-primary,.bh-btn-primary) {
+  border:1px solid var(--bh-ui-forest-dark);
+  background:linear-gradient(110deg,var(--bh-ui-forest-dark),#2e9279);
+  color:#fff;
+  padding:.7rem 1.2rem;
+  cursor:pointer;
+}
+:is(.bh-leader-bookings,.bh-leader-timetable,.bh-parent-booking,.bh3-parent-booking) :is(button:disabled,input:disabled) {
+  opacity:.55;
+  cursor:not-allowed;
+}
+.bh-leader-bookings {
+  max-width:100%;
+  padding:clamp(12px,2vw,26px);
+  background:var(--bh-ui-canvas);
+  border-radius:22px;
+}
+.bh-leader-bookings .bh-bookings-hero {
+  padding:clamp(18px,2.6vw,32px);
+  background:#fff;
+  border:1px solid var(--bh-ui-border);
+  border-radius:var(--bh-ui-radius);
+  box-shadow:var(--bh-ui-shadow);
+}
+.bh-leader-bookings .bh-bookings-hero h1 {
+  margin:.2rem 0 .35rem;
+  font-size:clamp(1.5rem,2.6vw,2rem);
+}
+.bh-leader-bookings .bh-bookings-hero p {margin:.3rem 0;color:var(--bh-ui-muted)}
+.bh-leader-bookings .bh-bookings-notice {
+  margin:16px 0;
+  border:1px solid #c9e5de;
+  border-radius:12px;
+  background:#eaf7f7;
+  color:#22546a;
+  padding:14px 18px;
+}
+.bh-leader-bookings :is(.bh-bookings-calendar,.bh-calendar,.bh-bookings-filters,.bh-bookings-list,.bh-bookings-section,.bh-bookings-panel),
+.bh-leader-timetable :is(.bh-session-card,.bh-session-editor,.bh-timetable-panel) {
+  background:#fff;
+  border:1px solid var(--bh-ui-border);
+  border-radius:var(--bh-ui-radius);
+  box-shadow:var(--bh-ui-shadow);
+}
+.bh-leader-bookings table {
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  background:#fff;
+  border:1px solid var(--bh-ui-border);
+  border-radius:12px;
+  overflow:hidden;
+}
+.bh-leader-bookings :is(th,td) {border-bottom:1px solid #e9eded;padding:.75rem;text-align:left;vertical-align:top}
+.bh-leader-bookings th {background:#f7faf9;font-weight:750}
+.bh-leader-bookings tr:last-child td {border-bottom:0}
+.bh-leader-bookings a {color:var(--bh-ui-forest-dark)}
+.bh-leader-bookings :is(.bh-calendar-day,.bh-booking-event,.bh-session-pill) {border-radius:7px}
+.bh-leader-bookings :is(.bh-booking-event,.bh-session-pill) {background:var(--bh-ui-mint);color:var(--bh-ui-forest-dark);padding:.2rem .45rem}
+.bh-leader-timetable :is(fieldset,.bh-session-editor) {border:1px solid var(--bh-ui-border);border-radius:14px;padding:clamp(14px,2vw,22px);background:#fff}
+.bh-leader-timetable label {font-weight:700;color:var(--bh-ui-ink)}
+.bh-parent-booking,.bh3-parent-booking {
+  border:1px solid var(--bh-ui-border);
+  border-radius:var(--bh-ui-radius);
+  padding:clamp(16px,2.2vw,26px);
+  background:#fff;
+  box-shadow:var(--bh-ui-shadow);
+}
+.bh-parent-booking :is(.bh-booking-summary,.bh-booking-attendee,.bh-booking-option),
+.bh3-parent-booking :is(.bh-booking-summary,.bh-booking-attendee,.bh-booking-option) {
+  padding:12px 14px;
+  border:1px solid var(--bh-ui-border);
+  border-radius:12px;
+  background:#fff;
+}
+.bh-parent-booking :is(input[type="checkbox"],input[type="radio"]),
+.bh3-parent-booking :is(input[type="checkbox"],input[type="radio"]) {accent-color:var(--bh-ui-forest)}
+@media(max-width:780px) {
+  .bh-leader-bookings {padding:10px;border-radius:14px}
+  .bh-leader-bookings .bh-bookings-hero {padding:18px}
+  .bh-leader-bookings :is(.bh-bookings-filters,.bh-bookings-actions) {display:flex;flex-wrap:wrap;gap:8px}
+  .bh-leader-bookings table {display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .bh-leader-bookings :is(th,td) {padding:.5rem;min-width:75px;font-size:.82rem}
+  .bh-parent-booking,.bh3-parent-booking {padding:16px}
+}
+@media(prefers-reduced-motion:reduce) {
+  :is(.bh-leader-bookings,.bh-leader-timetable,.bh-parent-booking,.bh3-parent-booking) * {scroll-behavior:auto}
+}
