@@ -130,6 +130,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         <div class="bh-activity-organiser-actions">
           <?php if ( ! empty( $enquiry_dialog_id ) ) : ?>
           <button type="button" class="bh-enquiry-open" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">Interested in joining? <span aria-hidden="true">→</span></button>
+          <button type="button" class="bh-enquiry-open bh-enquiry-contact" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">Send an enquiry</button>
           <?php endif; ?>
           <?php if ( $field( 'website_url' ) ) : ?><a href="<?php echo esc_url( $field( 'website_url' ) ); ?>" rel="noopener noreferrer" target="_blank">Organiser website</a><?php endif; ?>
           <?php if ( $booking ) : ?><a href="<?php echo esc_url( $booking ); ?>" rel="noopener noreferrer">Book now</a><?php endif; ?>
@@ -154,6 +155,9 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         .bh-activity-organiser-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
         .bh-activity-organiser-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 20px;border:1px solid #bfd8c9;border-radius:12px;color:#175c46;text-decoration:none;font-weight:700}
         .bh-activity-organiser-actions a:hover{background:#edf6f0}
+        .bh-activity-organiser-actions .bh-enquiry-contact{background:#e6f1e9;color:#175c46;border:1px solid #bfd8c9}
+        .bh-activity-organiser-actions .bh-enquiry-contact:hover{background:#d6e9dc}
+        .bh-activity-organiser-actions button{font:inherit;font-weight:700}
         @media(max-width:700px){.bh-activity-organiser{flex-direction:column;align-items:stretch}.bh-activity-organiser-actions{justify-content:stretch}.bh-activity-organiser-actions>*{flex:1 1 100%}}
         .bh-activity-enquiry-cta{margin:22px 0 0;padding:20px 0 0;border:0;border-top:1px solid #d8e6dc;border-radius:0;background:transparent;text-align:center}
         .bh-activity-enquiry-cta p{margin:10px 0 0;color:#49665c}
