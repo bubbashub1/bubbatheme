@@ -176,7 +176,13 @@ add_filter( 'render_block_core/template-part', static function ( $content, $bloc
     if ( ! $search || strpos( $search, 'bh-header-search' ) === false ) {
         return $content;
     }
-    return $content . '<div class="bh-header-search-row bh-header-search-fallback">' . $search . '</div>';
+    // Saved header templates: inject next to the actual navigation, not below the header.
+    $inline = '<div class="bh-header-search-inline bh-header-search-fallback">' . $search . '</div>';
+    if ( strpos( $content, '</nav>' ) !== false ) {
+        return preg_replace( '~</nav>~i', '</nav>' . $inline, $content, 1 );
+    }
+    // Keep the search accessible if a customised header contains no navigation.
+    return $content . $inline;
 }, 20, 2 );
 
 /** Compact site-wide directory search; filter names match BH_Directory_3. */
