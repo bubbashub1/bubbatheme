@@ -108,17 +108,19 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
             </div>
           </section>
           <?php endif; ?>
+          <?php if ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) :
+              $enquiry_dialog_id = 'bh-activity-enquiry-dialog-' . wp_unique_id();
+          ?>
+          <section class="bh-activity-enquiry-cta" aria-label="Enquire about this activity">
+            <button type="button" class="bh-enquiry-open" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">
+              Interested in joining? <span aria-hidden="true">→</span>
+            </button>
+            <p>Ask the class leader about sessions and availability. This is not a confirmed booking.</p>
+          </section>
+          <?php endif; ?>
         </div>
       </div>
-      <?php if ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) :
-          $enquiry_dialog_id = 'bh-activity-enquiry-dialog-' . wp_unique_id();
-      ?>
-      <section class="bh-activity-enquiry-cta" aria-label="Enquire about this activity">
-        <button type="button" class="bh-enquiry-open" aria-haspopup="dialog" aria-controls="<?php echo esc_attr( $enquiry_dialog_id ); ?>">
-          Interested in joining? <span aria-hidden="true">→</span>
-        </button>
-        <p>Ask the class leader about sessions and availability. This is not a confirmed booking.</p>
-      </section>
+
       <dialog id="<?php echo esc_attr( $enquiry_dialog_id ); ?>" class="bh-activity-enquiry-dialog" aria-labelledby="<?php echo esc_attr( $enquiry_dialog_id ); ?>-title">
         <div class="bh-enquiry-dialog-inner">
           <div class="bh-enquiry-dialog-heading">
