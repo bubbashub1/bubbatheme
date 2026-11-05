@@ -158,3 +158,37 @@ add_shortcode( 'bh_compare_activities', static function () {
     <?php
     return ob_get_clean();
 } );
+
+/** Compact site-wide directory search; filter names match BH_Directory_3. */
+add_shortcode( 'bh_header_search', static function () {
+    $selected = static function ( $key ) {
+        return isset( $_GET[ $key ] ) && is_scalar( $_GET[ $key ] ) ? sanitize_text_field( wp_unslash( $_GET[ $key ] ) ) : '';
+    };
+    ob_start();
+    ?>
+    <form class="bh-header-search" role="search" method="get" action="<?php echo esc_url( home_url( '/directory/' ) ); ?>">
+      <label class="screen-reader-text" for="bh-header-keyword">Search activities</label>
+      <input id="bh-header-keyword" name="bh_search" type="search" placeholder="Keyword" value="<?php echo esc_attr( $selected( 'bh_search' ) ); ?>">
+      <label class="screen-reader-text" for="bh-header-region">Region</label>
+      <select id="bh-header-region" name="bh_region">
+        <option value="">Region</option>
+        <?php foreach ( array( 'Devon', 'Cornwall' ) as $region ) : ?>
+        <option value="<?php echo esc_attr( $region ); ?>" <?php selected( $selected( 'bh_region' ), $region ); ?>><?php echo esc_html( $region ); ?></option>
+        <?php endforeach; ?>
+      </select>
+      <label class="screen-reader-text" for="bh-header-town">Town</label>
+      <input id="bh-header-town" name="bh_town" type="text" placeholder="Town" value="<?php echo esc_attr( $selected( 'bh_town' ) ); ?>">
+      <label class="screen-reader-text" for="bh-header-category">Category</label>
+      <input id="bh-header-category" name="bh_category" type="text" placeholder="Category" value="<?php echo esc_attr( $selected( 'bh_category' ) ); ?>">
+      <label class="screen-reader-text" for="bh-header-day">Day</label>
+      <select id="bh-header-day" name="bh_day">
+        <option value="">Day</option>
+        <?php foreach ( array( 1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday', 5 => 'Friday', 6 => 'Saturday', 7 => 'Sunday' ) as $number => $name ) : ?>
+        <option value="<?php echo esc_attr( $number ); ?>" <?php selected( $selected( 'bh_day' ), (string) $number ); ?>><?php echo esc_html( $name ); ?></option>
+        <?php endforeach; ?>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+    <?php
+    return ob_get_clean();
+} );
