@@ -159,6 +159,26 @@ add_shortcode( 'bh_compare_activities', static function () {
     return ob_get_clean();
 } );
 
+/**
+ * Saved Site Editor header template parts override parts/header.html.
+ * Append the search to the rendered header when that saved template lacks it.
+ * This does not alter or reset the user's navigation customisations.
+ */
+add_filter( 'render_block_core/template-part', static function ( $content, $block ) {
+    $attrs = isset( $block['attrs'] ) && is_array( $block['attrs'] ) ? $block['attrs'] : array();
+    if ( ( $attrs['slug'] ?? '' ) !== 'header' || strpos( $content, 'bh-header-search' ) !== false ) {
+        return $content;
+    }
+    if ( ! shortcode_exists( 'bh_header_search' ) ) {
+        return $content;
+    }
+    $search = do_shortcode( '[bh_header_search]' );
+    if ( ! $search || strpos( $search, 'bh-header-search' ) === false ) {
+        return $content;
+    }
+    return $content . '<div class="bh-header-search-row bh-header-search-fallback">' . $search . '</div>';
+}, 20, 2 );
+
 /** Compact site-wide directory search; filter names match BH_Directory_3. */
 add_shortcode( 'bh_header_search', static function () {
     $selected = static function ( $key ) {
