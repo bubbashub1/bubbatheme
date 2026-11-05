@@ -186,6 +186,12 @@ add_shortcode( 'bh_header_search', static function () {
     };
     ob_start();
     ?>
+    <div class="bh-header-search-widget">
+      <button type="button" class="bh-header-search-toggle" aria-expanded="false" aria-label="Open activity search" title="Search activities">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+        <span class="screen-reader-text">Search activities</span>
+      </button>
+      <div class="bh-header-search-panel" hidden>
     <form class="bh-header-search" role="search" method="get" action="<?php echo esc_url( home_url( '/directory/' ) ); ?>">
       <label class="screen-reader-text" for="bh-header-keyword">Search activities</label>
       <input id="bh-header-keyword" name="bh_search" type="search" placeholder="Keyword" value="<?php echo esc_attr( $selected( 'bh_search' ) ); ?>">
@@ -209,6 +215,32 @@ add_shortcode( 'bh_header_search', static function () {
       </select>
       <button type="submit">Search</button>
     </form>
+      </div>
+    </div>
+    <script>
+    (function(){
+      if(window.bhHeaderSearchBound)return;
+      window.bhHeaderSearchBound=true;
+      document.addEventListener('click',function(event){
+        var button=event.target.closest('.bh-header-search-toggle');
+        if(button){
+          var widget=button.closest('.bh-header-search-widget'),panel=widget&&widget.querySelector('.bh-header-search-panel');
+          if(!panel)return;
+          var opening=panel.hidden;
+          document.querySelectorAll('.bh-header-search-panel').forEach(function(p){p.hidden=true;});
+          document.querySelectorAll('.bh-header-search-toggle').forEach(function(b){b.setAttribute('aria-expanded','false');});
+          panel.hidden=!opening;button.setAttribute('aria-expanded',opening?'true':'false');
+          if(opening){var field=panel.querySelector('input[type="search"]');if(field)field.focus();}
+          return;
+        }
+        if(!event.target.closest('.bh-header-search-widget')){
+          document.querySelectorAll('.bh-header-search-panel').forEach(function(p){p.hidden=true;});
+          document.querySelectorAll('.bh-header-search-toggle').forEach(function(b){b.setAttribute('aria-expanded','false');});
+        }
+      });
+      document.addEventListener('keydown',function(event){if(event.key==='Escape'){document.querySelectorAll('.bh-header-search-panel').forEach(function(p){p.hidden=true;});document.querySelectorAll('.bh-header-search-toggle').forEach(function(b){b.setAttribute('aria-expanded','false');});}});
+    })();
+    </script>
     <?php
     return ob_get_clean();
 } );
