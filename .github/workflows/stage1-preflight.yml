@@ -1,0 +1,32 @@
+name: Stage 1 theme preflight
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  theme-preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install PHP CLI
+        run: sudo apt-get update && sudo apt-get install -y php-cli
+      - name: Check WordPress theme metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s style.css
+          grep -Eq 'Theme Name:[[:space:]]*[^[:space:]]' style.css
+          test -f index.php || test -f templates/index.html
+      - name: Lint all PHP files
+        shell: bash
+        run: |
+          set -euo pipefail
+          count=0
+          while IFS= read -r -d '' file; do
+            php -l "$file"
+            count=$((count + 1))
+          done < <(find . -type f -name '*.php' -print0)
+          echo "Linted $count PHP files"
