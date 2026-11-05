@@ -1960,3 +1960,7 @@ body.bh-simple-membership .swpm-registration-widget-form #swpm-registration-form
 .bh-header-search :is(input,select,button):focus-visible{outline:3px solid #69a68d;outline-offset:2px}
 @media(max-width:1000px){.bh-header-search{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none}}
 @media(max-width:600px){.wp-site-blocks > header .bh-header-search-row{padding-inline:15px}.bh-header-search{grid-template-columns:repeat(2,minmax(0,1fr))}.bh-header-search input[type=search]{grid-column:1/-1}.bh-header-search button{grid-column:1/-1}}
+
+/* Search fallback for Site Editor-saved header template parts. */
+.bh-header-search-fallback{width:100%;max-width:100%;box-sizing:border-box;padding:8px 25px 0;margin:0 auto}
+@media(max-width:600px){.bh-header-search-fallback{padding-inline:15px}}
