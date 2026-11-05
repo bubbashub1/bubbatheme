@@ -105,6 +105,13 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
           <?php endif; ?>
         </div>
       </div>
+      <?php if ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) : ?>
+      <section id="bh-activity-enquiry" class="bh-reference-panel bh-activity-enquiry">
+        <h2>Interested in joining?</h2>
+        <p>Send an enquiry to the class leader. This is not a confirmed booking.</p>
+        <?php echo do_shortcode( '[fluentform id="6"]' ); ?>
+      </section>
+      <?php endif; ?>
     </article>
     <?php
     return (string) ob_get_clean();
