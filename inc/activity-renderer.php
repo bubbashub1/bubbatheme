@@ -60,6 +60,13 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
           <?php if ( $categories ) : ?><p class="bh-reference-tags"><?php echo esc_html( implode( ' · ', $categories ) ); ?></p><?php endif; ?>
           <h2>About <?php echo esc_html( $title ); ?></h2>
           <div class="bh-dynamic-description"><?php echo wp_kses_post( wpautop( $field( 'description' ) ) ); ?></div>
+          <?php if ( $categories || $field( 'age_range' ) || $field( 'location' ) ) : ?>
+          <div class="bh-activity-detail-tags" aria-label="Activity details">
+            <?php foreach ( $categories as $category ) : ?><span><?php echo esc_html( $category ); ?></span><?php endforeach; ?>
+            <?php if ( $field( 'age_range' ) ) : ?><span><?php echo esc_html( $field( 'age_range' ) ); ?></span><?php endif; ?>
+            <?php if ( $field( 'location' ) ) : ?><span><?php echo esc_html( $field( 'location' ) ); ?></span><?php endif; ?>
+          </div>
+          <?php endif; ?>
 
         </section>
         <div>
@@ -137,6 +144,11 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
       </section>
       <?php endif; ?>
 
+      <nav class="bh-activity-footer-tools" aria-label="Activity navigation and feedback">
+        <a href="<?php echo esc_url( home_url( '/directory/' ) ); ?>">← Back to activities</a>
+        <?php if ( $field( 'updated_at' ) ) : ?><span class="bh-activity-updated">Listing updated: <?php echo esc_html( $field( 'updated_at' ) ); ?></span><?php endif; ?>
+      </nav>
+
       <?php if ( ! empty( $enquiry_dialog_id ) ) : ?>
       <dialog id="<?php echo esc_attr( $enquiry_dialog_id ); ?>" class="bh-activity-enquiry-dialog" aria-labelledby="<?php echo esc_attr( $enquiry_dialog_id ); ?>-title">
         <div class="bh-enquiry-dialog-inner">
@@ -148,6 +160,13 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         </div>
       </dialog>
       <style>
+        .bh-activity-detail-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+        .bh-activity-detail-tags span{display:inline-flex;padding:7px 12px;border-radius:100px;background:#e6f1e9;color:#195943;font-size:.82rem;font-weight:600}
+        .bh-activity-footer-tools{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:16px 0 0;padding:16px 4px}
+        .bh-activity-footer-tools a{display:inline-flex;align-items:center;min-height:42px;padding:9px 15px;border-radius:100px;background:#e6f1e9;color:#175c46;font-weight:700;text-decoration:none}
+        .bh-activity-footer-tools a:hover{background:#d5e9dd}
+        .bh-activity-updated{font-size:.78rem;color:#667d70}
+
         .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div,
         .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(even),
         .wp-site-blocks .bh-activity-dynamic .bh-reference-facts.bh-dynamic-facts > div:nth-child(odd) {
