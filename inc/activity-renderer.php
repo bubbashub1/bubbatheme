@@ -121,6 +121,7 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
         </div>
       </div>
 
+      <?php if ( ! empty( $activity['enquiry_enabled'] ) && shortcode_exists( 'fluentform' ) ) : ?>
       <dialog id="<?php echo esc_attr( $enquiry_dialog_id ); ?>" class="bh-activity-enquiry-dialog" aria-labelledby="<?php echo esc_attr( $enquiry_dialog_id ); ?>-title">
         <div class="bh-enquiry-dialog-inner">
           <div class="bh-enquiry-dialog-heading">
