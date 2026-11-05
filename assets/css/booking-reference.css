@@ -251,3 +251,35 @@
   .bh-leader-timetable #bh-session-editor .bh-session-grid {gap:10px}
   .bh-leader-timetable #bh-session-editor .bh-session-actions-footer button {width:100%}
 }
+
+/* Public activity detail: align existing BubbaTheme renderer with booking reference.
+   Only visual styles; schedule content and booking links remain plugin-driven. */
+.bh-activity-dynamic.bh-activity-reference {--bh-activity-accent:#217662;color:var(--bh-ui-ink);max-width:100%;margin-inline:auto}
+.bh-activity-dynamic .bh-dynamic-hero {
+  border-radius:20px;overflow:hidden;min-height:250px;
+  border:1px solid var(--bh-ui-border);box-shadow:var(--bh-ui-shadow);
+}
+.bh-activity-dynamic .bh-dynamic-hero-copy h1 {letter-spacing:-.045em;line-height:1.15}
+.bh-activity-dynamic .bh-dynamic-book {
+  background:linear-gradient(110deg,#185c4c,#2e9279);border-radius:10px;
+  color:#fff;text-decoration:none;font-weight:800;min-height:44px;
+  display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;
+}
+.bh-activity-dynamic .bh-reference-facts {gap:10px}
+.bh-activity-dynamic .bh-reference-facts > div {border-radius:12px;border:1px solid var(--bh-ui-border);background:#fff;box-shadow:var(--bh-ui-shadow)}
+.bh-activity-dynamic .bh-reference-facts small {color:var(--bh-ui-muted)}
+.bh-activity-dynamic .bh-reference-facts strong {color:var(--bh-ui-ink)}
+.bh-activity-dynamic .bh-reference-panel {border-radius:18px;border:1px solid var(--bh-ui-border);background:#fff;box-shadow:var(--bh-ui-shadow)}
+.bh-activity-dynamic .bh-reference-panel h2 {color:var(--bh-ui-ink);letter-spacing:-.03em}
+.bh-activity-dynamic .bh-reference-tags {color:var(--bh-ui-forest-dark)}
+.bh-activity-dynamic .bh-dynamic-table-wrap {overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bh-activity-dynamic .bh-dynamic-schedule {width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--bh-ui-border);border-radius:12px;overflow:hidden}
+.bh-activity-dynamic .bh-dynamic-schedule th {background:#f3f9f6;color:var(--bh-ui-ink);font-weight:800}
+.bh-activity-dynamic .bh-dynamic-schedule :is(th,td) {padding:12px 14px;text-align:left;border-bottom:1px solid var(--bh-ui-border)}
+.bh-activity-dynamic .bh-dynamic-schedule tr:last-child td {border-bottom:0}
+.bh-activity-dynamic .bh-dynamic-schedule tbody tr:hover {background:#f9fcfa}
+@media(max-width:680px) {
+  .bh-activity-dynamic .bh-dynamic-hero {min-height:210px;border-radius:14px}
+  .bh-activity-dynamic .bh-dynamic-schedule :is(th,td) {padding:9px 10px;font-size:.82rem}
+  .bh-activity-dynamic .bh-dynamic-book {width:100%;box-sizing:border-box}
+}
