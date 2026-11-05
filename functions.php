@@ -90,3 +90,14 @@ add_filter( 'body_class', static function ( $classes ) {
     }
     return $classes;
 } );
+
+/**
+ * Use the real activity renderer for /activity/{slug}/.
+ * The Activity Design Preview pattern remains an untouched editor demo.
+ */
+add_filter( 'template_include', static function ( $template ) {
+    if ( is_admin() || ! is_page( 'activity' ) ) { return $template; }
+    $slug = sanitize_title( (string) get_query_var( 'bh_activity_slug', '' ) );
+    if ( ! $slug ) { return $template; }
+    return get_theme_file_path( 'inc/activity-page.php' );
+}, 99 );
