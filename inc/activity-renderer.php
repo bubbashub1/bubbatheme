@@ -65,8 +65,27 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
           <a href="<?php echo esc_url( home_url( '/auth/' ) ); ?>">Sign in to save</a>
         <?php endif; ?>
         <a href="<?php echo esc_url( home_url( '/my-hub/planner/' ) ); ?>"><span aria-hidden="true">▦</span><span class="screen-reader-text">My planner</span></a>
-        <a href="<?php echo esc_url( home_url( '/my-hub/favourites/' ) ); ?>"><span aria-hidden="true">♡</span><span class="screen-reader-text">My favourites</span></a>
+        <a href="<?php echo esc_url( home_url( '/my-hub/favourites/' ) ); ?>" title="My favourites" aria-label="My favourites"><span aria-hidden="true">♡</span><span class="screen-reader-text">My favourites</span></a>
+        <?php
+        $can_visit = is_user_logged_in() && ! current_user_can( 'manage_options' )
+            && class_exists( 'BH_Family_Actions_3' ) && BH_Family_Actions_3::enabled()
+            && class_exists( 'BH_Family_Identity_3' ) && BH_Family_Identity_3::current_legacy_id() > 0
+            && defined( 'BH3_FAMILY_LEGACY_ACTIVITY_STATUS_VERIFIED' ) && BH3_FAMILY_LEGACY_ACTIVITY_STATUS_VERIFIED === true;
+        ?>
+        <?php if ( $can_visit ) : ?>
+          <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="bh-activity-visit-form">
+            <input type="hidden" name="action" value="bh3_family_activity_action">
+            <input type="hidden" name="bh3_action" value="visit_saved">
+            <input type="hidden" name="bh3_activity_id" value="<?php echo esc_attr( $id ); ?>">
+            <?php wp_nonce_field( 'bh3_family_activity_action' ); ?>
+            <button type="submit" title="Mark visited (save this activity first)" aria-label="Mark visited">✓</button>
+          </form>
+        <?php else : ?>
+          <span class="bh-family-tool-disabled" title="Visited requires a verified family account and saved activity" aria-label="Visited unavailable">✓</span>
+        <?php endif; ?>
+        <button type="button" class="bh-activity-compare-toggle" data-bh-compare-id="<?php echo esc_attr( $id ); ?>" data-bh-compare-title="<?php echo esc_attr( $title ); ?>" data-bh-compare-url="<?php echo esc_url( get_permalink() ?: home_url( '/activity/' ) ); ?>" aria-pressed="false" title="Add to comparison" aria-label="Add to comparison">⇄</button>
       </nav>
+      <div class="bh-activity-compare-tray" hidden aria-live="polite"><strong>Compare activities</strong><div class="bh-activity-compare-items"></div><button type="button" class="bh-activity-compare-clear">Clear</button></div>
       </header>
       <div class="bh-reference-facts bh-dynamic-facts">
         <?php foreach ( $facts as $label => $value ) : if ( '' === $value ) { continue; } ?>
@@ -177,7 +196,43 @@ add_shortcode( 'bubba_activity', static function ( $atts ) {
           <?php echo do_shortcode( '[fluentform id="6"]' ); ?>
         </div>
       </dialog>
+      <script>
+      (function () {
+        var toggle = document.querySelector('.bh-activity-compare-toggle');
+        var tray = document.querySelector('.bh-activity-compare-tray');
+        if (!toggle || !tray) return;
+        var key = 'bh_activity_compare_v1';
+        function read() { try { var data = JSON.parse(localStorage.getItem(key) || '[]'); return Array.isArray(data) ? data.filter(function(x){return x && x.id && x.url && x.title;}).slice(0,4) : []; } catch(e) { return []; } }
+        function write(items) { try { localStorage.setItem(key, JSON.stringify(items)); } catch(e) {} }
+        function render() {
+          var items = read();
+          toggle.setAttribute('aria-pressed', items.some(function(x){return x.id === toggle.dataset.bhCompareId;}) ? 'true' : 'false');
+          tray.hidden = !items.length;
+          var box = tray.querySelector('.bh-activity-compare-items');
+          box.replaceChildren();
+          items.forEach(function(x){var a=document.createElement('a');a.href=x.url;a.textContent=x.title;box.appendChild(a);});
+        }
+        toggle.addEventListener('click',function(){
+          var items=read(), id=toggle.dataset.bhCompareId;
+          if(items.some(function(x){return x.id === id;})) items=items.filter(function(x){return x.id !== id;});
+          else { if(items.length >= 4) items.shift(); items.push({id:id,title:toggle.dataset.bhCompareTitle,url:toggle.dataset.bhCompareUrl}); }
+          write(items);render();
+        });
+        tray.querySelector('.bh-activity-compare-clear').addEventListener('click',function(){write([]);render();});
+        render();
+      })();
+      </script>
       <style>
+        .bh-activity-dynamic .bh-activity-family-floating .bh-activity-compare-toggle,.bh-activity-dynamic .bh-activity-family-floating .bh-activity-visit-form button,.bh-activity-dynamic .bh-activity-family-floating .bh-family-tool-disabled{display:flex;align-items:center;justify-content:center;width:48px;height:48px;min-width:0;min-height:0;padding:0;border:1px solid #ffffff55;border-radius:12px;background:#155f49;color:#fff;font-size:1.6rem;cursor:pointer}
+        .bh-activity-dynamic .bh-activity-family-floating .bh-activity-visit-form{grid-column:auto}
+        .bh-activity-dynamic .bh-activity-family-floating .bh-activity-visit-form button{width:48px;min-height:48px}
+        .bh-activity-dynamic .bh-activity-family-floating .bh-family-tool-disabled{opacity:.5;cursor:not-allowed}
+        .bh-activity-dynamic .bh-activity-family-floating .bh-activity-compare-toggle[aria-pressed="true"]{background:#e6f1e9;color:#175c46}
+        .bh-activity-compare-tray:not([hidden]){display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px;margin:12px 0;border-radius:12px;background:#e6f1e9;color:#175c46}
+        .bh-activity-compare-items{display:flex;gap:10px;flex-wrap:wrap}
+        .bh-activity-compare-items a{color:#175c46;text-decoration:underline}
+        .bh-activity-compare-clear{padding:7px 12px;border:1px solid #175c46;border-radius:9px;background:transparent;color:#175c46;cursor:pointer}
+
         .bh-activity-dynamic .bh-dynamic-hero{position:relative}
         .bh-activity-dynamic .bh-activity-family-floating{position:absolute;right:18px;top:18px;z-index:3;display:grid;grid-template-columns:repeat(2,48px);gap:8px;margin:0;padding:12px;border-radius:16px;background:#145642;box-shadow:0 8px 25px #123b2d44}
         .bh-activity-dynamic .bh-activity-family-floating a{display:flex;align-items:center;justify-content:center;min-width:48px;min-height:48px;padding:0;border:1px solid #ffffff55;border-radius:12px;background:#155f49;color:white;font-size:1.55rem}
