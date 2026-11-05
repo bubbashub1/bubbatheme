@@ -185,6 +185,27 @@ add_filter( 'render_block_core/template-part', static function ( $content, $bloc
     return $content . $inline;
 }, 20, 2 );
 
+/**
+ * Personalised header greeting, placed immediately before Log out.
+ * Applies to both theme header and saved Site Editor header templates.
+ */
+add_filter( 'render_block_core/template-part', static function ( $content, $block ) {
+    $attrs = isset( $block['attrs'] ) && is_array( $block['attrs'] ) ? $block['attrs'] : array();
+    if ( ( $attrs['slug'] ?? '' ) !== 'header' || ! is_user_logged_in() || strpos( $content, 'bh-header-greeting' ) !== false ) {
+        return $content;
+    }
+    $user = wp_get_current_user();
+    $name = $user->display_name ? $user->display_name : $user->user_login;
+    $greeting = '<span class="bh-header-greeting">Hello ' . esc_html( $name ) . '</span>';
+    // Place the greeting before the existing Log out link.
+    $updated = preg_replace( '~(<(?:li|div)[^>]*>\\s*)?(<a\\b[^>]*>\\s*(?:Log\\s*out|Logout|Sign\\s*out)\\s*</a>)~i', '$1' . $greeting . '$2', $content, 1, $count );
+    if ( $count ) {
+        return $updated;
+    }
+    // Custom header without a logout link: keep the greeting within the header.
+    return preg_replace( '~</nav>~i', $greeting . '</nav>', $content, 1 );
+}, 30, 2 );
+
 /** Compact site-wide directory search; filter names match BH_Directory_3. */
 add_shortcode( 'bh_header_search', static function () {
     $selected = static function ( $key ) {
