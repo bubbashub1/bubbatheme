@@ -221,3 +221,28 @@ body.home .bh-home-discovery-search button {background:var(--bh-coast-coral)!imp
 body.home .bh-photo-hero .bh-photo-hero-actions .wp-block-button__link {background:var(--bh-coast-coral)!important}
 body.home .bh-home-discovery-search button:hover {filter:brightness(.97)}
 /* Editor block colours take priority over default category accents. */
+
+/* Footer Site Editor safety: columns should never become tall coloured panels. */
+.bh-site-footer .bh-footer-columns {
+ display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ align-items:start!important;min-height:0!important;height:auto!important;
+ background:var(--wp--preset--color--mint,#E7F2EC)!important;
+}
+.bh-site-footer .bh-footer-columns > .wp-block-column {
+ display:flex!important;flex-direction:column!important;justify-content:flex-start!important;
+ align-self:start!important;min-height:0!important;height:auto!important;
+ padding:0!important;margin:0!important;background:transparent!important;
+ background-color:transparent!important;background-image:none!important;
+}
+.bh-site-footer .bh-footer-columns > .wp-block-column > * {
+ margin-block-start:0!important;margin-block-end:0!important;
+}
+.bh-site-footer .bh-footer-columns > .wp-block-column > h4 {margin-bottom:8px!important}
+.bh-site-footer .bh-footer-columns .bh-footer-navigation {min-height:0!important;height:auto!important}
+.bh-site-footer .bh-footer-columns .wp-block-navigation__container {justify-content:flex-start!important}
+@media(max-width:781px) {
+ .bh-site-footer .bh-footer-columns {grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:420px) {
+ .bh-site-footer .bh-footer-columns {grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
