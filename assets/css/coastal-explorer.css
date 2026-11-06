@@ -286,3 +286,66 @@ body.home .bh-home-discovery-search button:hover {filter:brightness(.97)}
 @media(prefers-reduced-motion:reduce) {
  .wp-site-blocks :is(.wp-block-button__link,.bh-cta,.bh-button,.bh3-button) {transition:none!important}
 }
+
+/* Colourful compact Coastal Explorer footer — editable column content, no tall panels. */
+.bh-site-footer {
+ background:var(--wp--preset--color--forest,#174F46)!important;
+ padding:18px clamp(16px,2.5vw,32px) 10px!important;
+}
+.bh-site-footer .bh-footer-inner {max-width:1400px!important}
+.bh-site-footer .bh-footer-brand {margin:0 0 12px!important}
+.bh-site-footer .bh-footer-brand h3 {color:#fff!important;font-size:1.05rem!important}
+.bh-site-footer .bh-footer-brand p {color:#f0f7f2!important}
+.bh-site-footer .bh-footer-columns {
+ display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ gap:clamp(8px,1.3vw,18px)!important;
+ align-items:start!important;height:auto!important;min-height:0!important;
+ background:transparent!important;box-shadow:none!important;
+ padding:0!important;margin:0 0 12px!important;border-radius:0!important;
+}
+.bh-site-footer .bh-footer-columns > .wp-block-column {
+ display:flex!important;flex-direction:column!important;justify-content:flex-start!important;
+ gap:0!important;align-self:stretch!important;
+ min-width:0!important;min-height:0!important;height:auto!important;
+ padding:14px clamp(12px,1.4vw,20px)!important;margin:0!important;
+ border-radius:16px!important;background-image:none!important;
+ color:var(--wp--preset--color--forest,#174F46)!important;
+}
+.bh-site-footer .bh-footer-columns > .wp-block-column:nth-child(4n+1) {background:var(--wp--preset--color--peach,#FFE9DE)!important}
+.bh-site-footer .bh-footer-columns > .wp-block-column:nth-child(4n+2) {background:var(--wp--preset--color--lilac,#EEE1F2)!important}
+.bh-site-footer .bh-footer-columns > .wp-block-column:nth-child(4n+3) {background:var(--wp--preset--color--sunshine,#F8E5A6)!important}
+.bh-site-footer .bh-footer-columns > .wp-block-column:nth-child(4n) {background:var(--wp--preset--color--mint,#E7F2EC)!important}
+.bh-site-footer .bh-footer-columns > .wp-block-column > h4 {
+ margin:0 0 8px!important;color:var(--wp--preset--color--forest,#174F46)!important;
+ font-size:.92rem!important;line-height:1.3!important
+}
+.bh-site-footer .bh-footer-navigation,
+.bh-site-footer .bh-footer-navigation .wp-block-navigation__responsive-container,
+.bh-site-footer .bh-footer-navigation .wp-block-navigation__responsive-container-content,
+.bh-site-footer .bh-footer-navigation .wp-block-navigation__container {
+ height:auto!important;min-height:0!important;
+ align-items:flex-start!important;justify-content:flex-start!important;
+}
+.bh-site-footer .bh-footer-navigation .wp-block-navigation__container {
+ display:flex!important;flex-direction:column!important;gap:2px!important;
+}
+.bh-site-footer .bh-footer-navigation .wp-block-navigation-item {min-height:0!important;margin:0!important}
+.bh-site-footer .bh-footer-navigation .wp-block-navigation-item__content {
+ color:var(--wp--preset--color--forest,#174F46)!important;
+ font-size:.83rem!important;line-height:1.35!important;
+ padding:2px 0!important;font-weight:600!important;
+}
+.bh-site-footer .bh-footer-navigation .wp-block-navigation-item__content:hover {
+ color:#176451!important;text-decoration:underline!important
+}
+.bh-site-footer .wp-block-separator {border-color:#b8ddd5!important;opacity:.45}
+.bh-site-footer .bh-footer-inner>p:last-child {color:#f0f7f2!important;margin:6px 0 0!important}
+@media(max-width:781px) {
+ .bh-site-footer .bh-footer-columns {grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ .bh-site-footer .bh-footer-columns > .wp-block-column {padding:13px!important}
+}
+@media(max-width:460px) {
+ .bh-site-footer .bh-footer-columns {grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ .bh-site-footer .bh-footer-columns > .wp-block-column {padding:11px!important;border-radius:12px!important}
+ .bh-site-footer .bh-footer-navigation .wp-block-navigation-item__content {font-size:.78rem!important}
+}
