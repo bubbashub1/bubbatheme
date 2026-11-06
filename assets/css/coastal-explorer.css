@@ -41,3 +41,34 @@ body {background:var(--bh-coast-cream);color:var(--bh-coast-ink)}
 @media(prefers-reduced-motion:reduce) {
  .bh-category-grid .bh-card,.wp-block-button__link,.wp-element-button {transition:none!important;transform:none!important}
 }
+
+/* Homepage hero corrections: override legacy cover styling and saved Site Editor parts. */
+body.home .bh-photo-hero.wp-block-cover {
+  min-height:390px!important;
+  background-image:url("https://staging.bubbahub.co.uk/wp-content/uploads/2026/11/Family-Sunset-Over-the-Coastal-Bay.png")!important;
+  background-position:center 48%!important;
+  background-size:cover!important;
+}
+body.home .bh-photo-hero .wp-block-cover__image-background,
+body.home .bh-photo-hero .wp-block-cover__video-background {opacity:0!important}
+body.home .bh-photo-hero .wp-block-cover__background {opacity:0!important}
+body.home .bh-photo-hero .bh-photo-hero-content {max-width:620px!important;padding:clamp(22px,3vw,36px)!important}
+body.home .bh-photo-hero .bh-photo-hero-content h1,
+body.home .bh-photo-hero .bh-photo-hero-content .wp-block-heading {
+  color:#103f35!important;
+  font-size:clamp(2rem,3.7vw,3.2rem)!important;
+  line-height:1.13!important;
+  text-shadow:none!important;
+}
+body.home .bh-photo-hero .bh-photo-hero-content p,
+body.home .bh-photo-hero .bh-photo-hero-content .bh-photo-hero-description,
+body.home .bh-photo-hero .bh-photo-hero-content .bh-photo-hero-kicker {
+  color:#173e35!important;text-shadow:none!important
+}
+body.home .bh-photo-hero .bh-photo-hero-actions .wp-block-button__link {
+  background:#f27f79!important;color:#103f35!important
+}
+@media(max-width:781px) {
+ body.home .bh-photo-hero.wp-block-cover {min-height:320px!important;background-position:60% center!important}
+ body.home .bh-photo-hero .bh-photo-hero-content {max-width:calc(100% - 32px)!important;padding:20px!important}
+}
