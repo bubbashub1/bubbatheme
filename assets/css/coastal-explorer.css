@@ -1,0 +1,43 @@
+/* Bubba Hub Coastal Explorer — presentation only; no booking or directory logic. */
+:root {
+  --bh-coast-forest:#103f35; --bh-coast-green:#176451;
+  --bh-coast-teal:#78c7be; --bh-coast-mint:#d8efe2;
+  --bh-coast-coral:#f27f79; --bh-coast-peach:#ffe0ce;
+  --bh-coast-yellow:#ffcf69; --bh-coast-lilac:#e9d7ef;
+  --bh-coast-cream:#fffaf2; --bh-coast-ink:#173e35;
+}
+body {background:var(--bh-coast-cream);color:var(--bh-coast-ink)}
+.wp-site-blocks > header {background:#fff;box-shadow:0 3px 18px rgb(16 63 53 / 7%)}
+.wp-site-blocks > header .wp-block-navigation-item__content {border-radius:999px;transition:background-color .2s,color .2s}
+.wp-site-blocks > header .wp-block-navigation-item__content:hover {color:var(--bh-coast-green);text-decoration:none;background:var(--bh-coast-mint)}
+.wp-block-button__link,.wp-element-button {border-radius:999px;box-shadow:0 4px 12px rgb(16 63 53 / 12%)}
+.wp-block-button__link:hover,.wp-element-button:hover {filter:brightness(1.04);transform:translateY(-1px)}
+.bh-photo-hero {isolation:isolate;min-height:390px!important;overflow:hidden;background-color:#bde2dc}
+.bh-photo-hero::after {content:"";position:absolute;z-index:1;pointer-events:none;left:-3%;right:-3%;bottom:-1px;height:36px;background:var(--bh-coast-cream);clip-path:polygon(0 52%,9% 70%,20% 45%,32% 77%,45% 50%,57% 73%,70% 43%,84% 69%,100% 45%,100% 100%,0 100%)}
+.bh-photo-hero .wp-block-cover__inner-container {position:relative;z-index:2}
+.bh-photo-hero-content {max-width:760px!important;margin-left:clamp(16px,5vw,90px)!important;padding:clamp(22px,4vw,46px)!important;border-radius:42px 60px 38px 56px;background:rgb(255 250 242 / 93%);box-shadow:0 14px 44px rgb(16 63 53 / 13%)}
+.bh-photo-hero-content h1 {font-size:clamp(2rem,4.5vw,3.75rem);color:var(--bh-coast-forest);letter-spacing:-.04em;line-height:1.12}
+.bh-photo-hero-kicker {color:var(--bh-coast-green);font-weight:800;letter-spacing:.11em;font-size:.8rem}
+.bh-photo-hero-description {font-size:clamp(1rem,1.7vw,1.2rem)}
+.bh-photo-hero-actions .wp-block-button__link {background:var(--bh-coast-coral);color:#142f29}
+.bh-category-grid {gap:clamp(10px,2vw,24px)}
+.bh-category-grid .bh-card {height:100%;border:1px solid rgb(16 63 53 / 9%);border-radius:24px;box-shadow:0 8px 20px rgb(16 63 53 / 7%);transition:transform .2s,box-shadow .2s}
+.bh-category-grid .wp-block-column:nth-child(3n+1) .bh-card {background:var(--bh-coast-peach)!important}
+.bh-category-grid .wp-block-column:nth-child(3n+2) .bh-card {background:var(--bh-coast-mint)!important}
+.bh-category-grid .wp-block-column:nth-child(3n) .bh-card {background:var(--bh-coast-yellow)!important}
+.bh-category-grid .bh-card:hover {transform:translateY(-3px);box-shadow:0 12px 25px rgb(16 63 53 / 12%)}
+.bh-card {border-radius:22px}
+.bh-home-featured-part .bh-card,.bh3-family-profile-preview section {border-radius:22px;box-shadow:0 7px 22px rgb(16 63 53 / 7%)}
+.bh-site-footer {background:var(--bh-coast-forest)!important}
+.bh-site-footer .bh-footer-columns {background:var(--bh-coast-mint)!important}
+.bh-header-search :is(button,input,select),.bh-directory :is(button,input,select) {border-radius:14px}
+:where(a,button,input,select,textarea):focus-visible {outline:3px solid var(--bh-coast-coral);outline-offset:3px}
+@media(max-width:781px) {
+ .bh-photo-hero {min-height:340px!important}
+ .bh-photo-hero-content {margin:12px 16px 36px!important;padding:22px!important;border-radius:26px 36px 24px 32px}
+ .bh-photo-hero-content h1 {font-size:clamp(1.8rem,7vw,2.7rem)}
+ .bh-category-grid {gap:12px}
+}
+@media(prefers-reduced-motion:reduce) {
+ .bh-category-grid .bh-card,.wp-block-button__link,.wp-element-button {transition:none!important;transform:none!important}
+}
