@@ -333,3 +333,20 @@ add_filter( 'render_block_core/template-part', static function ( $content, $bloc
     $form .= '</select><button type="submit">Find activities <span aria-hidden="true">→</span></button></form>';
     return $content . $form;
 }, 50, 2 );
+
+/* Editor-selectable Bubba Hub pastel CTA styles for native Button blocks. */
+add_action( 'init', static function () {
+    foreach ( array(
+        'book' => 'Book now · Forest',
+        'discover' => 'Discover · Blush',
+        'plan' => 'Planner · Sage',
+        'enquire' => 'Enquire · Butter',
+        'save' => 'Favourite · Lilac',
+        'details' => 'View details · Teal',
+    ) as $slug => $label ) {
+        register_block_style( 'core/button', array(
+            'name' => 'bh-cta-' . $slug,
+            'label' => $label,
+        ) );
+    }
+} );
