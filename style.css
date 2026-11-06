@@ -20,3 +20,24 @@ License: GPL-2.0-or-later
 .bh3-family-profile-preview fieldset {border:1px solid #dce7e1;border-radius:12px;padding:16px}
 .bh3-family-profile-preview input,.bh3-family-profile-preview select {max-width:100%;box-sizing:border-box}
 @media(max-width:700px){.bh3-family-profile-preview > div {grid-template-columns:minmax(0,1fr)!important}.bh3-family-profile-preview nav{position:static}.bh3-family-profile-preview {padding:12px!important}}
+
+/* Compact, accessible Bubba Hub footer. */
+.bh-site-footer {padding:28px 25px 16px!important;}
+.bh-site-footer .bh-footer-inner {max-width:1400px;margin-inline:auto;}
+.bh-site-footer .bh-footer-brand {margin-bottom:18px;}
+.bh-site-footer .bh-footer-brand h3 {color:#fff!important;font-size:1.15rem!important;margin:0 0 3px!important;line-height:1.3;}
+.bh-site-footer .bh-footer-brand p {margin:0!important;line-height:1.45;}
+.bh-site-footer .bh-footer-brand p:last-child {font-size:.88rem;opacity:.9;}
+.bh-site-footer .bh-footer-columns {gap:24px!important;margin:0 0 16px!important;align-items:start;}
+.bh-site-footer .bh-footer-columns .wp-block-column {min-width:0;}
+.bh-site-footer .bh-footer-columns h4 {color:#fff!important;font-size:1rem!important;font-weight:700!important;margin:0 0 9px!important;line-height:1.3;}
+.bh-site-footer .bh-footer-navigation,
+.bh-site-footer .bh-footer-navigation .wp-block-navigation__container {gap:5px!important;row-gap:5px!important;align-items:flex-start!important;}
+.bh-site-footer .bh-footer-navigation .wp-block-navigation-item {margin:0!important;padding:0!important;}
+.bh-site-footer .bh-footer-navigation a {color:#fff!important;font-size:.88rem;line-height:1.45;padding:2px 0!important;text-decoration:none;}
+.bh-site-footer .bh-footer-navigation a:hover,
+.bh-site-footer .bh-footer-navigation a:focus-visible {text-decoration:underline;}
+.bh-site-footer .wp-block-separator {margin:12px 0!important;opacity:.35;}
+.bh-site-footer .bh-footer-inner > p:last-child {margin:0!important;font-size:.78rem!important;}
+@media(max-width:781px){.bh-site-footer{padding:24px 20px 14px!important}.bh-site-footer .bh-footer-columns{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px!important}.bh-site-footer .bh-footer-columns>.wp-block-column{margin:0!important;flex-basis:auto!important}}
+@media(max-width:420px){.bh-site-footer .bh-footer-columns{gap:18px 10px!important}.bh-site-footer .bh-footer-navigation a{font-size:.82rem}}
