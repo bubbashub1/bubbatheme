@@ -22,9 +22,9 @@ body {background:var(--bh-coast-cream);color:var(--bh-coast-ink)}
 .bh-photo-hero-actions .wp-block-button__link {background:var(--bh-coast-coral);color:#142f29}
 .bh-category-grid {gap:clamp(10px,2vw,24px)}
 .bh-category-grid .bh-card {height:100%;border:1px solid rgb(16 63 53 / 9%);border-radius:24px;box-shadow:0 8px 20px rgb(16 63 53 / 7%);transition:transform .2s,box-shadow .2s}
-.bh-category-grid .wp-block-column:nth-child(3n+1) .bh-card {background:var(--bh-coast-peach)}
-.bh-category-grid .wp-block-column:nth-child(3n+2) .bh-card {background:var(--bh-coast-mint)}
-.bh-category-grid .wp-block-column:nth-child(3n) .bh-card {background:var(--bh-coast-yellow)}
+.bh-category-grid .wp-block-column:nth-child(3n+1) .bh-card:not(.has-background) {background:var(--bh-coast-peach)}
+.bh-category-grid .wp-block-column:nth-child(3n+2) .bh-card:not(.has-background) {background:var(--bh-coast-mint)}
+.bh-category-grid .wp-block-column:nth-child(3n) .bh-card:not(.has-background) {background:var(--bh-coast-yellow)}
 .bh-category-grid .bh-card:hover {transform:translateY(-3px);box-shadow:0 12px 25px rgb(16 63 53 / 12%)}
 .bh-card {border-radius:22px}
 .bh-home-featured-part .bh-card,.bh3-family-profile-preview section {border-radius:22px;box-shadow:0 7px 22px rgb(16 63 53 / 7%)}
@@ -186,8 +186,8 @@ body.home .bh-photo-hero .bh-photo-hero-content {background:rgba(255,250,242,.93
  background:var(--bh-coast-lilac);border-radius:24px;padding:clamp(18px,3vw,32px);
 }
 /* Category cards use repeating coastal accents while preserving existing category links. */
-.bh-category-grid .wp-block-column:nth-child(4n) .bh-card {background:var(--bh-coast-lilac)}
-.bh-category-grid .wp-block-column:nth-child(5n) .bh-card {background:var(--bh-coast-sky)}
+.bh-category-grid .wp-block-column:nth-child(4n) .bh-card:not(.has-background) {background:var(--bh-coast-lilac)}
+.bh-category-grid .wp-block-column:nth-child(5n) .bh-card:not(.has-background) {background:var(--bh-coast-sky)}
 .bh-category-grid .bh-card h3 {color:var(--bh-coast-forest)}
 /* Plugin cards inherit colour and shape, not layout or behavioural overrides. */
 :where(.bh-directory,.bh3-family-profile-preview,.bh-leader-dashboard,.bh3-leader-dashboard,.bh-activity-page,.bh-bookings-dashboard)
@@ -220,5 +220,4 @@ body.home .bh-photo-hero .bh-photo-hero-content {background:rgba(255,250,242,.93
 body.home .bh-home-discovery-search button {background:var(--bh-coast-coral)!important;color:var(--bh-coast-forest)!important}
 body.home .bh-photo-hero .bh-photo-hero-actions .wp-block-button__link {background:var(--bh-coast-coral)!important}
 body.home .bh-home-discovery-search button:hover {filter:brightness(.97)}
-/* Remove forced category backgrounds: allow editor's block colour selections. */
-.bh-category-grid .bh-card.has-background {background-color:var(--wp--preset--color--white,#fff)}
+/* Editor block colours take priority over default category accents. */
