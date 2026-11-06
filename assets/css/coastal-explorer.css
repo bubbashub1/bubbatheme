@@ -392,3 +392,47 @@ body.home .bh-home-discovery-search button:hover {filter:brightness(.97)}
  :is(th,thead td) {background:var(--wp--preset--color--mint,#E7F2EC);color:var(--wp--preset--color--forest,#174F46)}
 :where(.bh-leader-dashboard,.bh3-leader-dashboard,.bh-bookings-dashboard,.bh-leader-bookings)
  :is(.bh-panel,.bh-card,.bh3-panel,.bh3-card) {border-radius:18px}
+
+/* Footer cards: one equal, content-sized row on desktop; two equal rows on mobile.
+   Override old Site Editor minimum heights without imposing a fixed height. */
+.bh-site-footer .bh-footer-columns {
+ display:grid!important;
+ grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ grid-auto-rows:auto!important;
+ align-items:stretch!important;
+ align-content:start!important;
+ height:auto!important;
+ min-height:0!important;
+}
+.bh-site-footer .bh-footer-columns > .wp-block-column {
+ display:flex!important;
+ flex-direction:column!important;
+ align-self:stretch!important;
+ justify-self:stretch!important;
+ justify-content:flex-start!important;
+ flex:initial!important;
+ height:auto!important;
+ min-height:0!important;
+ max-height:none!important;
+ padding:14px 18px!important;
+}
+.bh-site-footer .bh-footer-columns > .wp-block-column > * {
+ flex-grow:0!important;
+ flex-shrink:0!important;
+ min-height:0!important;
+ height:auto!important;
+}
+.bh-site-footer .bh-footer-columns .bh-footer-navigation,
+.bh-site-footer .bh-footer-columns .wp-block-navigation__responsive-container,
+.bh-site-footer .bh-footer-columns .wp-block-navigation__responsive-container-content,
+.bh-site-footer .bh-footer-columns .wp-block-navigation__container {
+ min-height:0!important;
+ height:auto!important;
+ flex-grow:0!important;
+}
+@media(max-width:781px) {
+ .bh-site-footer .bh-footer-columns {grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:460px) {
+ .bh-site-footer .bh-footer-columns > .wp-block-column {padding:12px!important}
+}
