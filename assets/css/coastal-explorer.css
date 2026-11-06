@@ -72,3 +72,13 @@ body.home .bh-photo-hero .bh-photo-hero-actions .wp-block-button__link {
  body.home .bh-photo-hero.wp-block-cover {min-height:320px!important;background-position:60% center!important}
  body.home .bh-photo-hero .bh-photo-hero-content {max-width:calc(100% - 32px)!important;padding:20px!important}
 }
+
+/* Saved home hero blocks can carry inline white text from an older design. */
+body.home .bh-photo-hero h1,
+body.home .bh-photo-hero .wp-block-heading,
+body.home .bh-photo-hero .bh-photo-hero-content :is(h1,h2,h3) {
+ color:#103f35!important;-webkit-text-fill-color:#103f35!important;
+ text-shadow:none!important;
+}
+body.home .bh-photo-hero .bh-photo-hero-content {max-width:570px!important;background:rgba(255,250,242,.95)!important}
+body.home .bh-photo-hero .bh-photo-hero-content p:not(.bh-photo-hero-kicker) {color:#173e35!important;-webkit-text-fill-color:#173e35!important}
