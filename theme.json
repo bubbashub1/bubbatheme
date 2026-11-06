@@ -42,32 +42,32 @@
         },
         {
           "slug": "coral",
-          "color": "#E69A83",
+          "color": "#F5B8AF",
           "name": "Coral"
         },
         {
           "slug": "teal",
-          "color": "#78C7BE",
+          "color": "#B8DDD5",
           "name": "Coastal Teal"
         },
         {
           "slug": "peach",
-          "color": "#FFE0CE",
+          "color": "#FFE9DE",
           "name": "Peach"
         },
         {
           "slug": "sunshine",
-          "color": "#FFCF69",
+          "color": "#F8E5A6",
           "name": "Sunshine"
         },
         {
           "slug": "lilac",
-          "color": "#E9D7EF",
+          "color": "#EEE1F2",
           "name": "Lilac"
         },
         {
           "slug": "sky",
-          "color": "#D9EEF5",
+          "color": "#E2F1F5",
           "name": "Coastal Sky"
         }
       ],
@@ -154,6 +154,12 @@
     "background": {
       "backgroundImage": true,
       "backgroundSize": true
+    },
+    "border": {
+      "radius": true,
+      "color": true,
+      "style": true,
+      "width": true
     }
   },
   "styles": {
@@ -186,7 +192,7 @@
       },
       "button": {
         "border": {
-          "radius": "12px"
+          "radius": "999px"
         },
         "color": {
           "background": "var(--wp--preset--color--forest)",
