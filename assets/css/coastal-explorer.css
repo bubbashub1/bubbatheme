@@ -349,3 +349,46 @@ body.home .bh-home-discovery-search button:hover {filter:brightness(.97)}
  .bh-site-footer .bh-footer-columns > .wp-block-column {padding:11px!important;border-radius:12px!important}
  .bh-site-footer .bh-footer-navigation .wp-block-navigation-item__content {font-size:.78rem!important}
 }
+
+/* Footer: intrinsic height wins over WordPress columns and saved editor dimensions. */
+.bh-site-footer .bh-footer-columns {
+ grid-auto-rows:min-content!important;
+ align-items:start!important;
+ align-content:start!important;
+ height:max-content!important;
+ min-height:0!important;
+}
+.bh-site-footer .bh-footer-columns > .wp-block-column {
+ align-self:start!important;
+ justify-self:stretch!important;
+ justify-content:flex-start!important;
+ flex-grow:0!important;
+ flex-shrink:0!important;
+ height:max-content!important;
+ min-height:0!important;
+ max-height:none!important;
+ aspect-ratio:auto!important;
+}
+.bh-site-footer .bh-footer-columns > .wp-block-column > .bh-footer-navigation {
+ flex:0 0 auto!important;
+ align-self:stretch!important;
+ height:max-content!important;
+ min-height:0!important;
+}
+.bh-site-footer .bh-footer-columns .wp-block-navigation__responsive-container-content {
+ padding:0!important;
+}
+.bh-site-footer .bh-footer-columns .wp-block-navigation__container {
+ margin:0!important;
+ padding:0!important;
+}
+/* Leader area: subtle Coastal Explorer surfaces without changing booking state or controls. */
+:where(.bh-leader-dashboard,.bh3-leader-dashboard,.bh-bookings-dashboard,.bh-leader-bookings)
+ :is(table,.bh-table) {
+ border-collapse:separate;border-spacing:0;
+ border:1px solid #d8e8df;border-radius:14px;overflow:hidden;
+}
+:where(.bh-leader-dashboard,.bh3-leader-dashboard,.bh-bookings-dashboard,.bh-leader-bookings)
+ :is(th,thead td) {background:var(--wp--preset--color--mint,#E7F2EC);color:var(--wp--preset--color--forest,#174F46)}
+:where(.bh-leader-dashboard,.bh3-leader-dashboard,.bh-bookings-dashboard,.bh-leader-bookings)
+ :is(.bh-panel,.bh-card,.bh3-panel,.bh3-card) {border-radius:18px}
