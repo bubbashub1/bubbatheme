@@ -131,3 +131,75 @@ body.home .bh-home-discovery-search button:hover {background:#ffaaa1}
  body.home .bh-home-discovery-search select {flex:1 1 calc(50% - 8px)}
  body.home .bh-home-discovery-search button {flex:1 1 100%}
 }
+
+/* Coastal Explorer finish: consistent components without changing plugin behaviour. */
+:root {
+ --bh-coast-sky:#d9eef5;
+ --bh-coast-shadow:0 8px 26px rgb(16 63 53 / 9%);
+}
+body.home .bh-photo-hero::before {display:none!important}
+body.home .bh-photo-hero::after {height:15px!important;opacity:.9}
+body.home .bh-photo-hero {border-top:0!important}
+body.home .bh-photo-hero .bh-photo-hero-actions {display:none!important}
+body.home .bh-home-hero-part {padding-bottom:0!important;margin-bottom:0!important}
+body.home .bh-home-discovery-search {
+ margin-top:-38px!important;
+ transform:translateY(-1px);
+}
+body.home .bh-home-hero-part + .wp-block-group,
+body.home .bh-home-hero-part + .bh-category-grid {margin-block-start:clamp(18px,3vw,36px)!important}
+body.home .bh-home-hero-part .bh-photo-hero-content {padding-bottom:clamp(24px,3vw,38px)!important}
+body.home .bh-photo-hero .bh-photo-hero-content {background:rgba(255,250,242,.93)!important}
+
+/* Universal surface treatment for native WP blocks and Bubba Hub portals. */
+.wp-site-blocks main :is(.wp-block-post-template > li,.wp-block-query .wp-block-post,.bh-card) {
+ border-radius:22px;overflow:hidden;
+}
+.wp-site-blocks main :is(.wp-block-post-template > li,.wp-block-query .wp-block-post) {
+ background:#fff;border:1px solid rgb(16 63 53 / 9%);box-shadow:var(--bh-coast-shadow);
+}
+.wp-site-blocks main :is(.wp-block-post-featured-image img,.wp-block-cover img) {border-radius:18px}
+.wp-site-blocks main :is(.wp-block-button__link,.wp-element-button),
+.wp-site-blocks main button:not(.components-button):not(.wp-block-navigation__responsive-container-open):not(.wp-block-navigation__responsive-container-close) {
+ transition:background-color .18s,box-shadow .18s,transform .18s;
+}
+.wp-site-blocks main :is(.wp-block-button__link,.wp-element-button):hover {box-shadow:0 7px 18px rgb(16 63 53 / 16%)}
+.wp-site-blocks main :is(input[type="text"],input[type="search"],input[type="email"],input[type="tel"],input[type="date"],select,textarea) {
+ max-width:100%;box-sizing:border-box;border-radius:12px;
+}
+.wp-site-blocks main :is(.wp-block-table,.wp-block-calendar) {overflow-x:auto}
+.wp-site-blocks main :is(.wp-block-table table,.wp-block-calendar table) {border-collapse:separate;border-spacing:0}
+.wp-site-blocks main :is(.wp-block-table th,.wp-block-calendar th) {background:var(--bh-coast-mint);color:var(--bh-coast-forest)}
+.wp-site-blocks main :is(.wp-block-quote,.wp-block-pullquote) {
+ border-color:var(--bh-coast-coral);background:var(--bh-coast-cream);border-radius:18px;padding:clamp(16px,2vw,26px)
+}
+.wp-site-blocks main :is(.wp-block-separator) {border-color:var(--bh-coast-teal)}
+.wp-site-blocks main :is(.wp-block-details) {background:#fff;border:1px solid #d8efe2;border-radius:16px;padding:14px 18px}
+.wp-site-blocks main :is(.wp-block-details summary) {color:var(--bh-coast-forest);font-weight:750;cursor:pointer}
+.wp-site-blocks main :is(.wp-block-group.is-style-bh-coast-panel) {
+ background:var(--bh-coast-mint);border-radius:24px;padding:clamp(18px,3vw,32px);
+}
+.wp-site-blocks main :is(.wp-block-group.is-style-bh-coast-peach) {
+ background:var(--bh-coast-peach);border-radius:24px;padding:clamp(18px,3vw,32px);
+}
+.wp-site-blocks main :is(.wp-block-group.is-style-bh-coast-lilac) {
+ background:var(--bh-coast-lilac);border-radius:24px;padding:clamp(18px,3vw,32px);
+}
+/* Category cards use repeating coastal accents while preserving existing category links. */
+.bh-category-grid .wp-block-column:nth-child(4n) .bh-card {background:var(--bh-coast-lilac)!important}
+.bh-category-grid .wp-block-column:nth-child(5n) .bh-card {background:var(--bh-coast-sky)!important}
+.bh-category-grid .bh-card h3 {color:var(--bh-coast-forest)}
+/* Plugin cards inherit colour and shape, not layout or behavioural overrides. */
+:where(.bh-directory,.bh3-family-profile-preview,.bh-leader-dashboard,.bh3-leader-dashboard,.bh-activity-page,.bh-bookings-dashboard)
+ :is(.bh-card,.bh3-card,.bh-panel,.bh3-panel) {
+ border-radius:20px;border-color:#d8e8df;box-shadow:var(--bh-coast-shadow)
+}
+:where(.bh-directory,.bh3-family-profile-preview,.bh-leader-dashboard,.bh3-leader-dashboard,.bh-activity-page,.bh-bookings-dashboard)
+ :is(h1,h2,h3) {color:var(--bh-coast-forest)}
+@media(max-width:781px) {
+ body.home .bh-home-discovery-search {margin-top:-26px!important}
+ .wp-site-blocks main :is(.wp-block-post-template > li,.wp-block-query .wp-block-post) {border-radius:16px}
+}
+@media(prefers-reduced-motion:reduce) {
+ .wp-site-blocks main :is(.wp-block-button__link,.wp-element-button) {transition:none!important}
+}

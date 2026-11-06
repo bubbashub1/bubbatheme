@@ -44,6 +44,31 @@
           "slug": "coral",
           "color": "#E69A83",
           "name": "Coral"
+        },
+        {
+          "slug": "teal",
+          "color": "#78C7BE",
+          "name": "Coastal Teal"
+        },
+        {
+          "slug": "peach",
+          "color": "#FFE0CE",
+          "name": "Peach"
+        },
+        {
+          "slug": "sunshine",
+          "color": "#FFCF69",
+          "name": "Sunshine"
+        },
+        {
+          "slug": "lilac",
+          "color": "#E9D7EF",
+          "name": "Lilac"
+        },
+        {
+          "slug": "sky",
+          "color": "#D9EEF5",
+          "name": "Coastal Sky"
         }
       ],
       "custom": true,
