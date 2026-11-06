@@ -285,3 +285,27 @@ add_shortcode( 'bh_header_search', static function () {
     <?php
     return ob_get_clean();
 } );
+
+/**
+ * Keep the branded homepage hero consistent when a Site Editor copy of the
+ * home-hero template part overrides the theme file. Presentation only.
+ */
+add_filter( 'render_block_core/template-part', static function ( $content, $block ) {
+    $attrs = isset( $block['attrs'] ) && is_array( $block['attrs'] ) ? $block['attrs'] : array();
+    if ( ! is_front_page() || ( $attrs['slug'] ?? '' ) !== 'home-hero' || strpos( $content, 'bh-photo-hero' ) === false ) {
+        return $content;
+    }
+    $content = preg_replace(
+        '~(<h1\\b[^>]*>).*?(</h1>)~is',
+        '$1Discover. Plan. Connect. Explore.$2',
+        $content,
+        1
+    );
+    $content = preg_replace(
+        '~(<p\\b[^>]*class="[^"]*bh-photo-hero-description[^"]*"[^>]*>).*?(</p>)~is',
+        '$1Find baby groups, toddler classes and family adventures across Devon &amp; Cornwall.$2',
+        $content,
+        1
+    );
+    return $content;
+}, 40, 2 );
