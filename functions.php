@@ -30,6 +30,12 @@ add_action(
             file_exists( get_theme_file_path( 'assets/css/site.css' ) ) ? (string) filemtime( get_theme_file_path( 'assets/css/site.css' ) ) : wp_get_theme()->get( 'Version' )
         );
         wp_enqueue_style(
+            'bubba-hub-coastal-explorer',
+            get_theme_file_uri( 'assets/css/coastal-explorer.css' ),
+            array( 'bubba-hub-theme' ),
+            file_exists( get_theme_file_path( 'assets/css/coastal-explorer.css' ) ) ? (string) filemtime( get_theme_file_path( 'assets/css/coastal-explorer.css' ) ) : wp_get_theme()->get( 'Version' )
+        );
+        wp_enqueue_style(
             'bubba-hub-booking-reference',
             get_theme_file_uri( 'assets/css/booking-reference.css' ),
             array( 'bubba-hub-theme' ),
