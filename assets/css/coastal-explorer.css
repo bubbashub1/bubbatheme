@@ -246,3 +246,43 @@ body.home .bh-home-discovery-search button:hover {filter:brightness(.97)}
 @media(max-width:420px) {
  .bh-site-footer .bh-footer-columns {grid-template-columns:repeat(2,minmax(0,1fr))!important}
 }
+
+/* Bubba Hub pastel CTA design tokens: editable via WordPress Global Styles palette. */
+:root {
+ --bh-cta-book:var(--wp--preset--color--forest,#174F46);
+ --bh-cta-discover:var(--wp--preset--color--coral,#F5B8AF);
+ --bh-cta-plan:var(--wp--preset--color--mint,#E7F2EC);
+ --bh-cta-enquire:var(--wp--preset--color--sunshine,#F8E5A6);
+ --bh-cta-save:var(--wp--preset--color--lilac,#EEE1F2);
+ --bh-cta-details:var(--wp--preset--color--teal,#B8DDD5);
+ --bh-cta-text:var(--wp--preset--color--forest,#174F46);
+}
+/* Native blocks and common plugin CTA classes. Do not override custom editor backgrounds. */
+.wp-site-blocks :is(.wp-block-button:not(.is-style-outline):not(.has-custom-background-color):not(:has(.has-background)) .wp-block-button__link:not(.has-background),.bh-cta,.bh-button,.bh3-button) {
+ border-radius:999px;
+ font-weight:700;
+}
+.wp-site-blocks .wp-block-button:not(.is-style-outline) .wp-block-button__link:not(.has-background) {
+ background:var(--bh-cta-discover);color:var(--bh-cta-text);
+}
+.wp-site-blocks :is(.bh-cta,.bh-button,.bh3-button)[data-variant="primary"],
+.wp-site-blocks :is(.bh-cta,.bh-button,.bh3-button).is-primary,
+.wp-site-blocks .bh-cta--book,
+.wp-site-blocks .bh-cta-book {background:var(--bh-cta-book);color:#fff}
+.wp-site-blocks :is(.bh-cta-plan,.bh-cta--plan,.bh-cta-planner) {background:var(--bh-cta-plan);color:var(--bh-cta-text)}
+.wp-site-blocks :is(.bh-cta-enquire,.bh-cta--enquire) {background:var(--bh-cta-enquire);color:var(--bh-cta-text)}
+.wp-site-blocks :is(.bh-cta-save,.bh-cta--save,.bh-cta-favourite) {background:var(--bh-cta-save);color:var(--bh-cta-text)}
+.wp-site-blocks :is(.bh-cta-details,.bh-cta--details) {background:var(--bh-cta-details);color:var(--bh-cta-text)}
+/* Editor-assignable block styles for each CTA purpose. */
+.wp-site-blocks .wp-block-button.is-style-bh-cta-book .wp-block-button__link:not(.has-background) {background:var(--bh-cta-book);color:#fff}
+.wp-site-blocks .wp-block-button.is-style-bh-cta-discover .wp-block-button__link:not(.has-background) {background:var(--bh-cta-discover);color:var(--bh-cta-text)}
+.wp-site-blocks .wp-block-button.is-style-bh-cta-plan .wp-block-button__link:not(.has-background) {background:var(--bh-cta-plan);color:var(--bh-cta-text)}
+.wp-site-blocks .wp-block-button.is-style-bh-cta-enquire .wp-block-button__link:not(.has-background) {background:var(--bh-cta-enquire);color:var(--bh-cta-text)}
+.wp-site-blocks .wp-block-button.is-style-bh-cta-save .wp-block-button__link:not(.has-background) {background:var(--bh-cta-save);color:var(--bh-cta-text)}
+.wp-site-blocks .wp-block-button.is-style-bh-cta-details .wp-block-button__link:not(.has-background) {background:var(--bh-cta-details);color:var(--bh-cta-text)}
+/* Respect semantic danger and disabled states. */
+.wp-site-blocks :is(.is-destructive,.is-danger,[data-variant="danger"],[aria-disabled="true"],:disabled) {filter:none}
+.wp-site-blocks :is(.wp-block-button__link,.bh-cta,.bh-button,.bh3-button):focus-visible {outline:3px solid var(--bh-coast-forest);outline-offset:3px}
+@media(prefers-reduced-motion:reduce) {
+ .wp-site-blocks :is(.wp-block-button__link,.bh-cta,.bh-button,.bh3-button) {transition:none!important}
+}
