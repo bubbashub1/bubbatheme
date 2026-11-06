@@ -309,3 +309,27 @@ add_filter( 'render_block_core/template-part', static function ( $content, $bloc
     );
     return $content;
 }, 40, 2 );
+
+/**
+ * Homepage discovery search: render outside the cover's clipped content,
+ * including when the Home Hero is overridden in the Site Editor.
+ */
+add_filter( 'render_block_core/template-part', static function ( $content, $block ) {
+    $attrs = isset( $block['attrs'] ) && is_array( $block['attrs'] ) ? $block['attrs'] : array();
+    if ( ! is_front_page() || ( $attrs['slug'] ?? '' ) !== 'home-hero' || strpos( $content, 'bh-home-discovery-search' ) !== false ) {
+        return $content;
+    }
+    $action = esc_url( home_url( '/directory/' ) );
+    $form = '<form class="bh-home-discovery-search" role="search" action="' . $action . '" method="get">'
+        . '<label class="screen-reader-text" for="bh-home-search">Search activities or locations</label>'
+        . '<input id="bh-home-search" name="bh_search" type="search" placeholder="What would you like to discover?" autocomplete="off">'
+        . '<label class="screen-reader-text" for="bh-home-region">Region</label>'
+        . '<select id="bh-home-region" name="bh_region"><option value="">Devon &amp; Cornwall</option><option value="Devon">Devon</option><option value="Cornwall">Cornwall</option></select>'
+        . '<label class="screen-reader-text" for="bh-home-day">Day</label>'
+        . '<select id="bh-home-day" name="bh_day"><option value="">Any day</option>';
+    foreach ( array( 1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday', 5 => 'Friday', 6 => 'Saturday', 7 => 'Sunday' ) as $value => $label ) {
+        $form .= '<option value="' . esc_attr( $value ) . '">' . esc_html( $label ) . '</option>';
+    }
+    $form .= '</select><button type="submit">Find activities <span aria-hidden="true">→</span></button></form>';
+    return $content . $form;
+}, 50, 2 );
