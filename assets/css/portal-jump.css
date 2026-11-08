@@ -1,39 +1,67 @@
-/* 1. Transform the menu container into a horizontal flex row */
-.my-hub-sidebar, /* Update this selector to match your actual sidebar container class if needed */
-.side-menu-container ul {
-    display: flex;
-    flex-direction: row;
+/* 1. Hide the mobile jump dropdown completely */
+.bh-portal-jump {
+    display: none !important;
+}
+
+/* 2. Force the portal container to stack vertically (tabs on top, content below) */
+:is(.bh-leader-unified .bh-unified-layout, .bh-leader-business .bh-business-layout, .bh3-family--sidebar .bh3-family__shell, .bh3-family-profile-preview > div) {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    grid-template-columns: 100% !important;
+}
+
+/* 3. Force the sidebar source container to show and span full width */
+.bh-portal-jump-source {
+    display: block !important;
+    width: 100% !important;
+    background: #fff;
+    border: 1px solid #dbe5df;
+    border-radius: 14px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+/* 4. Turn the inner menu list into a horizontal row of tabs */
+.bh-portal-jump-source ul,
+.bh-portal-jump-source nav,
+.bh-portal-jump-source .my-hub-menu {
+    display: flex !important;
+    flex-direction: row !important;
     flex-wrap: wrap;
-    gap: 12px;
-    background: transparent;
-    padding: 0;
-    margin-bottom: 25px;
+    gap: 8px;
+    margin: 0 !important;
+    padding: 0 !important;
     list-style: none;
 }
 
-/* 2. Style each tab link nicely */
-.my-hub-sidebar a,
-.side-menu-container a {
+/* 5. Remove 'My Hub' title text if it sits inside the menu box as a header */
+.bh-portal-jump-source > h2,
+.bh-portal-jump-source .my-hub-title {
+    display: none !important; /* Optional: uncomment if you want to hide the "My Hub" header text inside the horizontal bar */
+}
+
+/* 6. Style individual menu links to look like clean tabs */
+.bh-portal-jump-source a {
     display: inline-block;
-    padding: 10px 24px;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
     text-decoration: none;
-    color: #1b4332; /* Rich dark green */
-    background-color: #f4f7f5; /* Subtle background for inactive tabs */
+    color: #1e5743;
+    background: transparent;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: background-color 0.2s ease;
 }
 
-/* 3. Hover and Active Tab states */
-.my-hub-sidebar a:hover,
-.side-menu-container a:hover {
-    background-color: #e2ede6;
+/* 7. Hover & Active Tab Styles */
+.bh-portal-jump-source a:hover {
+    background-color: #f4f7f5;
 }
 
-/* Active tab styling (matches your current active pill style!) */
-.my-hub-sidebar .current-menu-item a,
-.my-hub-sidebar .is-active a,
-.my-hub-sidebar [aria-current="page"] {
+.bh-portal-jump-source .current-menu-item a,
+.bh-portal-jump-source .is-active a,
+.bh-portal-jump-source [aria-current="page"],
+.bh-portal-jump-source li.current_page_item a {
     background-color: #e2ede6 !important;
     font-weight: 600;
 }
