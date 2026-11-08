@@ -1,60 +1,39 @@
-/* 1. Adjust the grid layout so the content takes full width and the sidebar moves to the top */
-.bh3-family--sidebar .bh3-family__shell {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 20px;
-}
-
-/* 2. Transform the sidebar menu container into a horizontal tab row */
-.bh3-family--sidebar .bh-portal-jump-source, /* Or target your specific sidebar nav class */
-.bh3-family--sidebar aside,
-.side-menu-container {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100% !important;
-    background: transparent !important;
-    padding: 0 !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* 3. Style individual menu items to look like sleek tabs */
-.bh3-family--sidebar .bh-portal-jump-source ul,
-.bh3-family--sidebar aside ul {
+/* 1. Transform the menu container into a horizontal flex row */
+.my-hub-sidebar, /* Update this selector to match your actual sidebar container class if needed */
+.side-menu-container ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
-    list-style: none;
+    gap: 12px;
+    background: transparent;
     padding: 0;
-    margin: 0;
-    width: 100%;
+    margin-bottom: 25px;
+    list-style: none;
 }
 
-/* 4. Tab link styling */
-.bh3-family--sidebar .bh-portal-jump-source a,
-.bh3-family--sidebar aside a {
+/* 2. Style each tab link nicely */
+.my-hub-sidebar a,
+.side-menu-container a {
     display: inline-block;
-    padding: 10px 22px;
+    padding: 10px 24px;
     border-radius: 8px;
     text-decoration: none;
-    color: #1b4332;
-    background-color: #f4f7f5;
+    color: #1b4332; /* Rich dark green */
+    background-color: #f4f7f5; /* Subtle background for inactive tabs */
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
-/* 5. Hover and Active tab states */
-.bh3-family--sidebar .bh-portal-jump-source a:hover,
-.bh3-family--sidebar aside a:hover {
+/* 3. Hover and Active Tab states */
+.my-hub-sidebar a:hover,
+.side-menu-container a:hover {
     background-color: #e2ede6;
 }
 
-.bh3-family--sidebar .current-menu-item a,
-.bh3-family--sidebar .is-active a,
-.bh3-family--sidebar [aria-current="page"] {
+/* Active tab styling (matches your current active pill style!) */
+.my-hub-sidebar .current-menu-item a,
+.my-hub-sidebar .is-active a,
+.my-hub-sidebar [aria-current="page"] {
     background-color: #e2ede6 !important;
     font-weight: 600;
 }
