@@ -350,3 +350,16 @@ add_action( 'init', static function () {
         ) );
     }
 } );
+
+
+/** Progressive enhancement for Simple Membership's logged-in account widget. */
+add_action( 'wp_enqueue_scripts', static function () {
+    if ( ! is_page( 'membership-login' ) ) {
+        return;
+    }
+    $css = 'assets/css/member-welcome.css';
+    $js  = 'assets/js/member-welcome.js';
+    wp_enqueue_style( 'bh-member-welcome', get_theme_file_uri( $css ), array( 'bubba-hub-theme' ), (string) filemtime( get_theme_file_path( $css ) ) );
+    wp_enqueue_script( 'bh-member-welcome', get_theme_file_uri( $js ), array(), (string) filemtime( get_theme_file_path( $js ) ), true );
+    wp_add_inline_script( 'bh-member-welcome', 'window.bhMemberWelcome = ' . wp_json_encode( array( 'home' => trailingslashit( home_url( '/' ) ) ) ) . ';', 'before' );
+} );

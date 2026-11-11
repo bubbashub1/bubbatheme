@@ -1,0 +1,26 @@
+/* Bubba Hub membership welcome — scoped to the existing Simple Membership account screen. */
+body.bh-simple-membership .swpm-login-widget-logged,
+body.bh-simple-membership .swpm-logged-status,
+body.bh-simple-membership .swpm-login-widget-logged-in {
+ max-width:1120px;margin:24px auto 36px;padding:clamp(22px,4vw,46px);
+ border:1px solid #dce8e3;border-radius:24px;background:#fff;
+ box-shadow:0 12px 35px rgba(17,73,61,.06);font-family:Quicksand,sans-serif;color:#164c42;
+}
+body.bh-simple-membership .bh-member-welcome-heading{font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.2;margin:0 0 12px;color:#145448;font-weight:700}
+body.bh-simple-membership .bh-member-welcome-intro{margin:0 0 25px;max-width:55ch}
+body.bh-simple-membership .bh-member-status-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0 25px}
+body.bh-simple-membership .bh-member-status-item{background:#f2f8f3;border:1px solid #e1ece5;border-radius:15px;padding:15px;min-width:0}
+body.bh-simple-membership .bh-member-status-item:nth-child(2){background:#f5eefb}
+body.bh-simple-membership .bh-member-status-item:nth-child(3){background:#edf5ff}
+body.bh-simple-membership .bh-member-status-label{font-size:.86rem;font-weight:700;display:block;margin-bottom:6px}
+body.bh-simple-membership .bh-member-status-value{font-weight:600;overflow-wrap:anywhere}
+body.bh-simple-membership .bh-member-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:22px}
+body.bh-simple-membership .bh-member-action{display:flex;min-height:100px;align-items:center;justify-content:center;text-align:center;padding:18px 12px;border-radius:18px;background:#ffece4;color:#145448!important;font-weight:700;text-decoration:none!important;transition:transform .15s,box-shadow .15s}
+body.bh-simple-membership .bh-member-action:nth-child(2){background:#e5f4e8}
+body.bh-simple-membership .bh-member-action:nth-child(3){background:#f1e7fa}
+body.bh-simple-membership .bh-member-action:nth-child(4){background:#fff2cd}
+body.bh-simple-membership .bh-member-action:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(17,73,61,.10)}
+body.bh-simple-membership .bh-member-action:focus-visible{outline:3px solid #155e52;outline-offset:3px}
+body.bh-simple-membership .bh-member-original-details{display:none}
+@media(max-width:800px){body.bh-simple-membership .bh-member-status-grid{grid-template-columns:1fr}body.bh-simple-membership .bh-member-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){body.bh-simple-membership .bh-member-actions{grid-template-columns:1fr}body.bh-simple-membership .bh-member-action{min-height:65px}}
